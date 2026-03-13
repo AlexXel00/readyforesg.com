@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pakete — ESG Ready</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root { --deep: #023425; --mid: #416852; --sage: #8a9a93; --cream: #fdfef9; --light: #dfe1d6; --black: #0a0f0d; }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'DM Sans', sans-serif; background-color: var(--cream); color: var(--black); overflow-x: hidden; }
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.2rem 2.5rem; display: flex; align-items: center; justify-content: space-between; background: rgba(2,52,37,0.97); backdrop-filter: blur(12px); }
+        .nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+        .nav-logo img { width: 38px; height: 38px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.5); }
+        .nav-logo-text { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; color: var(--cream); }
+        .nav-links { display: flex; align-items: center; gap: 1.5rem; list-style: none; }
+        .nav-links a { font-size: 0.75rem; color: var(--light); text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--cream); }
+        .nav-cta { background: var(--cream) !important; color: var(--deep) !important; padding: 0.55rem 1.2rem !important; border-radius: 2px !important; font-weight: 500 !important; }
+
+        .hero { background: var(--deep); padding: 10rem 4rem 6rem; position: relative; overflow: hidden; }
+        .hero::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(253,254,249,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(253,254,249,0.04) 1px, transparent 1px); background-size: 60px 60px; }
+        .hero-inner { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
+        .hero-tag { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sage); margin-bottom: 1rem; display: block; }
+        .hero-h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 4vw, 4rem); font-weight: 300; color: var(--cream); line-height: 1.1; margin-bottom: 1.5rem; }
+        .hero-h1 em { font-style: italic; color: var(--sage); }
+        .hero-sub { font-size: 1.05rem; font-weight: 300; color: var(--sage); line-height: 1.8; max-width: 600px; }
+
+        .content { max-width: 1200px; margin: 0 auto; padding: 6rem 4rem; }
+        .section-tag { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mid); font-weight: 500; margin-bottom: 1rem; display: block; }
+        .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 300; line-height: 1.15; color: var(--deep); margin-bottom: 1.5rem; }
+        .section-title em { font-style: italic; color: var(--mid); }
+        p { font-size: 1rem; font-weight: 300; color: #4a5a54; line-height: 1.85; margin-bottom: 1.2rem; }
+
+        .packages-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-bottom: 6rem; }
+        .pkg { background: white; border-radius: 2px; border: 1px solid var(--light); overflow: hidden; display: flex; flex-direction: column; position: relative; transition: transform 0.2s, box-shadow 0.2s; }
+        .pkg:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(2,52,37,0.1); }
+        .pkg.featured { border-color: var(--mid); border-width: 2px; }
+        .pkg-badge { position: absolute; top: 1.5rem; right: 1.5rem; background: var(--mid); color: var(--cream); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.3rem 0.7rem; border-radius: 2px; }
+        .pkg-header { padding: 2.5rem 2.5rem 2rem; border-bottom: 1px solid var(--light); }
+        .pkg-name { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 400; color: var(--deep); margin-bottom: 0.3rem; }
+        .pkg-tagline { font-size: 0.82rem; font-weight: 300; color: var(--sage); margin-bottom: 1.5rem; }
+        .pkg-price { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; font-weight: 300; color: var(--deep); line-height: 1; }
+        .pkg-price span { font-size: 1rem; font-weight: 300; color: var(--sage); }
+        .pkg-period { font-size: 0.78rem; color: var(--sage); margin-top: 0.3rem; }
+        .pkg-body { padding: 2rem 2.5rem; flex: 1; }
+        .pkg-features { list-style: none; }
+        .pkg-features li { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.88rem; font-weight: 300; color: #4a5a54; line-height: 1.5; padding: 0.55rem 0; border-bottom: 1px solid #f0f1ec; }
+        .pkg-features li:last-child { border-bottom: none; }
+        .pkg-features li::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--mid); margin-top: 0.45rem; flex-shrink: 0; }
+        .pkg-features li strong { color: var(--deep); font-weight: 500; }
+        .pkg-footer { padding: 1.5rem 2.5rem 2.5rem; }
+        .pkg-btn { display: block; text-align: center; background: var(--deep); color: var(--cream); padding: 0.9rem; font-size: 0.88rem; font-weight: 500; text-decoration: none; border-radius: 2px; transition: all 0.2s; letter-spacing: 0.03em; }
+        .pkg-btn:hover { background: var(--mid); }
+        .pkg.featured .pkg-btn { background: var(--mid); }
+        .pkg.featured .pkg-btn:hover { background: var(--deep); }
+
+        .screenshot-section { margin-bottom: 6rem; }
+        .screenshot-tabs { display: flex; gap: 0.5rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
+        .tab-btn { background: none; border: 1px solid var(--light); color: #5a6a64; font-size: 0.82rem; padding: 0.5rem 1.2rem; border-radius: 2px; cursor: pointer; transition: all 0.2s; font-family: 'DM Sans', sans-serif; }
+        .tab-btn.active, .tab-btn:hover { background: var(--deep); border-color: var(--deep); color: var(--cream); }
+        .tab-content { display: none; }
+        .tab-content.active { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+        .screenshot-placeholder { background: #f0f1ec; border: 2px dashed var(--light); border-radius: 4px; aspect-ratio: 16/10; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem; }
+        .screenshot-placeholder svg { opacity: 0.3; }
+        .screenshot-placeholder span { font-size: 0.8rem; color: var(--sage); letter-spacing: 0.05em; }
+        .screenshot-info h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 400; color: var(--deep); margin-bottom: 0.8rem; }
+        .screenshot-info p { font-size: 0.92rem; color: #5a6a64; line-height: 1.8; margin-bottom: 0; }
+
+        .comparison-table { width: 100%; border-collapse: collapse; margin-bottom: 6rem; font-size: 0.88rem; }
+        .comparison-table th { padding: 1rem 1.5rem; text-align: left; font-weight: 400; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sage); border-bottom: 2px solid var(--light); }
+        .comparison-table th:not(:first-child) { text-align: center; }
+        .comparison-table td { padding: 1rem 1.5rem; border-bottom: 1px solid #f0f1ec; color: #4a5a54; font-weight: 300; }
+        .comparison-table td:not(:first-child) { text-align: center; }
+        .comparison-table tr:last-child td { border-bottom: none; }
+        .comparison-table .check { color: var(--mid); font-size: 1rem; }
+        .comparison-table .dash { color: var(--light); }
+        .comparison-table .highlight td { background: #f6f8f5; }
+        .comparison-table th.pkg-col { font-family: 'Cormorant Garamond', serif; font-size: 1rem; text-transform: none; letter-spacing: 0; color: var(--deep); font-weight: 400; }
+        .comparison-table th.featured-col { color: var(--mid); }
+
+        .guarantee-block { background: var(--deep); padding: 4rem; border-radius: 2px; margin-bottom: 6rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .guarantee-block h2 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300; color: var(--cream); margin-bottom: 1rem; }
+        .guarantee-block h2 em { font-style: italic; color: var(--sage); }
+        .guarantee-block p { color: var(--sage); font-size: 0.95rem; line-height: 1.8; margin-bottom: 0; }
+        .guarantee-items { display: flex; flex-direction: column; gap: 1.2rem; }
+        .guarantee-item { display: flex; gap: 1rem; align-items: flex-start; }
+        .guarantee-item-icon { width: 36px; height: 36px; border-radius: 50%; background: rgba(253,254,249,0.08); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .guarantee-item-text h4 { font-size: 0.9rem; color: var(--cream); font-weight: 400; margin-bottom: 0.2rem; }
+        .guarantee-item-text p { font-size: 0.82rem; color: var(--sage); line-height: 1.6; margin-bottom: 0; }
+
+        .cta-block { background: var(--deep); padding: 5rem 4rem; text-align: center; }
+        .cta-block h2 { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 300; color: var(--cream); margin-bottom: 1rem; }
+        .cta-block p { color: var(--sage); font-size: 1rem; margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto; }
+        .btn-primary { background: var(--cream); color: var(--deep); padding: 0.9rem 2.5rem; font-size: 0.9rem; font-weight: 500; text-decoration: none; border-radius: 2px; transition: all 0.2s; display: inline-block; margin: 0 0.5rem; }
+        .btn-primary:hover { background: var(--light); transform: translateY(-1px); }
+        .btn-ghost { background: transparent; color: var(--cream); padding: 0.9rem 2.5rem; font-size: 0.9rem; font-weight: 400; text-decoration: none; border-radius: 2px; border: 1px solid rgba(253,254,249,0.3); transition: all 0.2s; display: inline-block; margin: 0 0.5rem; }
+        .btn-ghost:hover { border-color: var(--cream); }
+
+        footer { background: var(--black); padding: 2.5rem 4rem; }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+        .footer-logo { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
+        .footer-logo img { width: 32px; height: 32px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.5); background: var(--deep); padding: 1px; }
+        .footer-logo-text { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--sage); }
+        .footer-links { display: flex; gap: 2rem; list-style: none; }
+        .footer-links a { font-size: 0.78rem; color: #4a5a54; text-decoration: none; transition: color 0.2s; }
+        .footer-links a:hover { color: var(--sage); }
+        .footer-copy { font-size: 0.75rem; color: #3a4a44; }
+
+        .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 1000px) { .packages-grid { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; } }
+        @media (max-width: 900px) {
+            nav { padding: 1rem 1.5rem; } .nav-links { display: none; }
+            .hero { padding: 8rem 2rem 4rem; } .content { padding: 4rem 2rem; }
+            .tab-content.active { grid-template-columns: 1fr; }
+            .comparison-table { font-size: 0.78rem; } .comparison-table th, .comparison-table td { padding: 0.75rem; }
+            .guarantee-block { grid-template-columns: 1fr; padding: 2.5rem 2rem; }
+            .cta-block { padding: 4rem 2rem; }
+            footer { padding: 2rem; } .footer-inner { flex-direction: column; gap: 1.5rem; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="nav-logo">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjAwMCIgem9vbUFuZFBhbj0ibWFnbmlmeSIgdmlld0JveD0iMCAwIDE1MDAgMTQ5OS45OTk5MzMiIGhlaWdodD0iMjAwMCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQgbWVldCIgdmVyc2lvbj0iMS4wIj48ZGVmcz48Zy8+PGNsaXBQYXRoIGlkPSJmZGNlY2NjZmFkIj48cGF0aCBkPSJNIDEyLjU3ODEyNSAxMi45Mjk2ODggTCA3OTguNzE4NzUgMTIuOTI5Njg4IEwgNzk4LjcxODc1IDc5OS4wNzAzMTIgTCAxMi41NzgxMjUgNzk5LjA3MDMxMiBaIE0gMTIuNTc4MTI1IDEyLjkyOTY4OCAiIGNsaXAtcnVsZT0ibm9uemVybyIvPjwvY2xpcFBhdGg+PGNsaXBQYXRoIGlkPSIyZjNlMzgyZjRmIj48cGF0aCBkPSJNIDQwNS42NDg0MzggMTIuOTI5Njg4IEMgMTg4LjU1ODU5NCAxMi45Mjk2ODggMTIuNTc4MTI1IDE4OC45MTQwNjIgMTIuNTc4MTI1IDQwNiBDIDEyLjU3ODEyNSA2MjMuMDg1OTM4IDE4OC41NTg1OTQgNzk5LjA3MDMxMiA0MDUuNjQ4NDM4IDc5OS4wNzAzMTIgQyA2MjIuNzM0Mzc1IDc5OS4wNzAzMTIgNzk4LjcxODc1IDYyMy4wODU5MzggNzk4LjcxODc1IDQwNiBDIDc5OC43MTg3NSAxODguOTE0MDYyIDYyMi43MzQzNzUgMTIuOTI5Njg4IDQwNS42NDg0MzggMTIuOTI5Njg4IFogTSA0MDUuNjQ4NDM4IDEyLjkyOTY4OCAiIGNsaXAtcnVsZT0ibm9uemVybyIvPjwvY2xpcFBhdGg+PGNsaXBQYXRoIGlkPSIzNGVhMWU1Mjk1Ij48cGF0aCBkPSJNIDAuNTc4MTI1IDAuOTI5Njg4IEwgNzg2LjcxODc1IDAuOTI5Njg4IEwgNzg2LjcxODc1IDc4Ny4wNzAzMTIgTCAwLjU3ODEyNSA3ODcuMDcwMzEyIFogTSAwLjU3ODEyNSAwLjkyOTY4OCAiIGNsaXAtcnVsZT0ibm9uemVybyIvPjwvY2xpcFBhdGg+PGNsaXBQYXRoIGlkPSIyNDVmMzA3YmM0Ij48cGF0aCBkPSJNIDM5My42NDg0MzggMC45Mjk2ODggQyAxNzYuNTU4NTk0IDAuOTI5Njg4IDAuNTc4MTI1IDE3Ni45MTQwNjIgMC41NzgxMjUgMzk0IEMgMC41NzgxMjUgNjExLjA4NTkzOCAxNzYuNTU4NTk0IDc4Ny4wNzAzMTIgMzkzLjY0ODQzOCA3ODcuMDcwMzEyIEMgNjEwLjczNDM3NSA3ODcuMDcwMzEyIDc4Ni43MTg3NSA2MTEuMDg1OTM4IDc4Ni43MTg3NSAzOTQgQyA3ODYuNzE4NzUgMTc2LjkxNDA2MiA2MTAuNzM0Mzc1IDAuOTI5Njg4IDM5My42NDg0MzggMC45Mjk2ODggWiBNIDM5My42NDg0MzggMC45Mjk2ODggIiBjbGlwLXJ1bGU9Im5vbnplcm8iLz48L2NsaXBQYXRoPjxjbGlwUGF0aCBpZD0iMGJjYzk4Mjk0MiI+PHJlY3QgeD0iMCIgd2lkdGg9Ijc4NyIgeT0iMCIgaGVpZ2h0PSI3ODgiLz48L2NsaXBQYXRoPjxjbGlwUGF0aCBpZD0iYTZiNGMxMWVlZiI+PHBhdGggZD0iTSAxMi41NzgxMjUgMTIuOTI5Njg4IEwgNzk4LjQ5NjA5NCAxMi45Mjk2ODggTCA3OTguNDk2MDk0IDc5OC44NDc2NTYgTCAxMi41NzgxMjUgNzk4Ljg0NzY1NiBaIE0gMTIuNTc4MTI1IDEyLjkyOTY4OCAiIGNsaXAtcnVsZT0ibm9uemVybyIvPjwvY2xpcFBhdGg+PGNsaXBQYXRoIGlkPSI5ZTc0MWUwOTM2Ij48cGF0aCBkPSJNIDQwNS42NDQ1MzEgMTIuOTI5Njg4IEMgMTg4LjU1ODU5NCAxMi45Mjk2ODggMTIuNTc4MTI1IDE4OC45MTAxNTYgMTIuNTc4MTI1IDQwNS45OTYwOTQgQyAxMi41NzgxMjUgNjIzLjA4MjAzMSAxODguNTU4NTk0IDc5OS4wNjI1IDQwNS42NDQ1MzEgNzk5LjA2MjUgQyA2MjIuNzI2NTYyIDc5OS4wNjI1IDc5OC43MTA5MzggNjIzLjA4MjAzMSA3OTguNzEwOTM4IDQwNS45OTYwOTQgQyA3OTguNzEwOTM4IDE4OC45MTAxNTYgNjIyLjcyNjU2MiAxMi45Mjk2ODggNDA1LjY0NDUzMSAxMi45Mjk2ODggWiBNIDQwNS42NDQ1MzEgMTIuOTI5Njg4ICIgY2xpcC1ydWxlPSJub256ZXJvIi8+PC9jbGlwUGF0aD48Y2xpcFBhdGggaWQ9IjUwMmRkNGI5ZTUiPjxyZWN0IHg9IjAiIHdpZHRoPSIzMDUiIHk9IjAiIGhlaWdodD0iNjE5Ii8+PC9jbGlwUGF0aD48Y2xpcFBhdGggaWQ9Ijk5YjYzYjU3ZGQiPjxyZWN0IHg9IjAiIHdpZHRoPSIyOTUiIHk9IjAiIGhlaWdodD0iNzUiLz48L2NsaXBQYXRoPjxjbGlwUGF0aCBpZD0iMzMzZWQ5NjIyNSI+PHJlY3QgeD0iMCIgd2lkdGg9IjgxMiIgeT0iMCIgaGVpZ2h0PSI4MTIiLz48L2NsaXBQYXRoPjwvZGVmcz48ZyB0cmFuc2Zvcm09Im1hdHJpeCgxLCAwLCAwLCAxLCA0MDMsIDM0NCkiPjxnIGNsaXAtcGF0aD0idXJsKCMzMzNlZDk2MjI1KSI+PGcgY2xpcC1wYXRoPSJ1cmwoI2ZkY2VjY2NmYWQpIj48ZyBjbGlwLXBhdGg9InVybCgjMmYzZTM4MmY0ZikiPjxnIHRyYW5zZm9ybT0ibWF0cml4KDEsIDAsIDAsIDEsIDEyLCAxMikiPjxnIGNsaXAtcGF0aD0idXJsKCMwYmNjOTgyOTQyKSI+PGcgY2xpcC1wYXRoPSJ1cmwoIzM0ZWExZTUyOTUpIj48ZyBjbGlwLXBhdGg9InVybCgjMjQ1ZjMwN2JjNCkiPjxwYXRoIGZpbGw9IiMwMjM0MjUiIGQ9Ik0gMC41NzgxMjUgMC45Mjk2ODggTCA3ODYuNzE4NzUgMC45Mjk2ODggTCA3ODYuNzE4NzUgNzg3LjA3MDMxMiBMIDAuNTc4MTI1IDc4Ny4wNzAzMTIgWiBNIDAuNTc4MTI1IDAuOTI5Njg4ICIgZmlsbC1vcGFjaXR5PSIxIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48L2c+PC9nPjwvZz48L2c+PC9nPjwvZz48ZyBjbGlwLXBhdGg9InVybCgjYTZiNGMxMWVlZikiPjxnIGNsaXAtcGF0aD0idXJsKCM5ZTc0MWUwOTM2KSI+PHBhdGggc3Ryb2tlLWxpbmVjYXA9ImJ1dHQiIHRyYW5zZm9ybT0ibWF0cml4KDEuMTQ3MzI1LCAwLCAwLCAxLjE0NzMyNSwgMTIuNTc2ODQzLCAxMi45Mjk3ODMpIiBmaWxsPSJub25lIiBzdHJva2UtbGluZWpvaW49Im1pdGVyIiBkPSJNIDM0Mi41OTQ3NDggLTAuMDAwMDgzNTMwMyBDIDE1My4zODQzMjkgLTAuMDAwMDgzNTMwMyAwLjAwMTExNzI1IDE1My4zODMxMjggMC4wMDExMTcyNSAzNDIuNTkzNTQ3IEMgMC4wMDExMTcyNSA1MzEuODAzOTY2IDE1My4zODQzMjkgNjg1LjE4NzE3OCAzNDIuNTk0NzQ4IDY4NS4xODcxNzggQyA1MzEuODAxNzYyIDY4NS4xODcxNzggNjg1LjE4ODM3OSA1MzEuODAzOTY2IDY4NS4xODgzNzkgMzQyLjU5MzU0NyBDIDY4NS4xODgzNzkgMTUzLjM4MzEyOCA1MzEuODAxNzYyIC0wLjAwMDA4MzUzMDMgMzQyLjU5NDc0OCAtMC4wMDAwODM1MzAzIFogTSAzNDIuNTk0NzQ4IC0wLjAwMDA4MzUzMDMgIiBzdHJva2U9IiMwMjM0MjUiIHN0cm9rZS13aWR0aD0iMy45MjIxNjQiIHN0cm9rZS1vcGFjaXR5PSIxIiBzdHJva2UtbWl0ZXJsaW1pdD0iNCIvPjwvZz48L2c+PGcgZmlsbD0iI2ZkZmVmOSIgZmlsbC1vcGFjaXR5PSIxIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg2NS45ODAwOTksIDYyNi44NTgwMzMpIj48Zz48cGF0aCBkPSJNIDUxLjQ2ODc1IDAgTCA1MS40Njg3NSAtNDQzLjMxMjUgTCAzMjUuNDg0Mzc1IC00NDMuMzEyNSBMIDMyNS40ODQzNzUgLTM5My45MjE4NzUgTCAxMDcuNDA2MjUgLTM5My45MjE4NzUgTCAxMDcuNDA2MjUgLTI0OS4zMjgxMjUgTCAzMTAuMzEyNSAtMjQ5LjMyODEyNSBMIDMxMC4zMTI1IC0xOTkuNjQwNjI1IEwgMTA3LjQwNjI1IC0xOTkuNjQwNjI1IEwgMTA3LjQwNjI1IC00OS4zOTA2MjUgTCAzMjcuNTc4MTI1IC00OS4zOTA2MjUgTCAzMjcuNTc4MTI1IDAgWiBNIDUxLjQ2ODc1IDAgIi8+PC9nPjwvZz48L2c+PGcgZmlsbD0iI2ZkZmVmOSIgZmlsbC1vcGFjaXR5PSIxIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzMjIuODk5MDY1LCA2MjYuODU4MDMzKSI+PGc+PHBhdGggZD0iTSAyMzMuNTYyNSA2LjI1IEMgMTk0LjA4MjAzMSA2LjI1IDE1OS40MTQwNjIgLTMuMTE3MTg4IDEyOS41NjI1IC0yMS44NTkzNzUgQyA5OS43MTg3NSAtNDAuNjA5Mzc1IDc2LjM2MzI4MSAtNjYuOTg4MjgxIDU5LjUgLTEwMSBDIDQyLjY0NDUzMSAtMTM1LjAxOTUzMSAzNC4yMTg3NSAtMTc1LjE0MDYyNSAzNC4yMTg3NSAtMjIxLjM1OTM3NSBDIDM0LjIxODc1IC0yNjcuOTcyNjU2IDQyLjU5NzY1NiAtMzA4LjI4NTE1NiA1OS4zNTkzNzUgLTM0Mi4yOTY4NzUgQyA3Ni4xMTcxODggLTM3Ni4zMTY0MDYgOTkuMzIwMzEyIC00MDIuNjk1MzEyIDEyOC45Njg3NSAtNDIxLjQzNzUgQyAxNTguNjI1IC00NDAuMTg3NSAxOTIuNTkzNzUgLTQ0OS41NjI1IDIzMC44NzUgLTQ0OS41NjI1IEMgMjU0LjI4MTI1IC00NDkuNTYyNSAyNzYuMTk1MzEyIC00NDYuMDM5MDYyIDI5Ni42MjUgLTQzOSBDIDMxNy4wNjI1IC00MzEuOTU3MDMxIDMzNS4zMTI1IC00MjEuOTM3NSAzNTEuMzc1IC00MDguOTM3NSBDIDM2Ny40Mzc1IC0zOTUuOTQ1MzEyIDM4MC44MjAzMTIgLTM4MC41MjM0MzggMzkxLjUzMTI1IC0zNjIuNjcxODc1IEMgNDAyLjI1IC0zNDQuODI4MTI1IDQwOS40OTIxODggLTMyNS4wOTM3NSA0MTMuMjY1NjI1IC0zMDMuNDY4NzUgTCAzNTYuMTQwNjI1IC0zMDMuNDY4NzUgQyAzNTEuNzczNDM4IC0zMTcuNzUgMzQ1Ljc3MzQzOCAtMzMwLjY5MTQwNiAzMzguMTQwNjI1IC0zNDIuMjk2ODc1IEMgMzMwLjUwMzkwNiAtMzUzLjg5ODQzOCAzMjEuMzc4OTA2IC0zNjMuODE2NDA2IDMxMC43NjU2MjUgLTM3Mi4wNDY4NzUgQyAzMDAuMTQ4NDM4IC0zODAuMjg1MTU2IDI4OC4xNDg0MzggLTM4Ni42MzI4MTIgMjc0Ljc2NTYyNSAtMzkxLjA5Mzc1IEMgMjYxLjM3ODkwNiAtMzk1LjU1MDc4MSAyNDYuNzUgLTM5Ny43ODEyNSAyMzAuODc1IC0zOTcuNzgxMjUgQyAyMDQuMTAxNTYyIC0zOTcuNzgxMjUgMTgwLjAwMzkwNiAtMzkwLjg5MDYyNSAxNTguNTc4MTI1IC0zNzcuMTA5Mzc1IEMgMTM3LjE2MDE1NiAtMzYzLjMyODEyNSAxMjAuMjAzMTI1IC0zNDMuMjk2ODc1IDEwNy43MDMxMjUgLTMxNy4wMTU2MjUgQyA5NS4yMDMxMjUgLTI5MC43MzQzNzUgODguOTUzMTI1IC0yNTguODQ3NjU2IDg4Ljk1MzEyNSAtMjIxLjM1OTM3NSBDIDg4Ljk1MzEyNSAtMTg0LjI2NTYyNSA5NS4yNSAtMTUyLjYyNSAxMDcuODQzNzUgLTEyNi40Mzc1IEMgMTIwLjQ0NTMxMiAtMTAwLjI1NzgxMiAxMzcuNjA5Mzc1IC04MC4yMjY1NjIgMTU5LjMyODEyNSAtNjYuMzQzNzUgQyAxODEuMDQ2ODc1IC01Mi40NTcwMzEgMjA1Ljc4OTA2MiAtNDUuNTE1NjI1IDIzMy41NjI1IC00NS41MTU2MjUgQyAyNTguNTUwNzgxIC00NS41MTU2MjUgMjgwLjY2NDA2MiAtNTAuODY3MTg4IDI5OS45MDYyNSAtNjEuNTc4MTI1IEMgMzE5LjE0NDUzMSAtNzIuMjk2ODc1IDMzNC4yNjU2MjUgLTg3LjQ3MjY1NiAzNDUuMjY1NjI1IC0xMDcuMTA5Mzc1IEMgMzU2LjI3MzQzOCAtMTI2Ljc0MjE4OCAzNjEuNzgxMjUgLTE0OS44NTE1NjIgMzYxLjc4MTI1IC0xNzYuNDM3NSBMIDM3OC43NSAtMTczLjQ1MzEyNSBMIDI0Ni42NDA2MjUgLTE3My40NTMxMjUgTCAyNDYuNjQwNjI1IC0yMjIuNTQ2ODc1IEwgNDE2LjUzMTI1IC0yMjIuNTQ2ODc1IEwgNDE2LjUzMTI1IC0xNzQuMzQzNzUgQyA0MTYuNTMxMjUgLTEzOC4wNTA3ODEgNDA4LjU5Mzc1IC0xMDYuMzYzMjgxIDM5Mi43MTg3NSAtNzkuMjgxMjUgQyAzNzYuODUxNTYyIC01Mi4yMDcwMzEgMzU1LjE4NzUgLTMxLjE3OTY4OCAzMjcuNzE4NzUgLTE2LjIwMzEyNSBDIDMwMC4yNSAtMS4yMzQzNzUgMjY4Ljg2MzI4MSA2LjI1IDIzMy41NjI1IDYuMjUgWiBNIDIzMy41NjI1IDYuMjUgIi8+PC9nPjwvZz48L2c+PGcgdHJhbnNmb3JtPSJtYXRyaXgoMSwgMCwgMCwgMSwgMjM2LCA5NykiPjxnIGNsaXAtcGF0aD0idXJsKCM1MDJkZDRiOWU1KSI+PGcgZmlsbD0iI2ZkZmVmOSIgZmlsbC1vcGFjaXR5PSIxIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxLjQ4NTEwNCwgNDk1LjI1NDc3MSkiPjxnPjxwYXRoIGQ9Ik0gMTYyLjYwOTM3NSA2LjQ2ODc1IEMgMTM1LjU0Njg3NSA2LjQ2ODc1IDExMi4wMDc4MTIgMS45NDUzMTIgOTIgLTcuMDkzNzUgQyA3MiAtMTYuMTQ0NTMxIDU2LjQzNzUgLTI4Ljc2NTYyNSA0NS4zMTI1IC00NC45NTMxMjUgQyAzNC4xOTUzMTIgLTYxLjE0MDYyNSAyOC4wNTQ2ODggLTgwLjE4NzUgMjYuODkwNjI1IC0xMDIuMDkzNzUgTCA3NC43MDMxMjUgLTEwMi4wOTM3NSBDIDc1LjcwMzEyNSAtODcuMzIwMzEyIDgwLjE4NzUgLTc0Ljk5MjE4OCA4OC4xNTYyNSAtNjUuMTA5Mzc1IEMgOTYuMTI1IC01NS4yMzQzNzUgMTA2LjYyNSAtNDcuODQ3NjU2IDExOS42NTYyNSAtNDIuOTUzMTI1IEMgMTMyLjY4NzUgLTM4LjA1NDY4OCAxNDcuMDAzOTA2IC0zNS42MDkzNzUgMTYyLjYwOTM3NSAtMzUuNjA5Mzc1IEMgMTc5LjcxMDkzOCAtMzUuNjA5Mzc1IDE5NC45NDUzMTIgLTM4LjM0NzY1NiAyMDguMzEyNSAtNDMuODI4MTI1IEMgMjIxLjY3NTc4MSAtNDkuMzA0Njg4IDIzMi4yMTg3NSAtNTYuOTg0Mzc1IDIzOS45Mzc1IC02Ni44NTkzNzUgQyAyNDcuNjU2MjUgLTc2Ljc0MjE4OCAyNTEuNTE1NjI1IC04OC4yNDIxODggMjUxLjUxNTYyNSAtMTAxLjM1OTM3NSBDIDI1MS41MTU2MjUgLTExMi45NzI2NTYgMjQ4LjM1OTM3NSAtMTIyLjU1NDY4OCAyNDIuMDQ2ODc1IC0xMzAuMTA5Mzc1IEMgMjM1Ljc0MjE4OCAtMTM3LjY3MTg3NSAyMjcuMDcwMzEyIC0xNDMuOTQxNDA2IDIxNi4wMzEyNSAtMTQ4LjkyMTg3NSBDIDIwNC45ODgyODEgLTE1My44OTg0MzggMTkyLjMyODEyNSAtMTU4LjI5Njg3NSAxNzguMDQ2ODc1IC0xNjIuMTA5Mzc1IEwgMTMzLjk2ODc1IC0xNzQuMzEyNSBDIDEwMi4yNTc4MTIgLTE4Mi45NDUzMTIgNzguMTAxNTYyIC0xOTUuMTA5Mzc1IDYxLjUgLTIxMC43OTY4NzUgQyA0NC45MDYyNSAtMjI2LjQ4NDM3NSAzNi42MDkzNzUgLTI0Ni42OTUzMTIgMzYuNjA5Mzc1IC0yNzEuNDM3NSBDIDM2LjYwOTM3NSAtMjkyLjUxOTUzMSA0Mi4xNjQwNjIgLTMxMC45MDYyNSA1My4yODEyNSAtMzI2LjU5Mzc1IEMgNjQuNDA2MjUgLTM0Mi4yODEyNSA3OS41OTc2NTYgLTM1NC40ODQzNzUgOTguODU5Mzc1IC0zNjMuMjAzMTI1IEMgMTE4LjExNzE4OCAtMzcxLjkyMTg3NSAxMzkuODY3MTg4IC0zNzYuMjgxMjUgMTY0LjEwOTM3NSAtMzc2LjI4MTI1IEMgMTg4Ljg0NzY1NiAtMzc2LjI4MTI1IDIxMC42MzI4MTIgLTM3MS44Nzg5MDYgMjI5LjQ2ODc1IC0zNjMuMDc4MTI1IEMgMjQ4LjMxMjUgLTM1NC4yNzM0MzggMjYzLjEyODkwNiAtMzQyLjE1NjI1IDI3My45MjE4NzUgLTMyNi43MTg3NSBDIDI4NC43MTA5MzggLTMxMS4yODEyNSAyOTAuNDQxNDA2IC0yOTMuNjc5Njg4IDI5MS4xMDkzNzUgLTI3My45MjE4NzUgTCAyNDUuMjgxMjUgLTI3My45MjE4NzUgQyAyNDMuMjg5MDYyIC0yOTMuMTc5Njg4IDIzNC43NDIxODggLTMwOC4xMjUgMjE5LjY0MDYyNSAtMzE4Ljc1IEMgMjA0LjUzNTE1NiAtMzI5LjM3NSAxODUuNTIzNDM4IC0zMzQuNjg3NSAxNjIuNjA5Mzc1IC0zMzQuNjg3NSBDIDE0Ni42NzE4NzUgLTMzNC42ODc1IDEzMi42NDA2MjUgLTMzMi4wMzEyNSAxMjAuNTE1NjI1IC0zMjYuNzE4NzUgQyAxMDguMzk4NDM4IC0zMjEuNDA2MjUgOTguOTc2NTYyIC0zMTQuMTc5Njg4IDkyLjI1IC0zMDUuMDQ2ODc1IEMgODUuNTMxMjUgLTI5NS45MjE4NzUgODIuMTcxODc1IC0yODUuNDYwOTM4IDgyLjE3MTg3NSAtMjczLjY3MTg3NSBDIDgyLjE3MTg3NSAtMjYxLjU1NDY4OCA4NS44NjMyODEgLTI1MS42NDA2MjUgOTMuMjUgLTI0My45MjE4NzUgQyAxMDAuNjQ0NTMxIC0yMzYuMjAzMTI1IDEwOS44NjMyODEgLTIzMC4wMTU2MjUgMTIwLjkwNjI1IC0yMjUuMzU5Mzc1IEMgMTMxLjk0NTMxMiAtMjIwLjcxMDkzOCAxNDIuOTQxNDA2IC0yMTYuODk0NTMxIDE1My44OTA2MjUgLTIxMy45MDYyNSBMIDE5MiAtMjAzLjcwMzEyNSBDIDIwMy43ODEyNSAtMjAwLjcxMDkzOCAyMTUuODEyNSAtMTk2LjY4NzUgMjI4LjA5Mzc1IC0xOTEuNjI1IEMgMjQwLjM4MjgxMiAtMTg2LjU2MjUgMjUxLjc1NzgxMiAtMTgwLjEyODkwNiAyNjIuMjE4NzUgLTE3Mi4zMjgxMjUgQyAyNzIuNjc1NzgxIC0xNjQuNTIzNDM4IDI4MS4xNDA2MjUgLTE1NC44MTI1IDI4Ny42MDkzNzUgLTE0My4xODc1IEMgMjk0LjA4NTkzOCAtMTMxLjU2MjUgMjk3LjMyODEyNSAtMTE3LjYxNzE4OCAyOTcuMzI4MTI1IC0xMDEuMzU5Mzc1IEMgMjk3LjMyODEyNSAtODAuNzY1NjI1IDI5MS45NzI2NTYgLTYyLjMzMjAzMSAyODEuMjY1NjI1IC00Ni4wNjI1IEMgMjcwLjU1NDY4OCAtMjkuODAwNzgxIDI1NS4xNjAxNTYgLTE2Ljk3NjU2MiAyMzUuMDc4MTI1IC03LjU5Mzc1IEMgMjE0Ljk5MjE4OCAxLjc4MTI1IDE5MC44MzU5MzggNi40Njg3NSAxNjIuNjA5Mzc1IDYuNDY4NzUgWiBNIDE2Mi42MDkzNzUgNi40Njg3NSAiLz48L2c+PC9nPjwvZz48L2c+PC9nPjxnIHRyYW5zZm9ybT0ibWF0cml4KDEsIDAsIDAsIDEsIDQ1OSwgMzMwKSI+PGcgY2xpcC1wYXRoPSJ1cmwoIzk5YjYzYjU3ZGQpIj48ZyBmaWxsPSIjZmRmZWY5IiBmaWxsLW9wYWNpdHk9IjEiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIuNTc5MTUsIDU1Ljg5NzY0NCkiPjxnPjxwYXRoIGQ9Ik0gMzQuNzM0Mzc1IDAgTCAyNS43MzQzNzUgLTEyLjkwNjI1IEMgMjUuMzU5Mzc1IC0xMi44NjMyODEgMjQuNzg5MDYyIC0xMi44NDM3NSAyNC4wMzEyNSAtMTIuODQzNzUgTCAxNC4wOTM3NSAtMTIuODQzNzUgTCAxNC4wOTM3NSAwIEwgNS45MjE4NzUgMCBMIDUuOTIxODc1IC00NC4wNDY4NzUgTCAyNC4wMzEyNSAtNDQuMDQ2ODc1IEMgMjcuODUxNTYyIC00NC4wNDY4NzUgMzEuMTc1NzgxIC00My40MTQwNjIgMzQgLTQyLjE1NjI1IEMgMzYuODMyMDMxIC00MC44OTQ1MzEgMzkuMDAzOTA2IC0zOS4wODU5MzggNDAuNTE1NjI1IC0zNi43MzQzNzUgQyA0Mi4wMjM0MzggLTM0LjM5MDYyNSA0Mi43ODEyNSAtMzEuNjAxNTYyIDQyLjc4MTI1IC0yOC4zNzUgQyA0Mi43ODEyNSAtMjUuMDYyNSA0MS45NzI2NTYgLTIyLjIwNzAzMSA0MC4zNTkzNzUgLTE5LjgxMjUgQyAzOC43NDIxODggLTE3LjQyNTc4MSAzNi40MjU3ODEgLTE1LjY0NDUzMSAzMy40MDYyNSAtMTQuNDY4NzUgTCA0My41NDY4NzUgMCBaIE0gMzQuNTQ2ODc1IC0yOC4zNzUgQyAzNC41NDY4NzUgLTMxLjE4NzUgMzMuNjE3MTg4IC0zMy4zNDc2NTYgMzEuNzY1NjI1IC0zNC44NTkzNzUgQyAyOS45MjE4NzUgLTM2LjM2NzE4OCAyNy4yMTg3NSAtMzcuMTI1IDIzLjY1NjI1IC0zNy4xMjUgTCAxNC4wOTM3NSAtMzcuMTI1IEwgMTQuMDkzNzUgLTE5LjU2MjUgTCAyMy42NTYyNSAtMTkuNTYyNSBDIDI3LjIxODc1IC0xOS41NjI1IDI5LjkyMTg3NSAtMjAuMzI4MTI1IDMxLjc2NTYyNSAtMjEuODU5Mzc1IEMgMzMuNjE3MTg4IC0yMy4zOTA2MjUgMzQuNTQ2ODc1IC0yNS41NjI1IDM0LjU0Njg3NSAtMjguMzc1IFogTSAzNC41NDY4NzUgLTI4LjM3NSAiLz48L2c+PC9nPjwvZz48ZyBmaWxsPSIjZmRmZWY5IiBmaWxsLW9wYWNpdHk9IjEiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDYwLjQ0NjE4OCwgNTUuODk3NjQ0KSI+PGc+PHBhdGggZD0iTSAzOC45NTMxMjUgLTYuODU5Mzc1IEwgMzguOTUzMTI1IDAgTCA1LjkyMTg3NSAwIEwgNS45MjE4NzUgLTQ0LjA0Njg3NSBMIDM4LjA2MjUgLTQ0LjA0Njg3NSBMIDM4LjA2MjUgLTM3LjE4NzUgTCAxNC4wOTM3NSAtMzcuMTg3NSBMIDE0LjA5Mzc1IC0yNS43MzQzNzUgTCAzNS4zNTkzNzUgLTI1LjczNDM3NSBMIDM1LjM1OTM3NSAtMTkgTCAxNC4wOTM3NSAtMTkgTCAxNC4wOTM3NSAtNi44NTkzNzUgWiBNIDM4Ljk1MzEyNSAtNi44NTkzNzUgIi8+PC9nPjwvZz48L2c+PGcgZmlsbD0iI2ZkZmVmOSIgZmlsbC1vcGFjaXR5PSIxIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMTQuNDc3MDY4LCA1NS44OTc2NDQpIj48Zz48cGF0aCBkPSJNIDM0LjQ4NDM3NSAtMTAuMTg3NSBMIDEyLjQ1MzEyNSAtMTAuMTg3NSBMIDguMTA5Mzc1IDAgTCAtMC4zMTI1IDAgTCAxOS41IC00NC4wNDY4NzUgTCAyNy41NjI1IC00NC4wNDY4NzUgTCA0Ny40Mzc1IDAgTCAzOC44OTA2MjUgMCBaIE0gMzEuNzgxMjUgLTE2LjYwOTM3NSBMIDIzLjQ2ODc1IC0zNS44NTkzNzUgTCAxNS4yMzQzNzUgLTE2LjYwOTM3NSBaIE0gMzEuNzgxMjUgLTE2LjYwOTM3NSAiLz48L2c+PC9nPjwvZz48ZyBmaWxsPSIjZmRmZWY5IiBmaWxsLW9wYWNpdHk9IjEiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE3My40NzYwOTUsIDU1Ljg5NzY0NCkiPjxnPjxwYXRoIGQ9Ik0gNS45MjE4NzUgLTQ0LjA0Njg3NSBMIDI1LjE3MTg3NSAtNDQuMDQ2ODc1IEMgMjkuODY3MTg4IC00NC4wNDY4NzUgMzQuMDM5MDYyIC00My4xMzI4MTIgMzcuNjg3NSAtNDEuMzEyNSBDIDQxLjM0Mzc1IC0zOS40ODgyODEgNDQuMTc1NzgxIC0zNi45MDYyNSA0Ni4xODc1IC0zMy41NjI1IEMgNDguMTk1MzEyIC0zMC4yMjY1NjIgNDkuMjAzMTI1IC0yNi4zNzg5MDYgNDkuMjAzMTI1IC0yMi4wMTU2MjUgQyA0OS4yMDMxMjUgLTE3LjY2MDE1NiA0OC4xOTUzMTIgLTEzLjgxMjUgNDYuMTg3NSAtMTAuNDY4NzUgQyA0NC4xNzU3ODEgLTcuMTMyODEyIDQxLjM0Mzc1IC00LjU1NDY4OCAzNy42ODc1IC0yLjczNDM3NSBDIDM0LjAzOTA2MiAtMC45MTAxNTYgMjkuODY3MTg4IDAgMjUuMTcxODc1IDAgTCA1LjkyMTg3NSAwIFogTSAyNC43OTY4NzUgLTYuOTIxODc1IEMgMjguMDIzNDM4IC02LjkyMTg3NSAzMC44NjMyODEgLTcuNTM5MDYyIDMzLjMxMjUgLTguNzgxMjUgQyAzNS43Njk1MzEgLTEwLjAxOTUzMSAzNy42NjAxNTYgLTExLjc4MTI1IDM4Ljk4NDM3NSAtMTQuMDYyNSBDIDQwLjMwNDY4OCAtMTYuMzUxNTYyIDQwLjk2ODc1IC0xOS4wMDM5MDYgNDAuOTY4NzUgLTIyLjAxNTYyNSBDIDQwLjk2ODc1IC0yNS4wMzUxNTYgNDAuMzA0Njg4IC0yNy42ODc1IDM4Ljk4NDM3NSAtMjkuOTY4NzUgQyAzNy42NjAxNTYgLTMyLjI1NzgxMiAzNS43Njk1MzEgLTM0LjAyMzQzOCAzMy4zMTI1IC0zNS4yNjU2MjUgQyAzMC44NjMyODEgLTM2LjUwMzkwNiAyOC4wMjM0MzggLTM3LjEyNSAyNC43OTY4NzUgLTM3LjEyNSBMIDE0LjA5Mzc1IC0zNy4xMjUgTCAxNC4wOTM3NSAtNi45MjE4NzUgWiBNIDI0Ljc5Njg3NSAtNi45MjE4NzUgIi8+PC9nPjwvZz48L2c+PGcgZmlsbD0iI2ZkZmVmOSIgZmlsbC1vcGFjaXR5PSIxIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyMzcuMzE3NTA0LCA1NS44OTc2NDQpIj48Zz48cGF0aCBkPSJNIDI0LjkyMTg3NSAtMTUuNTQ2ODc1IEwgMjQuOTIxODc1IDAgTCAxNi43MzQzNzUgMCBMIDE2LjczNDM3NSAtMTUuNDIxODc1IEwgLTAuNTYyNSAtNDQuMDQ2ODc1IEwgOC4xODc1IC00NC4wNDY4NzUgTCAyMS4wNzgxMjUgLTIyLjU5Mzc1IEwgMzQuMTA5Mzc1IC00NC4wNDY4NzUgTCA0Mi4xNTYyNSAtNDQuMDQ2ODc1IFogTSAyNC45MjE4NzUgLTE1LjU0Njg3NSAiLz48L2c+PC9nPjwvZz48L2c+PC9nPjwvZz48L2c+PC9zdmc+" alt="ESG Ready">
+            <span class="nav-logo-text">ESG Ready</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Startseite</a></li>
+            <li><a href="esrs.html">ESRS & CSRD</a></li>
+            <li><a href="packages.html" class="active">Pakete</a></li>
+            <li><a href="about.html">Über uns</a></li>
+            <li><a href="index.html#contact" class="nav-cta">Jetzt starten</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero">
+        <div class="hero-inner">
+            <span class="hero-tag">Unsere Pakete</span>
+            <h1 class="hero-h1">Transparent bepreist —<br><em>persönlich begleitet</em></h1>
+            <p class="hero-sub">Kein Abo, kein Kleingedrucktes. Eine Jahresgebühr, unbegrenzte ESG-Berichte — und ein Experte, der Sie durch den Prozess begleitet.</p>
+        </div>
+    </div>
+
+    <div class="content">
+
+        <div class="packages-grid fade-up">
+            <div class="pkg">
+                <div class="pkg-header">
+                    <div class="pkg-name">ESG Ready</div>
+                    <div class="pkg-tagline">Für den Einstieg</div>
+                    <div class="pkg-price">1.099&thinsp;<span>EUR</span></div>
+                    <div class="pkg-period">pro Jahr &middot; einmalige Zahlung</div>
+                </div>
+                <div class="pkg-body">
+                    <ul class="pkg-features">
+                        <li>Software-Zugang für 12 Monate</li>
+                        <li>Geführter ESG-Wizard durch alle relevanten ESRS-Standards</li>
+                        <li>KI-gestützter Bericht (GPT-4)</li>
+                        <li>Environment, Social &amp; Governance Abdeckung</li>
+                        <li>Monatliches Verbrauchsportal mit CO2-Berechnung</li>
+                        <li>Unbegrenzte Standorte und Dateneingaben</li>
+                        <li>PDF-Bericht zum Download</li>
+                        <li>E-Mail Support</li>
+                    </ul>
+                </div>
+                <div class="pkg-footer"><a href="index.html#contact" class="pkg-btn">Jetzt anfragen</a></div>
+            </div>
+
+            <div class="pkg featured">
+                <div class="pkg-badge">Beliebteste Wahl</div>
+                <div class="pkg-header">
+                    <div class="pkg-name">ESG Certified</div>
+                    <div class="pkg-tagline">Mit Expertenbegleitung</div>
+                    <div class="pkg-price">1.799&thinsp;<span>EUR</span></div>
+                    <div class="pkg-period">pro Jahr &middot; einmalige Zahlung</div>
+                </div>
+                <div class="pkg-body">
+                    <ul class="pkg-features">
+                        <li><strong>Alles aus ESG Ready</strong></li>
+                        <li><strong>2 Stunden Beratung inklusive</strong> (Video-Call mit Dipl.-Ing. Alexander Riedl)</li>
+                        <li><strong>Persönliche Berichts-Durchsicht</strong> durch unseren Umweltingenieur</li>
+                        <li>Erklärung aller Kennzahlen und CO2-Berechnungen</li>
+                        <li><strong>Unterschriebene Bestätigung</strong> als Qualitätsnachweis</li>
+                        <li>Priority Support für 12 Monate</li>
+                        <li>Revisionsschere Archivierung aller Belege</li>
+                    </ul>
+                </div>
+                <div class="pkg-footer"><a href="index.html#contact" class="pkg-btn">Jetzt anfragen</a></div>
+            </div>
+
+            <div class="pkg">
+                <div class="pkg-header">
+                    <div class="pkg-name">ESG Partner</div>
+                    <div class="pkg-tagline">Vollständige Begleitung</div>
+                    <div class="pkg-price">3.299&thinsp;<span>EUR</span></div>
+                    <div class="pkg-period">pro Jahr &middot; einmalige Zahlung</div>
+                </div>
+                <div class="pkg-body">
+                    <ul class="pkg-features">
+                        <li><strong>Alles aus ESG Certified</strong></li>
+                        <li><strong>1 zusätzliche Beratungsstunde</strong> (gesamt 3 Stunden)</li>
+                        <li><strong>Quartalsweise Check-ins</strong> &ndash; 4 x 30 Min. pro Jahr</li>
+                        <li>ESG-Strategieentwicklung für Ihr Unternehmen</li>
+                        <li>Dedicated Account Manager</li>
+                        <li>Frühzeitiger Zugang zu neuen Features</li>
+                        <li>Jahresvergleich und Fortschrittsanalyse</li>
+                    </ul>
+                </div>
+                <div class="pkg-footer"><a href="index.html#contact" class="pkg-btn">Jetzt anfragen</a></div>
+            </div>
+        </div>
+
+        <div class="fade-up" style="margin-bottom: 6rem;">
+            <span class="section-tag">Einzelberatung</span>
+            <h2 class="section-title" style="margin-bottom: 1rem;">Beratung ohne<br><em>Jahrespaket</em></h2>
+            <p style="margin-bottom: 2.5rem; max-width: 650px;">Sie benötigen keine vollständige Software-Lizenz, sondern gezielte Beratung zu einem ESG-Thema? Buchen Sie einfach eine Einzelstunde direkt mit Dipl.-Ing. Alexander Riedl.</p>
+            <div style="background: white; border: 1px solid var(--light); border-top: 3px solid var(--mid); border-radius: 2px; padding: 2.5rem; max-width: 500px; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;">
+                <div>
+                    <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 400; color: var(--deep); margin-bottom: 0.2rem;">Einzelberatung</div>
+                    <div style="font-size: 0.82rem; color: var(--sage); margin-bottom: 1rem;">1 Stunde mit dem Umweltexperten</div>
+                    <div style="font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 300; color: var(--deep); line-height: 1;">249 <span style="font-size: 1rem; color: var(--sage);">EUR / Stunde</span></div>
+                </div>
+                <div>
+                    <ul style="list-style: none; margin-bottom: 1.5rem;">
+                        <li style="display: flex; gap: 0.6rem; font-size: 0.85rem; color: #4a5a54; font-weight: 300; padding: 0.3rem 0;">
+                            <span style="color: var(--mid);">&#10003;</span> Video-Call nach Vereinbarung
+                        </li>
+                        <li style="display: flex; gap: 0.6rem; font-size: 0.85rem; color: #4a5a54; font-weight: 300; padding: 0.3rem 0;">
+                            <span style="color: var(--mid);">&#10003;</span> Zu jedem ESG / ESRS Thema
+                        </li>
+                        <li style="display: flex; gap: 0.6rem; font-size: 0.85rem; color: #4a5a54; font-weight: 300; padding: 0.3rem 0;">
+                            <span style="color: var(--mid);">&#10003;</span> Kein Jahrespaket notwendig
+                        </li>
+                    </ul>
+                    <a href="index.html#contact" style="display: inline-block; background: var(--deep); color: var(--cream); padding: 0.75rem 1.8rem; font-size: 0.85rem; font-weight: 500; text-decoration: none; border-radius: 2px; transition: all 0.2s;">Stunde anfragen</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="screenshot-section fade-up">
+            <span class="section-tag">Ein Blick in die Software</span>
+            <h2 class="section-title">So sieht ESG Ready<br><em>von innen aus</em></h2>
+            <p style="margin-bottom: 2rem;">Der geführte Wizard bringt Sie Schritt für Schritt durch alle relevanten Datenpunkte. Keine Fachkenntnisse nötig — das System erklärt jeden Begriff und jeden Schritt.</p>
+
+            <div class="screenshot-tabs">
+                <button class="tab-btn active" onclick="showTab('wizard')">ESG Wizard</button>
+                <button class="tab-btn" onclick="showTab('dashboard')">Dashboard</button>
+                <button class="tab-btn" onclick="showTab('portal')">Document Portal</button>
+                <button class="tab-btn" onclick="showTab('report')">Bericht</button>
+            </div>
+
+            <div class="tab-content active" id="tab-wizard">
+                <div class="screenshot-placeholder">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#416852" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                    <span>Screenshot folgt nach App-Launch</span>
+                </div>
+                <div class="screenshot-info">
+                    <h3>Geführter ESG-Wizard</h3>
+                    <p>Der Wizard führt Sie schrittweise durch alle ESRS-relevanten Themen — von Klimadaten bis Governance. Jede Frage wird erklärt, jede Eingabe sofort validiert. Rechnungen können direkt hochgeladen werden.</p>
+                </div>
+            </div>
+            <div class="tab-content" id="tab-dashboard">
+                <div class="screenshot-placeholder">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#416852" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                    <span>Screenshot folgt nach App-Launch</span>
+                </div>
+                <div class="screenshot-info">
+                    <h3>ESG Score Dashboard</h3>
+                    <p>Auf einen Blick: Ihr aktueller ESG-Score, CO2-Emissionen, Fortschritt in allen drei Bereichen (E, S, G) und offene Datenpunkte. Das Dashboard zeigt immer den aktuellen Stand Ihrer Nachhaltigkeitsleistung.</p>
+                </div>
+            </div>
+            <div class="tab-content" id="tab-portal">
+                <div class="screenshot-placeholder">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#416852" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                    <span>Screenshot folgt nach App-Launch</span>
+                </div>
+                <div class="screenshot-info">
+                    <h3>Document Portal</h3>
+                    <p>Monatliche Verbrauchsdaten eintragen, Rechnungen hochladen, Standorte verwalten — alles an einem Ort. Das Portal macht aus laufenden Daten automatisch ESRS-konforme Kennzahlen für den Jahresbericht.</p>
+                </div>
+            </div>
+            <div class="tab-content" id="tab-report">
+                <div class="screenshot-placeholder">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#416852" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                    <span>Screenshot folgt nach App-Launch</span>
+                </div>
+                <div class="screenshot-info">
+                    <h3>Fertiger ESG-Bericht</h3>
+                    <p>Am Ende des Prozesses erhalten Sie einen vollständigen, professionellen ESG-Bericht als PDF mit Deckblatt, Inhaltsverzeichnis, Diagrammen und allen ESRS-konformen Offenlegungen — bereit zum Versand.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="fade-up">
+            <span class="section-tag">Vergleich</span>
+            <h2 class="section-title" style="margin-bottom: 2.5rem;">Was ist in jedem<br><em>Paket enthalten?</em></h2>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Leistung</th>
+                        <th class="pkg-col">ESG Ready</th>
+                        <th class="pkg-col featured-col">ESG Certified</th>
+                        <th class="pkg-col">ESG Partner</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Software-Zugang 12 Monate</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+                    <tr class="highlight"><td>Geführter ESG-Wizard</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+                    <tr><td>KI-gestützter Bericht (GPT-4)</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+                    <tr class="highlight"><td>Monatliches Verbrauchsportal</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+                    <tr><td>E-Mail Support</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+                    <tr class="highlight"><td>Beratungsstunden (Video-Call)</td><td class="dash">&mdash;</td><td>2 Stunden</td><td>3 Stunden</td></tr>
+                    <tr><td>Persönliche Berichts-Durchsicht</td><td class="dash">&mdash;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+                    <tr class="highlight"><td>Unterschriebene Bestätigung</td><td class="dash">&mdash;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+                    <tr><td>Priority Support</td><td class="dash">&mdash;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+                    <tr class="highlight"><td>Quartalsweise Check-ins</td><td class="dash">&mdash;</td><td class="dash">&mdash;</td><td class="check">&#10003;</td></tr>
+                    <tr><td>ESG-Strategieentwicklung</td><td class="dash">&mdash;</td><td class="dash">&mdash;</td><td class="check">&#10003;</td></tr>
+                    <tr class="highlight"><td>Dedicated Account Manager</td><td class="dash">&mdash;</td><td class="dash">&mdash;</td><td class="check">&#10003;</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="guarantee-block fade-up">
+            <div>
+                <h2>Unsere<br><em>Qualitätsversprechen</em></h2>
+                <p>Kein Paket verlässt unser Haus ohne Qualitätsprüfung. Jeder Bericht basiert auf verifizierten Berechnungsmethoden und wird — im Certified & Partner Paket — persönlich von unserem Umweltingenieur geprüft.</p>
+            </div>
+            <div class="guarantee-items">
+                <div class="guarantee-item">
+                    <div class="guarantee-item-icon">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#dfe1d6" stroke-width="1.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                    </div>
+                    <div class="guarantee-item-text">
+                        <h4>ESRS-konform nach aktuellem EU-Standard</h4>
+                        <p>Alle Berichte basieren auf den delegierten Rechtsakten der EU-Kommission zu den ESRS-Standards.</p>
+                    </div>
+                </div>
+                <div class="guarantee-item">
+                    <div class="guarantee-item-icon">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#dfe1d6" stroke-width="1.5"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                    </div>
+                    <div class="guarantee-item-text">
+                        <h4>DSGVO-konforme Datenspeicherung</h4>
+                        <p>Alle Daten werden auf EU-Servern in Frankfurt gespeichert. Ihre Daten bleiben in Europa.</p>
+                    </div>
+                </div>
+                <div class="guarantee-item">
+                    <div class="guarantee-item-icon">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#dfe1d6" stroke-width="1.5"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                    </div>
+                    <div class="guarantee-item-text">
+                        <h4>Laufende Updates ohne Mehrkosten</h4>
+                        <p>Wenn sich Regulierungen ändern, wird das Tool angepasst. Ihre Jahresgebühr deckt alle Updates ab.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="cta-block">
+        <h2>Fragen zu den Paketen?</h2>
+        <p>Wir beraten Sie kostenlos und unverbindlich, welches Paket für Ihr Unternehmen passt.</p>
+        <a href="index.html#contact" class="btn-primary">Kontakt aufnehmen</a>
+        <a href="esrs.html" class="btn-ghost">ESRS erklärt</a>
+    </div>
+
+    <footer>
+        <div class="footer-inner">
+            <a href="index.html" class="footer-logo">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjAwMCIgem9vbUFuZFBhbj0ibWFnbmlmeSIgdmlld0JveD0iMCAwIDE1MDAgMTQ5OS45OTk5MzMiIGhlaWdodD0iMjAwMCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQgbWVldCIgdmVyc2lvbj0iMS4wIj48ZGVmcz48Zy8+PGNsaXBQYXRoIGlkPSJmZGNlY2NjZmFkIj48cGF0aCBkPSJNIDEyLjU3ODEyNSAxMi45Mjk2ODggTCA3OTguNzE4NzUgMTIuOTI5Njg4IEwgNzk4LjcxODc1IDc5OS4wNzAzMTIgTCAxMi41NzgxMjUgNzk5LjA3MDMxMiBaIE0gMTIuNTc4MTI1IDEyLjkyOTY4OCAiIGNsaXAtcnVsZT0ibm9uemVybyIvPjwvY2xpcFBhdGg+PGNsaXBQYXRoIGlkPSIyZjNlMzgyZjRmIj48cGF0aCBkPSJNIDQwNS42NDg0MzggMTIuOTI5Njg4IEMgMTg4LjU1ODU5NCAxMi45Mjk2ODggMTIuNTc4MTI1IDE4OC45MTQwNjIgMTIuNTc4MTI1IDQwNiBDIDEyLjU3ODEyNSA2MjMuMDg1OTM4IDE4OC41NTg1OTQgNzk5LjA3MDMxMiA0MDUuNjQ4NDM4IDc5OS4wNzAzMTIgQyA2MjIuNzM0Mzc1IDc5OS4wNzAzMTIgNzk4LjcxODc1IDYyMy4wODU5MzggNzk4LjcxODc1IDQwNiBDIDc5OC43MTg3NSAxODguOTE0MDYyIDYyMi43MzQzNzUgMTIuOTI5Njg4IDQwNS42NDg0MzggMTIuOTI5Njg4IFogTSA0MDUuNjQ4NDM4IDEyLjkyOTY4OCAiIGNsaXAtcnVsZT0ibm9uemVybyIvPjwvY2xpcFBhdGg+PGNsaXBQYXRoIGlkPSIzNGVhMWU1Mjk1Ij48cGF0aCBkPSJNIDAuNTc4MTI1IDAuOTI5Njg4IEwgNzg2LjcxODc1IDAuOTI5Njg4IEwgNzg2LjcxODc1IDc4Ny4wNzAzMTIgTCAwLjU3ODEyNSA3ODcuMDcwMzEyIFogTSAwLjU3ODEyNSAwLjkyOTY4OCAiIGNsaXAtcnVsZT0ibm9uemVybyIvPjwvY2xpcFBhdGg+PGNsaXBQYXRoIGlkPSIyNDVmMzA3YmM0Ij48cGF0aCBkPSJNIDM5My42NDg0MzggMC45Mjk2ODggQyAxNzYuNTU4NTk0IDAuOTI5Njg4IDAuNTc4MTI1IDE3Ni45MTQwNjIgMC41NzgxMjUgMzk0IEMgMC41NzgxMjUgNjExLjA4NTkzOCAxNzYuNTU4NTk0IDc4Ny4wNzAzMTIgMzkzLjY0ODQzOCA3ODcuMDcwMzEyIEMgNjEwLjczNDM3NSA3ODcuMDcwMzEyIDc4Ni43MTg3NSA2MTEuMDg1OTM4IDc4Ni43MTg3NSAzOTQgQyA3ODYuNzE4NzUgMTc2LjkxNDA2MiA2MTAuNzM0Mzc1IDAuOTI5Njg4IDM5My42NDg0MzggMC45Mjk2ODggWiBNIDM5My42NDg0MzggMC45Mjk2ODggIiBjbGlwLXJ1bGU9Im5vbnplcm8iLz48L2NsaXBQYXRoPjxjbGlwUGF0aCBpZD0iMGJjYzk4Mjk0MiI+PHJlY3QgeD0iMCIgd2lkdGg9Ijc4NyIgeT0iMCIgaGVpZ2h0PSI3ODgiLz48L2NsaXBQYXRoPjxjbGlwUGF0aCBpZD0iYTZiNGMxMWVlZiI+PHBhdGggZD0iTSAxMi41NzgxMjUgMTIuOTI5Njg4IEwgNzk4LjQ5NjA5NCAxMi45Mjk2ODggTCA3OTguNDk2MDk0IDc5OC44NDc2NTYgTCAxMi41NzgxMjUgNzk4Ljg0NzY1NiBaIE0gMTIuNTc4MTI1IDEyLjkyOTY4OCAiIGNsaXAtcnVsZT0ibm9uemVybyIvPjwvY2xpcFBhdGg+PGNsaXBQYXRoIGlkPSI5ZTc0MWUwOTM2Ij48cGF0aCBkPSJNIDQwNS42NDQ1MzEgMTIuOTI5Njg4IEMgMTg4LjU1ODU5NCAxMi45Mjk2ODggMTIuNTc4MTI1IDE4OC45MTAxNTYgMTIuNTc4MTI1IDQwNS45OTYwOTQgQyAxMi41NzgxMjUgNjIzLjA4MjAzMSAxODguNTU4NTk0IDc5OS4wNjI1IDQwNS42NDQ1MzEgNzk5LjA2MjUgQyA2MjIuNzI2NTYyIDc5OS4wNjI1IDc5OC43MTA5MzggNjIzLjA4MjAzMSA3OTguNzEwOTM4IDQwNS45OTYwOTQgQyA3OTguNzEwOTM4IDE4OC45MTAxNTYgNjIyLjcyNjU2MiAxMi45Mjk2ODggNDA1LjY0NDUzMSAxMi45Mjk2ODggWiBNIDQwNS42NDQ1MzEgMTIuOTI5Njg4ICIgY2xpcC1ydWxlPSJub256ZXJvIi8+PC9jbGlwUGF0aD48Y2xpcFBhdGggaWQ9IjUwMmRkNGI5ZTUiPjxyZWN0IHg9IjAiIHdpZHRoPSIzMDUiIHk9IjAiIGhlaWdodD0iNjE5Ii8+PC9jbGlwUGF0aD48Y2xpcFBhdGggaWQ9Ijk5YjYzYjU3ZGQiPjxyZWN0IHg9IjAiIHdpZHRoPSIyOTUiIHk9IjAiIGhlaWdodD0iNzUiLz48L2NsaXBQYXRoPjxjbGlwUGF0aCBpZD0iMzMzZWQ5NjIyNSI+PHJlY3QgeD0iMCIgd2lkdGg9IjgxMiIgeT0iMCIgaGVpZ2h0PSI4MTIiLz48L2NsaXBQYXRoPjwvZGVmcz48ZyB0cmFuc2Zvcm09Im1hdHJpeCgxLCAwLCAwLCAxLCA0MDMsIDM0NCkiPjxnIGNsaXAtcGF0aD0idXJsKCMzMzNlZDk2MjI1KSI+PGcgY2xpcC1wYXRoPSJ1cmwoI2ZkY2VjY2NmYWQpIj48ZyBjbGlwLXBhdGg9InVybCgjMmYzZTM4MmY0ZikiPjxnIHRyYW5zZm9ybT0ibWF0cml4KDEsIDAsIDAsIDEsIDEyLCAxMikiPjxnIGNsaXAtcGF0aD0idXJsKCMwYmNjOTgyOTQyKSI+PGcgY2xpcC1wYXRoPSJ1cmwoIzM0ZWExZTUyOTUpIj48ZyBjbGlwLXBhdGg9InVybCgjMjQ1ZjMwN2JjNCkiPjxwYXRoIGZpbGw9IiMwMjM0MjUiIGQ9Ik0gMC41NzgxMjUgMC45Mjk2ODggTCA3ODYuNzE4NzUgMC45Mjk2ODggTCA3ODYuNzE4NzUgNzg3LjA3MDMxMiBMIDAuNTc4MTI1IDc4Ny4wNzAzMTIgWiBNIDAuNTc4MTI1IDAuOTI5Njg4ICIgZmlsbC1vcGFjaXR5PSIxIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48L2c+PC9nPjwvZz48L2c+PC9nPjwvZz48ZyBjbGlwLXBhdGg9InVybCgjYTZiNGMxMWVlZikiPjxnIGNsaXAtcGF0aD0idXJsKCM5ZTc0MWUwOTM2KSI+PHBhdGggc3Ryb2tlLWxpbmVjYXA9ImJ1dHQiIHRyYW5zZm9ybT0ibWF0cml4KDEuMTQ3MzI1LCAwLCAwLCAxLjE0NzMyNSwgMTIuNTc2ODQzLCAxMi45Mjk3ODMpIiBmaWxsPSJub25lIiBzdHJva2UtbGluZWpvaW49Im1pdGVyIiBkPSJNIDM0Mi41OTQ3NDggLTAuMDAwMDgzNTMwMyBDIDE1My4zODQzMjkgLTAuMDAwMDgzNTMwMyAwLjAwMTExNzI1IDE1My4zODMxMjggMC4wMDExMTcyNSAzNDIuNTkzNTQ3IEMgMC4wMDExMTcyNSA1MzEuODAzOTY2IDE1My4zODQzMjkgNjg1LjE4NzE3OCAzNDIuNTk0NzQ4IDY4NS4xODcxNzggQyA1MzEuODAxNzYyIDY4NS4xODcxNzggNjg1LjE4ODM3OSA1MzEuODAzOTY2IDY4NS4xODgzNzkgMzQyLjU5MzU0NyBDIDY4NS4xODgzNzkgMTUzLjM4MzEyOCA1MzEuODAxNzYyIC0wLjAwMDA4MzUzMDMgMzQyLjU5NDc0OCAtMC4wMDAwODM1MzAzIFogTSAzNDIuNTk0NzQ4IC0wLjAwMDA4MzUzMDMgIiBzdHJva2U9IiMwMjM0MjUiIHN0cm9rZS13aWR0aD0iMy45MjIxNjQiIHN0cm9rZS1vcGFjaXR5PSIxIiBzdHJva2UtbWl0ZXJsaW1pdD0iNCIvPjwvZz48L2c+PGcgZmlsbD0iI2ZkZmVmOSIgZmlsbC1vcGFjaXR5PSIxIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg2NS45ODAwOTksIDYyNi44NTgwMzMpIj48Zz48cGF0aCBkPSJNIDUxLjQ2ODc1IDAgTCA1MS40Njg3NSAtNDQzLjMxMjUgTCAzMjUuNDg0Mzc1IC00NDMuMzEyNSBMIDMyNS40ODQzNzUgLTM5My45MjE4NzUgTCAxMDcuNDA2MjUgLTM5My45MjE4NzUgTCAxMDcuNDA2MjUgLTI0OS4zMjgxMjUgTCAzMTAuMzEyNSAtMjQ5LjMyODEyNSBMIDMxMC4zMTI1IC0xOTkuNjQwNjI1IEwgMTA3LjQwNjI1IC0xOTkuNjQwNjI1IEwgMTA3LjQwNjI1IC00OS4zOTA2MjUgTCAzMjcuNTc4MTI1IC00OS4zOTA2MjUgTCAzMjcuNTc4MTI1IDAgWiBNIDUxLjQ2ODc1IDAgIi8+PC9nPjwvZz48L2c+PGcgZmlsbD0iI2ZkZmVmOSIgZmlsbC1vcGFjaXR5PSIxIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzMjIuODk5MDY1LCA2MjYuODU4MDMzKSI+PGc+PHBhdGggZD0iTSAyMzMuNTYyNSA2LjI1IEMgMTk0LjA4MjAzMSA2LjI1IDE1OS40MTQwNjIgLTMuMTE3MTg4IDEyOS41NjI1IC0yMS44NTkzNzUgQyA5OS43MTg3NSAtNDAuNjA5Mzc1IDc2LjM2MzI4MSAtNjYuOTg4MjgxIDU5LjUgLTEwMSBDIDQyLjY0NDUzMSAtMTM1LjAxOTUzMSAzNC4yMTg3NSAtMTc1LjE0MDYyNSAzNC4yMTg3NSAtMjIxLjM1OTM3NSBDIDM0LjIxODc1IC0yNjcuOTcyNjU2IDQyLjU5NzY1NiAtMzA4LjI4NTE1NiA1OS4zNTkzNzUgLTM0Mi4yOTY4NzUgQyA3Ni4xMTcxODggLTM3Ni4zMTY0MDYgOTkuMzIwMzEyIC00MDIuNjk1MzEyIDEyOC45Njg3NSAtNDIxLjQzNzUgQyAxNTguNjI1IC00NDAuMTg3NSAxOTIuNTkzNzUgLTQ0OS41NjI1IDIzMC44NzUgLTQ0OS41NjI1IEMgMjU0LjI4MTI1IC00NDkuNTYyNSAyNzYuMTk1MzEyIC00NDYuMDM5MDYyIDI5Ni42MjUgLTQzOSBDIDMxNy4wNjI1IC00MzEuOTU3MDMxIDMzNS4zMTI1IC00MjEuOTM3NSAzNTEuMzc1IC00MDguOTM3NSBDIDM2Ny40Mzc1IC0zOTUuOTQ1MzEyIDM4MC44MjAzMTIgLTM4MC41MjM0MzggMzkxLjUzMTI1IC0zNjIuNjcxODc1IEMgNDAyLjI1IC0zNDQuODI4MTI1IDQwOS40OTIxODggLTMyNS4wOTM3NSA0MTMuMjY1NjI1IC0zMDMuNDY4NzUgTCAzNTYuMTQwNjI1IC0zMDMuNDY4NzUgQyAzNTEuNzczNDM4IC0zMTcuNzUgMzQ1Ljc3MzQzOCAtMzMwLjY5MTQwNiAzMzguMTQwNjI1IC0zNDIuMjk2ODc1IEMgMzMwLjUwMzkwNiAtMzUzLjg5ODQzOCAzMjEuMzc4OTA2IC0zNjMuODE2NDA2IDMxMC43NjU2MjUgLTM3Mi4wNDY4NzUgQyAzMDAuMTQ4NDM4IC0zODAuMjg1MTU2IDI4OC4xNDg0MzggLTM4Ni42MzI4MTIgMjc0Ljc2NTYyNSAtMzkxLjA5Mzc1IEMgMjYxLjM3ODkwNiAtMzk1LjU1MDc4MSAyNDYuNzUgLTM5Ny43ODEyNSAyMzAuODc1IC0zOTcuNzgxMjUgQyAyMDQuMTAxNTYyIC0zOTcuNzgxMjUgMTgwLjAwMzkwNiAtMzkwLjg5MDYyNSAxNTguNTc4MTI1IC0zNzcuMTA5Mzc1IEMgMTM3LjE2MDE1NiAtMzYzLjMyODEyNSAxMjAuMjAzMTI1IC0zNDMuMjk2ODc1IDEwNy43MDMxMjUgLTMxNy4wMTU2MjUgQyA5NS4yMDMxMjUgLTI5MC43MzQzNzUgODguOTUzMTI1IC0yNTguODQ3NjU2IDg4Ljk1MzEyNSAtMjIxLjM1OTM3NSBDIDg4Ljk1MzEyNSAtMTg0LjI2NTYyNSA5NS4yNSAtMTUyLjYyNSAxMDcuODQzNzUgLTEyNi40Mzc1IEMgMTIwLjQ0NTMxMiAtMTAwLjI1NzgxMiAxMzcuNjA5Mzc1IC04MC4yMjY1NjIgMTU5LjMyODEyNSAtNjYuMzQzNzUgQyAxODEuMDQ2ODc1IC01Mi40NTcwMzEgMjA1Ljc4OTA2MiAtNDUuNTE1NjI1IDIzMy41NjI1IC00NS41MTU2MjUgQyAyNTguNTUwNzgxIC00NS41MTU2MjUgMjgwLjY2NDA2MiAtNTAuODY3MTg4IDI5OS45MDYyNSAtNjEuNTc4MTI1IEMgMzE5LjE0NDUzMSAtNzIuMjk2ODc1IDMzNC4yNjU2MjUgLTg3LjQ3MjY1NiAzNDUuMjY1NjI1IC0xMDcuMTA5Mzc1IEMgMzU2LjI3MzQzOCAtMTI2Ljc0MjE4OCAzNjEuNzgxMjUgLTE0OS44NTE1NjIgMzYxLjc4MTI1IC0xNzYuNDM3NSBMIDM3OC43NSAtMTczLjQ1MzEyNSBMIDI0Ni42NDA2MjUgLTE3My40NTMxMjUgTCAyNDYuNjQwNjI1IC0yMjIuNTQ2ODc1IEwgNDE2LjUzMTI1IC0yMjIuNTQ2ODc1IEwgNDE2LjUzMTI1IC0xNzQuMzQzNzUgQyA0MTYuNTMxMjUgLTEzOC4wNTA3ODEgNDA4LjU5Mzc1IC0xMDYuMzYzMjgxIDM5Mi43MTg3NSAtNzkuMjgxMjUgQyAzNzYuODUxNTYyIC01Mi4yMDcwMzEgMzU1LjE4NzUgLTMxLjE3OTY4OCAzMjcuNzE4NzUgLTE2LjIwMzEyNSBDIDMwMC4yNSAtMS4yMzQzNzUgMjY4Ljg2MzI4MSA2LjI1IDIzMy41NjI1IDYuMjUgWiBNIDIzMy41NjI1IDYuMjUgIi8+PC9nPjwvZz48L2c+PGcgdHJhbnNmb3JtPSJtYXRyaXgoMSwgMCwgMCwgMSwgMjM2LCA5NykiPjxnIGNsaXAtcGF0aD0idXJsKCM1MDJkZDRiOWU1KSI+PGcgZmlsbD0iI2ZkZmVmOSIgZmlsbC1vcGFjaXR5PSIxIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxLjQ4NTEwNCwgNDk1LjI1NDc3MSkiPjxnPjxwYXRoIGQ9Ik0gMTYyLjYwOTM3NSA2LjQ2ODc1IEMgMTM1LjU0Njg3NSA2LjQ2ODc1IDExMi4wMDc4MTIgMS45NDUzMTIgOTIgLTcuMDkzNzUgQyA3MiAtMTYuMTQ0NTMxIDU2LjQzNzUgLTI4Ljc2NTYyNSA0NS4zMTI1IC00NC45NTMxMjUgQyAzNC4xOTUzMTIgLTYxLjE0MDYyNSAyOC4wNTQ2ODggLTgwLjE4NzUgMjYuODkwNjI1IC0xMDIuMDkzNzUgTCA3NC43MDMxMjUgLTEwMi4wOTM3NSBDIDc1LjcwMzEyNSAtODcuMzIwMzEyIDgwLjE4NzUgLTc0Ljk5MjE4OCA4OC4xNTYyNSAtNjUuMTA5Mzc1IEMgOTYuMTI1IC01NS4yMzQzNzUgMTA2LjYyNSAtNDcuODQ3NjU2IDExOS42NTYyNSAtNDIuOTUzMTI1IEMgMTMyLjY4NzUgLTM4LjA1NDY4OCAxNDcuMDAzOTA2IC0zNS42MDkzNzUgMTYyLjYwOTM3NSAtMzUuNjA5Mzc1IEMgMTc5LjcxMDkzOCAtMzUuNjA5Mzc1IDE5NC45NDUzMTIgLTM4LjM0NzY1NiAyMDguMzEyNSAtNDMuODI4MTI1IEMgMjIxLjY3NTc4MSAtNDkuMzA0Njg4IDIzMi4yMTg3NSAtNTYuOTg0Mzc1IDIzOS45Mzc1IC02Ni44NTkzNzUgQyAyNDcuNjU2MjUgLTc2Ljc0MjE4OCAyNTEuNTE1NjI1IC04OC4yNDIxODggMjUxLjUxNTYyNSAtMTAxLjM1OTM3NSBDIDI1MS41MTU2MjUgLTExMi45NzI2NTYgMjQ4LjM1OTM3NSAtMTIyLjU1NDY4OCAyNDIuMDQ2ODc1IC0xMzAuMTA5Mzc1IEMgMjM1Ljc0MjE4OCAtMTM3LjY3MTg3NSAyMjcuMDcwMzEyIC0xNDMuOTQxNDA2IDIxNi4wMzEyNSAtMTQ4LjkyMTg3NSBDIDIwNC45ODgyODEgLTE1My44OTg0MzggMTkyLjMyODEyNSAtMTU4LjI5Njg3NSAxNzguMDQ2ODc1IC0xNjIuMTA5Mzc1IEwgMTMzLjk2ODc1IC0xNzQuMzEyNSBDIDEwMi4yNTc4MTIgLTE4Mi45NDUzMTIgNzguMTAxNTYyIC0xOTUuMTA5Mzc1IDYxLjUgLTIxMC43OTY4NzUgQyA0NC45MDYyNSAtMjI2LjQ4NDM3NSAzNi42MDkzNzUgLTI0Ni42OTUzMTIgMzYuNjA5Mzc1IC0yNzEuNDM3NSBDIDM2LjYwOTM3NSAtMjkyLjUxOTUzMSA0Mi4xNjQwNjIgLTMxMC45MDYyNSA1My4yODEyNSAtMzI2LjU5Mzc1IEMgNjQuNDA2MjUgLTM0Mi4yODEyNSA3OS41OTc2NTYgLTM1NC40ODQzNzUgOTguODU5Mzc1IC0zNjMuMjAzMTI1IEMgMTE4LjExNzE4OCAtMzcxLjkyMTg3NSAxMzkuODY3MTg4IC0zNzYuMjgxMjUgMTY0LjEwOTM3NSAtMzc2LjI4MTI1IEMgMTg4Ljg0NzY1NiAtMzc2LjI4MTI1IDIxMC42MzI4MTIgLTM3MS44Nzg5MDYgMjI5LjQ2ODc1IC0zNjMuMDc4MTI1IEMgMjQ4LjMxMjUgLTM1NC4yNzM0MzggMjYzLjEyODkwNiAtMzQyLjE1NjI1IDI3My45MjE4NzUgLTMyNi43MTg3NSBDIDI4NC43MTA5MzggLTMxMS4yODEyNSAyOTAuNDQxNDA2IC0yOTMuNjc5Njg4IDI5MS4xMDkzNzUgLTI3My45MjE4NzUgTCAyNDUuMjgxMjUgLTI3My45MjE4NzUgQyAyNDMuMjg5MDYyIC0yOTMuMTc5Njg4IDIzNC43NDIxODggLTMwOC4xMjUgMjE5LjY0MDYyNSAtMzE4Ljc1IEMgMjA0LjUzNTE1NiAtMzI5LjM3NSAxODUuNTIzNDM4IC0zMzQuNjg3NSAxNjIuNjA5Mzc1IC0zMzQuNjg3NSBDIDE0Ni42NzE4NzUgLTMzNC42ODc1IDEzMi42NDA2MjUgLTMzMi4wMzEyNSAxMjAuNTE1NjI1IC0zMjYuNzE4NzUgQyAxMDguMzk4NDM4IC0zMjEuNDA2MjUgOTguOTc2NTYyIC0zMTQuMTc5Njg4IDkyLjI1IC0zMDUuMDQ2ODc1IEMgODUuNTMxMjUgLTI5NS45MjE4NzUgODIuMTcxODc1IC0yODUuNDYwOTM4IDgyLjE3MTg3NSAtMjczLjY3MTg3NSBDIDgyLjE3MTg3NSAtMjYxLjU1NDY4OCA4NS44NjMyODEgLTI1MS42NDA2MjUgOTMuMjUgLTI0My45MjE4NzUgQyAxMDAuNjQ0NTMxIC0yMzYuMjAzMTI1IDEwOS44NjMyODEgLTIzMC4wMTU2MjUgMTIwLjkwNjI1IC0yMjUuMzU5Mzc1IEMgMTMxLjk0NTMxMiAtMjIwLjcxMDkzOCAxNDIuOTQxNDA2IC0yMTYuODk0NTMxIDE1My44OTA2MjUgLTIxMy45MDYyNSBMIDE5MiAtMjAzLjcwMzEyNSBDIDIwMy43ODEyNSAtMjAwLjcxMDkzOCAyMTUuODEyNSAtMTk2LjY4NzUgMjI4LjA5Mzc1IC0xOTEuNjI1IEMgMjQwLjM4MjgxMiAtMTg2LjU2MjUgMjUxLjc1NzgxMiAtMTgwLjEyODkwNiAyNjIuMjE4NzUgLTE3Mi4zMjgxMjUgQyAyNzIuNjc1NzgxIC0xNjQuNTIzNDM4IDI4MS4xNDA2MjUgLTE1NC44MTI1IDI4Ny42MDkzNzUgLTE0My4xODc1IEMgMjk0LjA4NTkzOCAtMTMxLjU2MjUgMjk3LjMyODEyNSAtMTE3LjYxNzE4OCAyOTcuMzI4MTI1IC0xMDEuMzU5Mzc1IEMgMjk3LjMyODEyNSAtODAuNzY1NjI1IDI5MS45NzI2NTYgLTYyLjMzMjAzMSAyODEuMjY1NjI1IC00Ni4wNjI1IEMgMjcwLjU1NDY4OCAtMjkuODAwNzgxIDI1NS4xNjAxNTYgLTE2Ljk3NjU2MiAyMzUuMDc4MTI1IC03LjU5Mzc1IEMgMjE0Ljk5MjE4OCAxLjc4MTI1IDE5MC44MzU5MzggNi40Njg3NSAxNjIuNjA5Mzc1IDYuNDY4NzUgWiBNIDE2Mi42MDkzNzUgNi40Njg3NSAiLz48L2c+PC9nPjwvZz48L2c+PC9nPjxnIHRyYW5zZm9ybT0ibWF0cml4KDEsIDAsIDAsIDEsIDQ1OSwgMzMwKSI+PGcgY2xpcC1wYXRoPSJ1cmwoIzk5YjYzYjU3ZGQpIj48ZyBmaWxsPSIjZmRmZWY5IiBmaWxsLW9wYWNpdHk9IjEiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIuNTc5MTUsIDU1Ljg5NzY0NCkiPjxnPjxwYXRoIGQ9Ik0gMzQuNzM0Mzc1IDAgTCAyNS43MzQzNzUgLTEyLjkwNjI1IEMgMjUuMzU5Mzc1IC0xMi44NjMyODEgMjQuNzg5MDYyIC0xMi44NDM3NSAyNC4wMzEyNSAtMTIuODQzNzUgTCAxNC4wOTM3NSAtMTIuODQzNzUgTCAxNC4wOTM3NSAwIEwgNS45MjE4NzUgMCBMIDUuOTIxODc1IC00NC4wNDY4NzUgTCAyNC4wMzEyNSAtNDQuMDQ2ODc1IEMgMjcuODUxNTYyIC00NC4wNDY4NzUgMzEuMTc1NzgxIC00My40MTQwNjIgMzQgLTQyLjE1NjI1IEMgMzYuODMyMDMxIC00MC44OTQ1MzEgMzkuMDAzOTA2IC0zOS4wODU5MzggNDAuNTE1NjI1IC0zNi43MzQzNzUgQyA0Mi4wMjM0MzggLTM0LjM5MDYyNSA0Mi43ODEyNSAtMzEuNjAxNTYyIDQyLjc4MTI1IC0yOC4zNzUgQyA0Mi43ODEyNSAtMjUuMDYyNSA0MS45NzI2NTYgLTIyLjIwNzAzMSA0MC4zNTkzNzUgLTE5LjgxMjUgQyAzOC43NDIxODggLTE3LjQyNTc4MSAzNi40MjU3ODEgLTE1LjY0NDUzMSAzMy40MDYyNSAtMTQuNDY4NzUgTCA0My41NDY4NzUgMCBaIE0gMzQuNTQ2ODc1IC0yOC4zNzUgQyAzNC41NDY4NzUgLTMxLjE4NzUgMzMuNjE3MTg4IC0zMy4zNDc2NTYgMzEuNzY1NjI1IC0zNC44NTkzNzUgQyAyOS45MjE4NzUgLTM2LjM2NzE4OCAyNy4yMTg3NSAtMzcuMTI1IDIzLjY1NjI1IC0zNy4xMjUgTCAxNC4wOTM3NSAtMzcuMTI1IEwgMTQuMDkzNzUgLTE5LjU2MjUgTCAyMy42NTYyNSAtMTkuNTYyNSBDIDI3LjIxODc1IC0xOS41NjI1IDI5LjkyMTg3NSAtMjAuMzI4MTI1IDMxLjc2NTYyNSAtMjEuODU5Mzc1IEMgMzMuNjE3MTg4IC0yMy4zOTA2MjUgMzQuNTQ2ODc1IC0yNS41NjI1IDM0LjU0Njg3NSAtMjguMzc1IFogTSAzNC41NDY4NzUgLTI4LjM3NSAiLz48L2c+PC9nPjwvZz48ZyBmaWxsPSIjZmRmZWY5IiBmaWxsLW9wYWNpdHk9IjEiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDYwLjQ0NjE4OCwgNTUuODk3NjQ0KSI+PGc+PHBhdGggZD0iTSAzOC45NTMxMjUgLTYuODU5Mzc1IEwgMzguOTUzMTI1IDAgTCA1LjkyMTg3NSAwIEwgNS45MjE4NzUgLTQ0LjA0Njg3NSBMIDM4LjA2MjUgLTQ0LjA0Njg3NSBMIDM4LjA2MjUgLTM3LjE4NzUgTCAxNC4wOTM3NSAtMzcuMTg3NSBMIDE0LjA5Mzc1IC0yNS43MzQzNzUgTCAzNS4zNTkzNzUgLTI1LjczNDM3NSBMIDM1LjM1OTM3NSAtMTkgTCAxNC4wOTM3NSAtMTkgTCAxNC4wOTM3NSAtNi44NTkzNzUgWiBNIDM4Ljk1MzEyNSAtNi44NTkzNzUgIi8+PC9nPjwvZz48L2c+PGcgZmlsbD0iI2ZkZmVmOSIgZmlsbC1vcGFjaXR5PSIxIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMTQuNDc3MDY4LCA1NS44OTc2NDQpIj48Zz48cGF0aCBkPSJNIDM0LjQ4NDM3NSAtMTAuMTg3NSBMIDEyLjQ1MzEyNSAtMTAuMTg3NSBMIDguMTA5Mzc1IDAgTCAtMC4zMTI1IDAgTCAxOS41IC00NC4wNDY4NzUgTCAyNy41NjI1IC00NC4wNDY4NzUgTCA0Ny40Mzc1IDAgTCAzOC44OTA2MjUgMCBaIE0gMzEuNzgxMjUgLTE2LjYwOTM3NSBMIDIzLjQ2ODc1IC0zNS44NTkzNzUgTCAxNS4yMzQzNzUgLTE2LjYwOTM3NSBaIE0gMzEuNzgxMjUgLTE2LjYwOTM3NSAiLz48L2c+PC9nPjwvZz48ZyBmaWxsPSIjZmRmZWY5IiBmaWxsLW9wYWNpdHk9IjEiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE3My40NzYwOTUsIDU1Ljg5NzY0NCkiPjxnPjxwYXRoIGQ9Ik0gNS45MjE4NzUgLTQ0LjA0Njg3NSBMIDI1LjE3MTg3NSAtNDQuMDQ2ODc1IEMgMjkuODY3MTg4IC00NC4wNDY4NzUgMzQuMDM5MDYyIC00My4xMzI4MTIgMzcuNjg3NSAtNDEuMzEyNSBDIDQxLjM0Mzc1IC0zOS40ODgyODEgNDQuMTc1NzgxIC0zNi45MDYyNSA0Ni4xODc1IC0zMy41NjI1IEMgNDguMTk1MzEyIC0zMC4yMjY1NjIgNDkuMjAzMTI1IC0yNi4zNzg5MDYgNDkuMjAzMTI1IC0yMi4wMTU2MjUgQyA0OS4yMDMxMjUgLTE3LjY2MDE1NiA0OC4xOTUzMTIgLTEzLjgxMjUgNDYuMTg3NSAtMTAuNDY4NzUgQyA0NC4xNzU3ODEgLTcuMTMyODEyIDQxLjM0Mzc1IC00LjU1NDY4OCAzNy42ODc1IC0yLjczNDM3NSBDIDM0LjAzOTA2MiAtMC45MTAxNTYgMjkuODY3MTg4IDAgMjUuMTcxODc1IDAgTCA1LjkyMTg3NSAwIFogTSAyNC43OTY4NzUgLTYuOTIxODc1IEMgMjguMDIzNDM4IC02LjkyMTg3NSAzMC44NjMyODEgLTcuNTM5MDYyIDMzLjMxMjUgLTguNzgxMjUgQyAzNS43Njk1MzEgLTEwLjAxOTUzMSAzNy42NjAxNTYgLTExLjc4MTI1IDM4Ljk4NDM3NSAtMTQuMDYyNSBDIDQwLjMwNDY4OCAtMTYuMzUxNTYyIDQwLjk2ODc1IC0xOS4wMDM5MDYgNDAuOTY4NzUgLTIyLjAxNTYyNSBDIDQwLjk2ODc1IC0yNS4wMzUxNTYgNDAuMzA0Njg4IC0yNy42ODc1IDM4Ljk4NDM3NSAtMjkuOTY4NzUgQyAzNy42NjAxNTYgLTMyLjI1NzgxMiAzNS43Njk1MzEgLTM0LjAyMzQzOCAzMy4zMTI1IC0zNS4yNjU2MjUgQyAzMC44NjMyODEgLTM2LjUwMzkwNiAyOC4wMjM0MzggLTM3LjEyNSAyNC43OTY4NzUgLTM3LjEyNSBMIDE0LjA5Mzc1IC0zNy4xMjUgTCAxNC4wOTM3NSAtNi45MjE4NzUgWiBNIDI0Ljc5Njg3NSAtNi45MjE4NzUgIi8+PC9nPjwvZz48L2c+PGcgZmlsbD0iI2ZkZmVmOSIgZmlsbC1vcGFjaXR5PSIxIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyMzcuMzE3NTA0LCA1NS44OTc2NDQpIj48Zz48cGF0aCBkPSJNIDI0LjkyMTg3NSAtMTUuNTQ2ODc1IEwgMjQuOTIxODc1IDAgTCAxNi43MzQzNzUgMCBMIDE2LjczNDM3NSAtMTUuNDIxODc1IEwgLTAuNTYyNSAtNDQuMDQ2ODc1IEwgOC4xODc1IC00NC4wNDY4NzUgTCAyMS4wNzgxMjUgLTIyLjU5Mzc1IEwgMzQuMTA5Mzc1IC00NC4wNDY4NzUgTCA0Mi4xNTYyNSAtNDQuMDQ2ODc1IFogTSAyNC45MjE4NzUgLTE1LjU0Njg3NSAiLz48L2c+PC9nPjwvZz48L2c+PC9nPjwvZz48L2c+PC9zdmc+" alt="ESG Ready">
+                <span class="footer-logo-text">ESG Ready</span>
+            </a>
+            <ul class="footer-links">
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Impressum</a></li>
+            </ul>
+            <span class="footer-copy">&copy; 2025 ESG Ready Pte. Ltd.</span>
+        </div>
+    </footer>
+
+    <script>
+        const fadeElements = document.querySelectorAll('.fade-up');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => entry.target.classList.add('visible'), index * 100);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.05 });
+        fadeElements.forEach(el => observer.observe(el));
+        setTimeout(() => { fadeElements.forEach(el => { const r = el.getBoundingClientRect(); if (r.top < window.innerHeight) el.classList.add('visible'); }); }, 100);
+
+        function showTab(name) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            document.getElementById('tab-' + name).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESRS & CSRD erklärt — ESG Ready</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root { --deep: #023425; --mid: #416852; --sage: #8a9a93; --cream: #fdfef9; --light: #dfe1d6; --black: #0a0f0d; }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'DM Sans', sans-serif; background-color: var(--cream); color: var(--black); overflow-x: hidden; }
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.2rem 2.5rem; display: flex; align-items: center; justify-content: space-between; background: rgba(2,52,37,0.97); backdrop-filter: blur(12px); }
+        .nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+        .nav-logo img { width: 38px; height: 38px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.5); }
+        .nav-logo-text { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; color: var(--cream); }
+        .nav-links { display: flex; align-items: center; gap: 1.5rem; list-style: none; }
+        .nav-links a { font-size: 0.75rem; color: var(--light); text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--cream); }
+        .nav-cta { background: var(--cream) !important; color: var(--deep) !important; padding: 0.55rem 1.2rem !important; border-radius: 2px !important; font-weight: 500 !important; }
+
+        .hero { background: var(--deep); padding: 10rem 4rem 6rem; position: relative; overflow: hidden; }
+        .hero::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(253,254,249,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(253,254,249,0.04) 1px, transparent 1px); background-size: 60px 60px; }
+        .hero-inner { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
+        .hero-tag { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sage); margin-bottom: 1rem; display: block; }
+        .hero-h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 4vw, 4rem); font-weight: 300; color: var(--cream); line-height: 1.1; margin-bottom: 1.5rem; }
+        .hero-h1 em { font-style: italic; color: var(--sage); }
+        .hero-sub { font-size: 1.05rem; font-weight: 300; color: var(--sage); line-height: 1.8; max-width: 650px; }
+
+        .content { max-width: 1100px; margin: 0 auto; padding: 6rem 4rem; }
+        .section-tag { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mid); font-weight: 500; margin-bottom: 1rem; display: block; }
+        .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 300; line-height: 1.15; color: var(--deep); margin-bottom: 1.5rem; }
+        .section-title em { font-style: italic; color: var(--mid); }
+        p { font-size: 1rem; font-weight: 300; color: #4a5a54; line-height: 1.85; margin-bottom: 1.2rem; }
+
+        .intro-block { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; margin-bottom: 6rem; align-items: start; }
+        .intro-text {}
+        .definition-card { background: var(--deep); padding: 2.5rem; border-radius: 2px; }
+        .definition-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 400; color: var(--cream); margin-bottom: 0.4rem; }
+        .definition-card .abbr { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sage); margin-bottom: 1rem; display: block; }
+        .definition-card p { color: var(--sage); font-size: 0.9rem; margin-bottom: 1.5rem; }
+        .definition-card p:last-child { margin-bottom: 0; }
+        .divider { height: 1px; background: rgba(253,254,249,0.1); margin: 1.5rem 0; }
+
+        .timeline-section { margin-bottom: 6rem; }
+        .timeline { position: relative; padding-left: 0; }
+        .timeline-row { display: grid; grid-template-columns: 140px 1fr; gap: 2.5rem; margin-bottom: 2rem; align-items: start; }
+        .timeline-date { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 300; color: var(--mid); padding-top: 0.2rem; }
+        .timeline-content { border-left: 2px solid var(--light); padding-left: 2rem; padding-bottom: 1.5rem; }
+        .timeline-content h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 400; color: var(--deep); margin-bottom: 0.4rem; }
+        .timeline-content p { font-size: 0.88rem; color: #5a6a64; line-height: 1.7; margin-bottom: 0; }
+        .timeline-content .tag { display: inline-block; background: var(--light); color: var(--deep); font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 2px; margin-bottom: 0.5rem; }
+        .timeline-content .tag.active { background: var(--mid); color: var(--cream); }
+
+        .esrs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 6rem; }
+        .esrs-card { background: #f4f5f0; padding: 2rem; border-radius: 2px; border-top: 3px solid var(--mid); }
+        .esrs-card.dark { background: var(--deep); border-top-color: var(--sage); }
+        .esrs-card .code { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid); margin-bottom: 0.5rem; display: block; }
+        .esrs-card.dark .code { color: var(--sage); }
+        .esrs-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 400; color: var(--deep); margin-bottom: 0.5rem; }
+        .esrs-card.dark h3 { color: var(--cream); }
+        .esrs-card p { font-size: 0.82rem; color: #5a6a64; line-height: 1.65; margin-bottom: 0; }
+        .esrs-card.dark p { color: var(--sage); }
+
+        .warning-block { background: #f9f3e8; border-left: 4px solid #b8860b; padding: 2.5rem 3rem; margin-bottom: 6rem; border-radius: 0 2px 2px 0; }
+        .warning-block h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 400; color: #7a5c0a; margin-bottom: 1rem; }
+        .warning-block p { color: #6a5020; font-size: 0.95rem; margin-bottom: 0.8rem; }
+        .warning-block p:last-child { margin-bottom: 0; }
+
+        .faq { margin-bottom: 6rem; }
+        .faq-item { border-bottom: 1px solid var(--light); padding: 1.5rem 0; cursor: pointer; }
+        .faq-question { display: flex; justify-content: space-between; align-items: center; font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 400; color: var(--deep); }
+        .faq-icon { width: 20px; height: 20px; flex-shrink: 0; transition: transform 0.3s; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+        .faq-answer p { font-size: 0.9rem; color: #5a6a64; line-height: 1.75; padding-top: 1rem; margin-bottom: 0; }
+        .faq-item.open .faq-icon { transform: rotate(45deg); }
+        .faq-item.open .faq-answer { max-height: 300px; }
+
+        .cta-block { background: var(--deep); padding: 5rem 4rem; text-align: center; }
+        .cta-block h2 { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 300; color: var(--cream); margin-bottom: 1rem; }
+        .cta-block p { color: var(--sage); font-size: 1rem; margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto; }
+        .btn-primary { background: var(--cream); color: var(--deep); padding: 0.9rem 2.5rem; font-size: 0.9rem; font-weight: 500; text-decoration: none; border-radius: 2px; transition: all 0.2s; display: inline-block; margin: 0 0.5rem; }
+        .btn-primary:hover { background: var(--light); transform: translateY(-1px); }
+        .btn-ghost { background: transparent; color: var(--cream); padding: 0.9rem 2.5rem; font-size: 0.9rem; font-weight: 400; text-decoration: none; border-radius: 2px; border: 1px solid rgba(253,254,249,0.3); transition: all 0.2s; display: inline-block; margin: 0 0.5rem; }
+        .btn-ghost:hover { border-color: var(--cream); }
+
+        footer { background: var(--black); padding: 2.5rem 4rem; }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+        .footer-logo { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
+        .footer-logo img { width: 32px; height: 32px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.5); background: var(--deep); padding: 1px; }
+        .footer-logo-text { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--sage); }
+        .footer-links { display: flex; gap: 2rem; list-style: none; }
+        .footer-links a { font-size: 0.78rem; color: #4a5a54; text-decoration: none; transition: color 0.2s; }
+        .footer-links a:hover { color: var(--sage); }
+        .footer-copy { font-size: 0.75rem; color: #3a4a44; }
+
+        .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 900px) {
+            nav { padding: 1rem 1.5rem; } .nav-links { display: none; }
+            .hero { padding: 8rem 2rem 4rem; } .content { padding: 4rem 2rem; }
+            .intro-block { grid-template-columns: 1fr; gap: 2.5rem; }
+            .esrs-grid { grid-template-columns: 1fr; }
+            .timeline-row { grid-template-columns: 80px 1fr; gap: 1.5rem; }
+            .cta-block { padding: 4rem 2rem; }
+            footer { padding: 2rem; } .footer-inner { flex-direction: column; gap: 1.5rem; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="nav-logo">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjAwMCIgem9vbUFuZFBhbj0ibWFnbmlmeSIgdmlld0JveD0iMCAwIDE1MDAgMTQ5OS45OTk5MzMiIGhlaWdodD0iMjAwMCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQgbWVldCIgdmVyc2lvbj0iMS4wIj48ZGVmcz48Zy8+PGNsaXBQYXRoIGlkPSJmZGNlY2NjZmFkIj48cGF0aCBkPSJNIDEyLjU3ODEyNSAxMi45Mjk2ODggTCA3OTguNzE4NzUgMTIuOTI5Njg4IEwgNzk4LjcxODc1IDc5OS4wNzAzMTIgTCAxMi41NzgxMjUgNzk5LjA3MDMxMiBaIE0gMTIuNTc4MTI1IDEyLjkyOTY4OCAiIGNsaXAtcnVsZT0ibm9uemVybyIvPjwvY2xpcFBhdGg+PGNsaXBQYXRoIGlkPSIyZjNlMzgyZjRmIj48cGF0aCBkPSJNIDQwNS42NDg0MzggMTIuOTI5Njg4IEMgMTg4LjU1ODU5NCAxMi45Mjk2ODggMTIuNTc4MTI1IDE4OC45MTQwNjIgMTIuNTc4MTI1IDQwNiBDIDEyLjU3ODEyNSA2MjMuMDg1OTM4IDE4OC41NTg1OTQgNzk5LjA3MDMxMiA0MDUuNjQ4NDM4IDc5OS4wNzAzMTIgQyA2MjIuNzM0Mzc1IDc5OS4wNzAzMTIgNzk4LjcxODc1IDYyMy4wODU5MzggNzk4LjcxODc1IDQwNiBDIDc5OC43MTg3NSAxODguOTE0MDYyIDYyMi43MzQzNzUgMTIuOTI5Njg4IDQwNS42NDg0MzggMTIuOTI5Njg4IFogTSA0MDUuNjQ4NDM4IDEyLjkyOTY4OCAiIGNsaXAtcnVsZT0ibm9uemVybyIvPjwvY2xpcFBhdGg+PGNsaXBQYXRoIGlkPSIzNGVhMWU1Mjk1Ij48cGF0aCBkPSJNIDAuNTc4MTI1IDAuOTI5Njg4IEwgNzg2LjcxODc1IDAuOTI5Njg4IEwgNzg2LjcxODc1IDc4Ny4wNzAzMTIgTCAwLjU3ODEyNSA3ODcuMDcwMzEyIFogTSAwLjU3ODEyNSAwLjkyOTY4OCAiIGNsaXAtcnVsZT0ibm9uemVybyIvPjwvY2xpcFBhdGg+PGNsaXBQYXRoIGlkPSIyNDVmMzA3YmM0Ij48cGF0aCBkPSJNIDM5My42NDg0MzggMC45Mjk2ODggQyAxNzYuNTU4NTk0IDAuOTI5Njg4IDAuNTc4MTI1IDE3Ni45MTQwNjIgMC41NzgxMjUgMzk0IEMgMC41NzgxMjUgNjExLjA4NTkzOCAxNzYuNTU4NTk0IDc4Ny4wNzAzMTIgMzkzLjY0ODQzOCA3ODcuMDcwMzEyIEMgNjEwLjczNDM3NSA3ODcuMDcwMzEyIDc4Ni43MTg3NSA2MTEuMDg1OTM4IDc4Ni43MTg3NSAzOTQgQyA3ODYuNzE4NzUgMTc2LjkxNDA2MiA2MTAuNzM0Mzc1IDAuOTI5Njg4IDM5My42NDg0MzggMC45Mjk2ODggWiBNIDM5My42NDg0MzggMC45Mjk2ODggIiBjbGlwLXJ1bGU9Im5vbnplcm8iLz48L2NsaXBQYXRoPjxjbGlwUGF0aCBpZD0iMGJjYzk4Mjk0MiI+PHJlY3QgeD0iMCIgd2lkdGg9Ijc4NyIgeT0iMCIgaGVpZ2h0PSI3ODgiLz48L2NsaXBQYXRoPjxjbGlwUGF0aCBpZD0iYTZiNGMxMWVlZiI+PHBhdGggZD0iTSAxMi41NzgxMjUgMTIuOTI5Njg4IEwgNzk4LjQ5NjA5NCAxMi45Mjk2ODggTCA3OTguNDk2MDk0IDc5OC44NDc2NTYgTCAxMi41NzgxMjUgNzk4Ljg0NzY1NiBaIE0gMTIuNTc4MTI1IDEyLjkyOTY4OCAiIGNsaXAtcnVsZT0ibm9uemVybyIvPjwvY2xpcFBhdGg+PGNsaXBQYXRoIGlkPSI5ZTc0MWUwOTM2Ij48cGF0aCBkPSJNIDQwNS42NDQ1MzEgMTIuOTI5Njg4IEMgMTg4LjU1ODU5NCAxMi45Mjk2ODggMTIuNTc4MTI1IDE4OC45MTAxNTYgMTIuNTc4MTI1IDQwNS45OTYwOTQgQyAxMi41NzgxMjUgNjIzLjA4MjAzMSAxODguNTU4NTk0IDc5OS4wNjI1IDQwNS42NDQ1MzEgNzk5LjA2MjUgQyA2MjIuNzI2NTYyIDc5OS4wNjI1IDc5OC43MTA5MzggNjIzLjA4MjAzMSA3OTguNzEwOTM4IDQwNS45OTYwOTQgQyA3OTguNzEwOTM4IDE4OC45MTAxNTYgNjIyLjcyNjU2MiAxMi45Mjk2ODggNDA1LjY0NDUzMSAxMi45Mjk2ODggWiBNIDQwNS42NDQ1MzEgMTIuOTI5Njg4ICIgY2xpcC1ydWxlPSJub256ZXJvIi8+PC9jbGlwUGF0aD48Y2xpcFBhdGggaWQ9IjUwMmRkNGI5ZTUiPjxyZWN0IHg9IjAiIHdpZHRoPSIzMDUiIHk9IjAiIGhlaWdodD0iNjE5Ii8+PC9jbGlwUGF0aD48Y2xpcFBhdGggaWQ9Ijk5YjYzYjU3ZGQiPjxyZWN0IHg9IjAiIHdpZHRoPSIyOTUiIHk9IjAiIGhlaWdodD0iNzUiLz48L2NsaXBQYXRoPjxjbGlwUGF0aCBpZD0iMzMzZWQ5NjIyNSI+PHJlY3QgeD0iMCIgd2lkdGg9IjgxMiIgeT0iMCIgaGVpZ2h0PSI4MTIiLz48L2NsaXBQYXRoPjwvZGVmcz48ZyB0cmFuc2Zvcm09Im1hdHJpeCgxLCAwLCAwLCAxLCA0MDMsIDM0NCkiPjxnIGNsaXAtcGF0aD0idXJsKCMzMzNlZDk2MjI1KSI+PGcgY2xpcC1wYXRoPSJ1cmwoI2ZkY2VjY2NmYWQpIj48ZyBjbGlwLXBhdGg9InVybCgjMmYzZTM4MmY0ZikiPjxnIHRyYW5zZm9ybT0ibWF0cml4KDEsIDAsIDAsIDEsIDEyLCAxMikiPjxnIGNsaXAtcGF0aD0idXJsKCMwYmNjOTgyOTQyKSI+PGcgY2xpcC1wYXRoPSJ1cmwoIzM0ZWExZTUyOTUpIj48ZyBjbGlwLXBhdGg9InVybCgjMjQ1ZjMwN2JjNCkiPjxwYXRoIGZpbGw9IiMwMjM0MjUiIGQ9Ik0gMC41NzgxMjUgMC45Mjk2ODggTCA3ODYuNzE4NzUgMC45Mjk2ODggTCA3ODYuNzE4NzUgNzg3LjA3MDMxMiBMIDAuNTc4MTI1IDc4Ny4wNzAzMTIgWiBNIDAuNTc4MTI1IDAuOTI5Njg4ICIgZmlsbC1vcGFjaXR5PSIxIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48L2c+PC9nPjwvZz48L2c+PC9nPjwvZz48ZyBjbGlwLXBhdGg9InVybCgjYTZiNGMxMWVlZikiPjxnIGNsaXAtcGF0aD0idXJsKCM5ZTc0MWUwOTM2KSI+PHBhdGggc3Ryb2tlLWxpbmVjYXA9ImJ1dHQiIHRyYW5zZm9ybT0ibWF0cml4KDEuMTQ3MzI1LCAwLCAwLCAxLjE0NzMyNSwgMTIuNTc2ODQzLCAxMi45Mjk3ODMpIiBmaWxsPSJub25lIiBzdHJva2UtbGluZWpvaW49Im1pdGVyIiBkPSJNIDM0Mi41OTQ3NDggLTAuMDAwMDgzNTMwMyBDIDE1My4zODQzMjkgLTAuMDAwMDgzNTMwMyAwLjAwMTExNzI1IDE1My4zODMxMjggMC4wMDExMTcyNSAzNDIuNTkzNTQ3IEMgMC4wMDExMTcyNSA1MzEuODAzOTY2IDE1My4zODQzMjkgNjg1LjE4NzE3OCAzNDIuNTk0NzQ4IDY4NS4xODcxNzggQyA1MzEuODAxNzYyIDY4NS4xODcxNzggNjg1LjE4ODM3OSA1MzEuODAzOTY2IDY4NS4xODgzNzkgMzQyLjU5MzU0NyBDIDY4NS4xODgzNzkgMTUzLjM4MzEyOCA1MzEuODAxNzYyIC0wLjAwMDA4MzUzMDMgMzQyLjU5NDc0OCAtMC4wMDAwODM1MzAzIFogTSAzNDIuNTk0NzQ4IC0wLjAwMDA4MzUzMDMgIiBzdHJva2U9IiMwMjM0MjUiIHN0cm9rZS13aWR0aD0iMy45MjIxNjQiIHN0cm9rZS1vcGFjaXR5PSIxIiBzdHJva2UtbWl0ZXJsaW1pdD0iNCIvPjwvZz48L2c+PGcgZmlsbD0iI2ZkZmVmOSIgZmlsbC1vcGFjaXR5PSIxIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg2NS45ODAwOTksIDYyNi44NTgwMzMpIj48Zz48cGF0aCBkPSJNIDUxLjQ2ODc1IDAgTCA1MS40Njg3NSAtNDQzLjMxMjUgTCAzMjUuNDg0Mzc1IC00NDMuMzEyNSBMIDMyNS40ODQzNzUgLTM5My45MjE4NzUgTCAxMDcuNDA2MjUgLTM5My45MjE4NzUgTCAxMDcuNDA2MjUgLTI0OS4zMjgxMjUgTCAzMTAuMzEyNSAtMjQ5LjMyODEyNSBMIDMxMC4zMTI1IC0xOTkuNjQwNjI1IEwgMTA3LjQwNjI1IC0xOTkuNjQwNjI1IEwgMTA3LjQwNjI1IC00OS4zOTA2MjUgTCAzMjcuNTc4MTI1IC00OS4zOTA2MjUgTCAzMjcuNTc4MTI1IDAgWiBNIDUxLjQ2ODc1IDAgIi8+PC9nPjwvZz48L2c+PGcgZmlsbD0iI2ZkZmVmOSIgZmlsbC1vcGFjaXR5PSIxIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzMjIuODk5MDY1LCA2MjYuODU4MDMzKSI+PGc+PHBhdGggZD0iTSAyMzMuNTYyNSA2LjI1IEMgMTk0LjA4MjAzMSA2LjI1IDE1OS40MTQwNjIgLTMuMTE3MTg4IDEyOS41NjI1IC0yMS44NTkzNzUgQyA5OS43MTg3NSAtNDAuNjA5Mzc1IDc2LjM2MzI4MSAtNjYuOTg4MjgxIDU5LjUgLTEwMSBDIDQyLjY0NDUzMSAtMTM1LjAxOTUzMSAzNC4yMTg3NSAtMTc1LjE0MDYyNSAzNC4yMTg3NSAtMjIxLjM1OTM3NSBDIDM0LjIxODc1IC0yNjcuOTcyNjU2IDQyLjU5NzY1NiAtMzA4LjI4NTE1NiA1OS4zNTkzNzUgLTM0Mi4yOTY4NzUgQyA3Ni4xMTcxODggLTM3Ni4zMTY0MDYgOTkuMzIwMzEyIC00MDIuNjk1MzEyIDEyOC45Njg3NSAtNDIxLjQzNzUgQyAxNTguNjI1IC00NDAuMTg3NSAxOTIuNTkzNzUgLTQ0OS41NjI1IDIzMC44NzUgLTQ0OS41NjI1IEMgMjU0LjI4MTI1IC00NDkuNTYyNSAyNzYuMTk1MzEyIC00NDYuMDM5MDYyIDI5Ni42MjUgLTQzOSBDIDMxNy4wNjI1IC00MzEuOTU3MDMxIDMzNS4zMTI1IC00MjEuOTM3NSAzNTEuMzc1IC00MDguOTM3NSBDIDM2Ny40Mzc1IC0zOTUuOTQ1MzEyIDM4MC44MjAzMTIgLTM4MC41MjM0MzggMzkxLjUzMTI1IC0zNjIuNjcxODc1IEMgNDAyLjI1IC0zNDQuODI4MTI1IDQwOS40OTIxODggLTMyNS4wOTM3NSA0MTMuMjY1NjI1IC0zMDMuNDY4NzUgTCAzNTYuMTQwNjI1IC0zMDMuNDY4NzUgQyAzNTEuNzczNDM4IC0zMTcuNzUgMzQ1Ljc3MzQzOCAtMzMwLjY5MTQwNiAzMzguMTQwNjI1IC0zNDIuMjk2ODc1IEMgMzMwLjUwMzkwNiAtMzUzLjg5ODQzOCAzMjEuMzc4OTA2IC0zNjMuODE2NDA2IDMxMC43NjU2MjUgLTM3Mi4wNDY4NzUgQyAzMDAuMTQ4NDM4IC0zODAuMjg1MTU2IDI4OC4xNDg0MzggLTM4Ni42MzI4MTIgMjc0Ljc2NTYyNSAtMzkxLjA5Mzc1IEMgMjYxLjM3ODkwNiAtMzk1LjU1MDc4MSAyNDYuNzUgLTM5Ny43ODEyNSAyMzAuODc1IC0zOTcuNzgxMjUgQyAyMDQuMTAxNTYyIC0zOTcuNzgxMjUgMTgwLjAwMzkwNiAtMzkwLjg5MDYyNSAxNTguNTc4MTI1IC0zNzcuMTA5Mzc1IEMgMTM3LjE2MDE1NiAtMzYzLjMyODEyNSAxMjAuMjAzMTI1IC0zNDMuMjk2ODc1IDEwNy43MDMxMjUgLTMxNy4wMTU2MjUgQyA5NS4yMDMxMjUgLTI5MC43MzQzNzUgODguOTUzMTI1IC0yNTguODQ3NjU2IDg4Ljk1MzEyNSAtMjIxLjM1OTM3NSBDIDg4Ljk1MzEyNSAtMTg0LjI2NTYyNSA5NS4yNSAtMTUyLjYyNSAxMDcuODQzNzUgLTEyNi40Mzc1IEMgMTIwLjQ0NTMxMiAtMTAwLjI1NzgxMiAxMzcuNjA5Mzc1IC04MC4yMjY1NjIgMTU5LjMyODEyNSAtNjYuMzQzNzUgQyAxODEuMDQ2ODc1IC01Mi40NTcwMzEgMjA1Ljc4OTA2MiAtNDUuNTE1NjI1IDIzMy41NjI1IC00NS41MTU2MjUgQyAyNTguNTUwNzgxIC00NS41MTU2MjUgMjgwLjY2NDA2MiAtNTAuODY3MTg4IDI5OS45MDYyNSAtNjEuNTc4MTI1IEMgMzE5LjE0NDUzMSAtNzIuMjk2ODc1IDMzNC4yNjU2MjUgLTg3LjQ3MjY1NiAzNDUuMjY1NjI1IC0xMDcuMTA5Mzc1IEMgMzU2LjI3MzQzOCAtMTI2Ljc0MjE4OCAzNjEuNzgxMjUgLTE0OS44NTE1NjIgMzYxLjc4MTI1IC0xNzYuNDM3NSBMIDM3OC43NSAtMTczLjQ1MzEyNSBMIDI0Ni42NDA2MjUgLTE3My40NTMxMjUgTCAyNDYuNjQwNjI1IC0yMjIuNTQ2ODc1IEwgNDE2LjUzMTI1IC0yMjIuNTQ2ODc1IEwgNDE2LjUzMTI1IC0xNzQuMzQzNzUgQyA0MTYuNTMxMjUgLTEzOC4wNTA3ODEgNDA4LjU5Mzc1IC0xMDYuMzYzMjgxIDM5Mi43MTg3NSAtNzkuMjgxMjUgQyAzNzYuODUxNTYyIC01Mi4yMDcwMzEgMzU1LjE4NzUgLTMxLjE3OTY4OCAzMjcuNzE4NzUgLTE2LjIwMzEyNSBDIDMwMC4yNSAtMS4yMzQzNzUgMjY4Ljg2MzI4MSA2LjI1IDIzMy41NjI1IDYuMjUgWiBNIDIzMy41NjI1IDYuMjUgIi8+PC9nPjwvZz48L2c+PGcgdHJhbnNmb3JtPSJtYXRyaXgoMSwgMCwgMCwgMSwgMjM2LCA5NykiPjxnIGNsaXAtcGF0aD0idXJsKCM1MDJkZDRiOWU1KSI+PGcgZmlsbD0iI2ZkZmVmOSIgZmlsbC1vcGFjaXR5PSIxIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxLjQ4NTEwNCwgNDk1LjI1NDc3MSkiPjxnPjxwYXRoIGQ9Ik0gMTYyLjYwOTM3NSA2LjQ2ODc1IEMgMTM1LjU0Njg3NSA2LjQ2ODc1IDExMi4wMDc4MTIgMS45NDUzMTIgOTIgLTcuMDkzNzUgQyA3MiAtMTYuMTQ0NTMxIDU2LjQzNzUgLTI4Ljc2NTYyNSA0NS4zMTI1IC00NC45NTMxMjUgQyAzNC4xOTUzMTIgLTYxLjE0MDYyNSAyOC4wNTQ2ODggLTgwLjE4NzUgMjYuODkwNjI1IC0xMDIuMDkzNzUgTCA3NC43MDMxMjUgLTEwMi4wOTM3NSBDIDc1LjcwMzEyNSAtODcuMzIwMzEyIDgwLjE4NzUgLTc0Ljk5MjE4OCA4OC4xNTYyNSAtNjUuMTA5Mzc1IEMgOTYuMTI1IC01NS4yMzQzNzUgMTA2LjYyNSAtNDcuODQ3NjU2IDExOS42NTYyNSAtNDIuOTUzMTI1IEMgMTMyLjY4NzUgLTM4LjA1NDY4OCAxNDcuMDAzOTA2IC0zNS42MDkzNzUgMTYyLjYwOTM3NSAtMzUuNjA5Mzc1IEMgMTc5LjcxMDkzOCAtMzUuNjA5Mzc1IDE5NC45NDUzMTIgLTM4LjM0NzY1NiAyMDguMzEyNSAtNDMuODI4MTI1IEMgMjIxLjY3NTc4MSAtNDkuMzA0Njg4IDIzMi4yMTg3NSAtNTYuOTg0Mzc1IDIzOS45Mzc1IC02Ni44NTkzNzUgQyAyNDcuNjU2MjUgLTc2Ljc0MjE4OCAyNTEuNTE1NjI1IC04OC4yNDIxODggMjUxLjUxNTYyNSAtMTAxLjM1OTM3NSBDIDI1MS41MTU2MjUgLTExMi45NzI2NTYgMjQ4LjM1OTM3NSAtMTIyLjU1NDY4OCAyNDIuMDQ2ODc1IC0xMzAuMTA5Mzc1IEMgMjM1Ljc0MjE4OCAtMTM3LjY3MTg3NSAyMjcuMDcwMzEyIC0xNDMuOTQxNDA2IDIxNi4wMzEyNSAtMTQ4LjkyMTg3NSBDIDIwNC45ODgyODEgLTE1My44OTg0MzggMTkyLjMyODEyNSAtMTU4LjI5Njg3NSAxNzguMDQ2ODc1IC0xNjIuMTA5Mzc1IEwgMTMzLjk2ODc1IC0xNzQuMzEyNSBDIDEwMi4yNTc4MTIgLTE4Mi45NDUzMTIgNzguMTAxNTYyIC0xOTUuMTA5Mzc1IDYxLjUgLTIxMC43OTY4NzUgQyA0NC45MDYyNSAtMjI2LjQ4NDM3NSAzNi42MDkzNzUgLTI0Ni42OTUzMTIgMzYuNjA5Mzc1IC0yNzEuNDM3NSBDIDM2LjYwOTM3NSAtMjkyLjUxOTUzMSA0Mi4xNjQwNjIgLTMxMC45MDYyNSA1My4yODEyNSAtMzI2LjU5Mzc1IEMgNjQuNDA2MjUgLTM0Mi4yODEyNSA3OS41OTc2NTYgLTM1NC40ODQzNzUgOTguODU5Mzc1IC0zNjMuMjAzMTI1IEMgMTE4LjExNzE4OCAtMzcxLjkyMTg3NSAxMzkuODY3MTg4IC0zNzYuMjgxMjUgMTY0LjEwOTM3NSAtMzc2LjI4MTI1IEMgMTg4Ljg0NzY1NiAtMzc2LjI4MTI1IDIxMC42MzI4MTIgLTM3MS44Nzg5MDYgMjI5LjQ2ODc1IC0zNjMuMDc4MTI1IEMgMjQ4LjMxMjUgLTM1NC4yNzM0MzggMjYzLjEyODkwNiAtMzQyLjE1NjI1IDI3My45MjE4NzUgLTMyNi43MTg3NSBDIDI4NC43MTA5MzggLTMxMS4yODEyNSAyOTAuNDQxNDA2IC0yOTMuNjc5Njg4IDI5MS4xMDkzNzUgLTI3My45MjE4NzUgTCAyNDUuMjgxMjUgLTI3My45MjE4NzUgQyAyNDMuMjg5MDYyIC0yOTMuMTc5Njg4IDIzNC43NDIxODggLTMwOC4xMjUgMjE5LjY0MDYyNSAtMzE4Ljc1IEMgMjA0LjUzNTE1NiAtMzI5LjM3NSAxODUuNTIzNDM4IC0zMzQuNjg3NSAxNjIuNjA5Mzc1IC0zMzQuNjg3NSBDIDE0Ni42NzE4NzUgLTMzNC42ODc1IDEzMi42NDA2MjUgLTMzMi4wMzEyNSAxMjAuNTE1NjI1IC0zMjYuNzE4NzUgQyAxMDguMzk4NDM4IC0zMjEuNDA2MjUgOTguOTc2NTYyIC0zMTQuMTc5Njg4IDkyLjI1IC0zMDUuMDQ2ODc1IEMgODUuNTMxMjUgLTI5NS45MjE4NzUgODIuMTcxODc1IC0yODUuNDYwOTM4IDgyLjE3MTg3NSAtMjczLjY3MTg3NSBDIDgyLjE3MTg3NSAtMjYxLjU1NDY4OCA4NS44NjMyODEgLTI1MS42NDA2MjUgOTMuMjUgLTI0My45MjE4NzUgQyAxMDAuNjQ0NTMxIC0yMzYuMjAzMTI1IDEwOS44NjMyODEgLTIzMC4wMTU2MjUgMTIwLjkwNjI1IC0yMjUuMzU5Mzc1IEMgMTMxLjk0NTMxMiAtMjIwLjcxMDkzOCAxNDIuOTQxNDA2IC0yMTYuODk0NTMxIDE1My44OTA2MjUgLTIxMy45MDYyNSBMIDE5MiAtMjAzLjcwMzEyNSBDIDIwMy43ODEyNSAtMjAwLjcxMDkzOCAyMTUuODEyNSAtMTk2LjY4NzUgMjI4LjA5Mzc1IC0xOTEuNjI1IEMgMjQwLjM4MjgxMiAtMTg2LjU2MjUgMjUxLjc1NzgxMiAtMTgwLjEyODkwNiAyNjIuMjE4NzUgLTE3Mi4zMjgxMjUgQyAyNzIuNjc1NzgxIC0xNjQuNTIzNDM4IDI4MS4xNDA2MjUgLTE1NC44MTI1IDI4Ny42MDkzNzUgLTE0My4xODc1IEMgMjk0LjA4NTkzOCAtMTMxLjU2MjUgMjk3LjMyODEyNSAtMTE3LjYxNzE4OCAyOTcuMzI4MTI1IC0xMDEuMzU5Mzc1IEMgMjk3LjMyODEyNSAtODAuNzY1NjI1IDI5MS45NzI2NTYgLTYyLjMzMjAzMSAyODEuMjY1NjI1IC00Ni4wNjI1IEMgMjcwLjU1NDY4OCAtMjkuODAwNzgxIDI1NS4xNjAxNTYgLTE2Ljk3NjU2MiAyMzUuMDc4MTI1IC03LjU5Mzc1IEMgMjE0Ljk5MjE4OCAxLjc4MTI1IDE5MC44MzU5MzggNi40Njg3NSAxNjIuNjA5Mzc1IDYuNDY4NzUgWiBNIDE2Mi42MDkzNzUgNi40Njg3NSAiLz48L2c+PC9nPjwvZz48L2c+PC9nPjxnIHRyYW5zZm9ybT0ibWF0cml4KDEsIDAsIDAsIDEsIDQ1OSwgMzMwKSI+PGcgY2xpcC1wYXRoPSJ1cmwoIzk5YjYzYjU3ZGQpIj48ZyBmaWxsPSIjZmRmZWY5IiBmaWxsLW9wYWNpdHk9IjEiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIuNTc5MTUsIDU1Ljg5NzY0NCkiPjxnPjxwYXRoIGQ9Ik0gMzQuNzM0Mzc1IDAgTCAyNS43MzQzNzUgLTEyLjkwNjI1IEMgMjUuMzU5Mzc1IC0xMi44NjMyODEgMjQuNzg5MDYyIC0xMi44NDM3NSAyNC4wMzEyNSAtMTIuODQzNzUgTCAxNC4wOTM3NSAtMTIuODQzNzUgTCAxNC4wOTM3NSAwIEwgNS45MjE4NzUgMCBMIDUuOTIxODc1IC00NC4wNDY4NzUgTCAyNC4wMzEyNSAtNDQuMDQ2ODc1IEMgMjcuODUxNTYyIC00NC4wNDY4NzUgMzEuMTc1NzgxIC00My40MTQwNjIgMzQgLTQyLjE1NjI1IEMgMzYuODMyMDMxIC00MC44OTQ1MzEgMzkuMDAzOTA2IC0zOS4wODU5MzggNDAuNTE1NjI1IC0zNi43MzQzNzUgQyA0Mi4wMjM0MzggLTM0LjM5MDYyNSA0Mi43ODEyNSAtMzEuNjAxNTYyIDQyLjc4MTI1IC0yOC4zNzUgQyA0Mi43ODEyNSAtMjUuMDYyNSA0MS45NzI2NTYgLTIyLjIwNzAzMSA0MC4zNTkzNzUgLTE5LjgxMjUgQyAzOC43NDIxODggLTE3LjQyNTc4MSAzNi40MjU3ODEgLTE1LjY0NDUzMSAzMy40MDYyNSAtMTQuNDY4NzUgTCA0My41NDY4NzUgMCBaIE0gMzQuNTQ2ODc1IC0yOC4zNzUgQyAzNC41NDY4NzUgLTMxLjE4NzUgMzMuNjE3MTg4IC0zMy4zNDc2NTYgMzEuNzY1NjI1IC0zNC44NTkzNzUgQyAyOS45MjE4NzUgLTM2LjM2NzE4OCAyNy4yMTg3NSAtMzcuMTI1IDIzLjY1NjI1IC0zNy4xMjUgTCAxNC4wOTM3NSAtMzcuMTI1IEwgMTQuMDkzNzUgLTE5LjU2MjUgTCAyMy42NTYyNSAtMTkuNTYyNSBDIDI3LjIxODc1IC0xOS41NjI1IDI5LjkyMTg3NSAtMjAuMzI4MTI1IDMxLjc2NTYyNSAtMjEuODU5Mzc1IEMgMzMuNjE3MTg4IC0yMy4zOTA2MjUgMzQuNTQ2ODc1IC0yNS41NjI1IDM0LjU0Njg3NSAtMjguMzc1IFogTSAzNC41NDY4NzUgLTI4LjM3NSAiLz48L2c+PC9nPjwvZz48ZyBmaWxsPSIjZmRmZWY5IiBmaWxsLW9wYWNpdHk9IjEiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDYwLjQ0NjE4OCwgNTUuODk3NjQ0KSI+PGc+PHBhdGggZD0iTSAzOC45NTMxMjUgLTYuODU5Mzc1IEwgMzguOTUzMTI1IDAgTCA1LjkyMTg3NSAwIEwgNS45MjE4NzUgLTQ0LjA0Njg3NSBMIDM4LjA2MjUgLTQ0LjA0Njg3NSBMIDM4LjA2MjUgLTM3LjE4NzUgTCAxNC4wOTM3NSAtMzcuMTg3NSBMIDE0LjA5Mzc1IC0yNS43MzQzNzUgTCAzNS4zNTkzNzUgLTI1LjczNDM3NSBMIDM1LjM1OTM3NSAtMTkgTCAxNC4wOTM3NSAtMTkgTCAxNC4wOTM3NSAtNi44NTkzNzUgWiBNIDM4Ljk1MzEyNSAtNi44NTkzNzUgIi8+PC9nPjwvZz48L2c+PGcgZmlsbD0iI2ZkZmVmOSIgZmlsbC1vcGFjaXR5PSIxIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMTQuNDc3MDY4LCA1NS44OTc2NDQpIj48Zz48cGF0aCBkPSJNIDM0LjQ4NDM3NSAtMTAuMTg3NSBMIDEyLjQ1MzEyNSAtMTAuMTg3NSBMIDguMTA5Mzc1IDAgTCAtMC4zMTI1IDAgTCAxOS41IC00NC4wNDY4NzUgTCAyNy41NjI1IC00NC4wNDY4NzUgTCA0Ny40Mzc1IDAgTCAzOC44OTA2MjUgMCBaIE0gMzEuNzgxMjUgLTE2LjYwOTM3NSBMIDIzLjQ2ODc1IC0zNS44NTkzNzUgTCAxNS4yMzQzNzUgLTE2LjYwOTM3NSBaIE0gMzEuNzgxMjUgLTE2LjYwOTM3NSAiLz48L2c+PC9nPjwvZz48ZyBmaWxsPSIjZmRmZWY5IiBmaWxsLW9wYWNpdHk9IjEiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE3My40NzYwOTUsIDU1Ljg5NzY0NCkiPjxnPjxwYXRoIGQ9Ik0gNS45MjE4NzUgLTQ0LjA0Njg3NSBMIDI1LjE3MTg3NSAtNDQuMDQ2ODc1IEMgMjkuODY3MTg4IC00NC4wNDY4NzUgMzQuMDM5MDYyIC00My4xMzI4MTIgMzcuNjg3NSAtNDEuMzEyNSBDIDQxLjM0Mzc1IC0zOS40ODgyODEgNDQuMTc1NzgxIC0zNi45MDYyNSA0Ni4xODc1IC0zMy41NjI1IEMgNDguMTk1MzEyIC0zMC4yMjY1NjIgNDkuMjAzMTI1IC0yNi4zNzg5MDYgNDkuMjAzMTI1IC0yMi4wMTU2MjUgQyA0OS4yMDMxMjUgLTE3LjY2MDE1NiA0OC4xOTUzMTIgLTEzLjgxMjUgNDYuMTg3NSAtMTAuNDY4NzUgQyA0NC4xNzU3ODEgLTcuMTMyODEyIDQxLjM0Mzc1IC00LjU1NDY4OCAzNy42ODc1IC0yLjczNDM3NSBDIDM0LjAzOTA2MiAtMC45MTAxNTYgMjkuODY3MTg4IDAgMjUuMTcxODc1IDAgTCA1LjkyMTg3NSAwIFogTSAyNC43OTY4NzUgLTYuOTIxODc1IEMgMjguMDIzNDM4IC02LjkyMTg3NSAzMC44NjMyODEgLTcuNTM5MDYyIDMzLjMxMjUgLTguNzgxMjUgQyAzNS43Njk1MzEgLTEwLjAxOTUzMSAzNy42NjAxNTYgLTExLjc4MTI1IDM4Ljk4NDM3NSAtMTQuMDYyNSBDIDQwLjMwNDY4OCAtMTYuMzUxNTYyIDQwLjk2ODc1IC0xOS4wMDM5MDYgNDAuOTY4NzUgLTIyLjAxNTYyNSBDIDQwLjk2ODc1IC0yNS4wMzUxNTYgNDAuMzA0Njg4IC0yNy42ODc1IDM4Ljk4NDM3NSAtMjkuOTY4NzUgQyAzNy42NjAxNTYgLTMyLjI1NzgxMiAzNS43Njk1MzEgLTM0LjAyMzQzOCAzMy4zMTI1IC0zNS4yNjU2MjUgQyAzMC44NjMyODEgLTM2LjUwMzkwNiAyOC4wMjM0MzggLTM3LjEyNSAyNC43OTY4NzUgLTM3LjEyNSBMIDE0LjA5Mzc1IC0zNy4xMjUgTCAxNC4wOTM3NSAtNi45MjE4NzUgWiBNIDI0Ljc5Njg3NSAtNi45MjE4NzUgIi8+PC9nPjwvZz48L2c+PGcgZmlsbD0iI2ZkZmVmOSIgZmlsbC1vcGFjaXR5PSIxIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyMzcuMzE3NTA0LCA1NS44OTc2NDQpIj48Zz48cGF0aCBkPSJNIDI0LjkyMTg3NSAtMTUuNTQ2ODc1IEwgMjQuOTIxODc1IDAgTCAxNi43MzQzNzUgMCBMIDE2LjczNDM3NSAtMTUuNDIxODc1IEwgLTAuNTYyNSAtNDQuMDQ2ODc1IEwgOC4xODc1IC00NC4wNDY4NzUgTCAyMS4wNzgxMjUgLTIyLjU5Mzc1IEwgMzQuMTA5Mzc1IC00NC4wNDY4NzUgTCA0Mi4xNTYyNSAtNDQuMDQ2ODc1IFogTSAyNC45MjE4NzUgLTE1LjU0Njg3NSAiLz48L2c+PC9nPjwvZz48L2c+PC9nPjwvZz48L2c+PC9zdmc+" alt="ESG Ready">
+            <span class="nav-logo-text">ESG Ready</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Startseite</a></li>
+            <li><a href="esrs.html" class="active">ESRS & CSRD</a></li>
+            <li><a href="packages.html">Pakete</a></li>
+            <li><a href="about.html">Über uns</a></li>
+            <li><a href="index.html#contact" class="nav-cta">Jetzt starten</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero">
+        <div class="hero-inner">
+            <span class="hero-tag">Regulierung verständlich erklärt</span>
+            <h1 class="hero-h1">Was sind ESRS & CSRD —<br><em>und warum betrifft es Ihr Unternehmen?</em></h1>
+            <p class="hero-sub">Neue EU-Vorschriften verändern, wie Unternehmen über Nachhaltigkeit berichten müssen. Wir erklären, was das konkret bedeutet — für große Konzerne und für KMU.</p>
+        </div>
+    </div>
+
+    <div class="content">
+
+        <div class="intro-block fade-up">
+            <div class="intro-text">
+                <span class="section-tag">Die Grundlagen</span>
+                <h2 class="section-title">Zwei Begriffe,<br><em>die Sie kennen müssen</em></h2>
+                <p>Die EU hat mit der Corporate Sustainability Reporting Directive (CSRD) einen neuen, verbindlichen Rahmen für Nachhaltigkeitsberichte geschaffen. Die technische Umsetzung erfolgt über die European Sustainability Reporting Standards (ESRS) — ein Regelwerk aus zwölf detaillierten Standards.</p>
+                <p>Kurz gesagt: Die CSRD ist das Gesetz. Die ESRS sind die genauen Vorgaben, was in einem ESG-Bericht stehen muss, wie Daten erhoben werden und was offenzulegen ist.</p>
+                <p>Was viele nicht wissen: Diese Pflichten treffen nicht nur Großunternehmen. Über die Lieferkette werden auch kleine und mittlere Unternehmen zunehmend in die Pflicht genommen.</p>
+            </div>
+            <div>
+                <div class="definition-card">
+                    <h3>CSRD</h3>
+                    <span class="abbr">Corporate Sustainability Reporting Directive</span>
+                    <p>EU-Richtlinie, die seit 2024 schrittweise in Kraft tritt. Verpflichtet Unternehmen ab einer bestimmten Größe zur strukturierten Nachhaltigkeitsberichterstattung — vergleichbar mit der Finanzberichterstattung.</p>
+                    <div class="divider"></div>
+                    <h3>ESRS</h3>
+                    <span class="abbr">European Sustainability Reporting Standards</span>
+                    <p>12 detaillierte Standards, die vorgeben wie berichtet werden muss. Aufgeteilt in Querschnittsstandards (ESRS 1 & 2) und thematische Standards zu Umwelt, Soziales und Governance.</p>
+                    <div class="divider"></div>
+                    <h3>ESG</h3>
+                    <span class="abbr">Environmental, Social & Governance</span>
+                    <p>Die drei Säulen der Nachhaltigkeitsberichterstattung: Umwelt, Soziales und Unternehmensführung. ESG ist der übergeordnete Begriff, ESRS die technische Umsetzung.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline-section fade-up">
+            <span class="section-tag">Zeitplan der EU</span>
+            <h2 class="section-title">Wer muss wann<br><em>berichten?</em></h2>
+            <div class="timeline">
+                <div class="timeline-row">
+                    <div class="timeline-date">2024</div>
+                    <div class="timeline-content">
+                        <span class="tag active">Bereits in Kraft</span>
+                        <h3>Große kapitalmarktorientierte Unternehmen</h3>
+                        <p>Unternehmen mit mehr als 500 Mitarbeitern, die bereits unter die NFRD-Pflicht fielen. Erste Berichte nach neuem Standard für das Geschäftsjahr 2024.</p>
+                    </div>
+                </div>
+                <div class="timeline-row">
+                    <div class="timeline-date">2025</div>
+                    <div class="timeline-content">
+                        <span class="tag active">Läuft gerade an</span>
+                        <h3>Alle großen Unternehmen</h3>
+                        <p>Unternehmen mit mehr als 250 Mitarbeitern oder 40 Mio. EUR Umsatz. Ab diesem Jahr müssen sie ESRS-konforme Berichte für das Geschäftsjahr 2025 vorlegen.</p>
+                    </div>
+                </div>
+                <div class="timeline-row">
+                    <div class="timeline-date">2026</div>
+                    <div class="timeline-content">
+                        <span class="tag">Bald relevant</span>
+                        <h3>Börsennotierte KMU</h3>
+                        <p>Kleine und mittlere Unternehmen, die an einem EU-regulierten Markt gelistet sind, fallen ab 2026 unter die Berichtspflicht.</p>
+                    </div>
+                </div>
+                <div class="timeline-row">
+                    <div class="timeline-date">Jetzt</div>
+                    <div class="timeline-content">
+                        <span class="tag">Indirekter Druck</span>
+                        <h3>Alle KMU als Zulieferer</h3>
+                        <p>Auch wenn KMU formal noch nicht berichtspflichtig sind: Große Unternehmen müssen ihre gesamte Lieferkette erfassen. Als Lieferant werden Sie zunehmend nach ESG-Daten gefragt — von Ihren Kunden.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="fade-up">
+            <span class="section-tag">Die zwölf Standards</span>
+            <h2 class="section-title">Was die ESRS<br><em>konkret verlangen</em></h2>
+            <p style="margin-bottom: 2.5rem;">Die ESRS decken drei Bereiche ab: Querschnittsthemen, Umwelt (E), Soziales (S) und Governance (G). Jeder Standard definiert, welche Informationen offenzulegen sind.</p>
+            <div class="esrs-grid">
+                <div class="esrs-card dark">
+                    <span class="code">ESRS 1 & 2</span>
+                    <h3>Allgemeine Anforderungen</h3>
+                    <p>Grundprinzipien der Berichterstattung, Wesentlichkeitsbewertung und allgemeine Angaben zum Unternehmen und seiner Nachhaltigkeitsstrategie.</p>
+                </div>
+                <div class="esrs-card">
+                    <span class="code">ESRS E1</span>
+                    <h3>Klimawandel</h3>
+                    <p>CO2-Emissionen (Scope 1, 2 & 3), Klimarisiken, Energieverbrauch und Maßnahmen zur Emissionsreduzierung.</p>
+                </div>
+                <div class="esrs-card">
+                    <span class="code">ESRS E2</span>
+                    <h3>Umweltverschmutzung</h3>
+                    <p>Schadstoffemissionen in Luft, Wasser und Boden. Verwendung und Freisetzung gefährlicher Stoffe.</p>
+                </div>
+                <div class="esrs-card">
+                    <span class="code">ESRS E3</span>
+                    <h3>Wasserressourcen</h3>
+                    <p>Wasserverbrauch, Wasserentnahme, Abwasser und Auswirkungen auf Wasserökosysteme.</p>
+                </div>
+                <div class="esrs-card">
+                    <span class="code">ESRS E4</span>
+                    <h3>Biodiversität</h3>
+                    <p>Auswirkungen auf Ökosysteme und Artenvielfalt. Besonders relevant für Unternehmen mit direktem Naturflächenbezug.</p>
+                </div>
+                <div class="esrs-card">
+                    <span class="code">ESRS E5</span>
+                    <h3>Ressourcen & Kreislaufwirtschaft</h3>
+                    <p>Materialverbrauch, Abfallmanagement, Kreislaufwirtschaftsprinzipien und Produktlebensdauer.</p>
+                </div>
+                <div class="esrs-card">
+                    <span class="code">ESRS S1</span>
+                    <h3>Eigene Belegschaft</h3>
+                    <p>Arbeitsbedingungen, Gehälter, Vielfalt, Gesundheit und Sicherheit der eigenen Mitarbeiter.</p>
+                </div>
+                <div class="esrs-card">
+                    <span class="code">ESRS S2 & S3</span>
+                    <h3>Lieferkette & Gemeinschaften</h3>
+                    <p>Soziale Standards entlang der Lieferkette und Auswirkungen auf lokale Gemeinschaften.</p>
+                </div>
+                <div class="esrs-card">
+                    <span class="code">ESRS S4</span>
+                    <h3>Verbraucher & Endnutzer</h3>
+                    <p>Produktsicherheit, Verbraucherschutz und verantwortungsvolle Vermarktung.</p>
+                </div>
+                <div class="esrs-card">
+                    <span class="code">ESRS G1</span>
+                    <h3>Unternehmensführung</h3>
+                    <p>Compliance, Anti-Korruption, Transparenz, Lobbying und Verantwortung im Lieferkettenmanagement.</p>
+                </div>
+                <div class="esrs-card dark">
+                    <span class="code">Wesentlichkeit</span>
+                    <h3>Was ist für Sie relevant?</h3>
+                    <p>Nicht alle Standards gelten gleich. Eine Wesentlichkeitsanalyse bestimmt, welche Themen für Ihr Unternehmen tatsächlich berichtspflichtig sind.</p>
+                </div>
+                <div class="esrs-card dark">
+                    <span class="code">ESG Ready</span>
+                    <h3>Wir übernehmen das</h3>
+                    <p>Unser Wizard führt Sie durch alle relevanten Standards — und ermittelt automatisch, welche Punkte für Ihre Branche und Unternehmensgröße wesentlich sind.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="warning-block fade-up">
+            <h3>Was passiert bei Nichteinhaltung?</h3>
+            <p>Unternehmen, die der CSRD-Berichtspflicht unterliegen und keine konformen Berichte vorlegen, riskieren Bussgelder, den Verlust von Bankfinanzierungen (EU-Taxonomie-Konformität wird vorausgesetzt) und den Ausschluss aus Lieferketten von Großunternehmen.</p>
+            <p>Für KMU als Zulieferer gilt: Wer keine ESG-Daten liefern kann, verliert Aufträge. Bereits heute fordern immer mehr Großunternehmen strukturierte Nachhaltigkeitsnachweise von ihren Lieferanten — auch wenn diese noch nicht formal berichtspflichtig sind.</p>
+            <p>Auch Banken und Kreditinstitute berücksichtigen ESG-Kriterien zunehmend bei der Kreditvergabe. Im Rahmen der EU-Taxonomie und der eigenen Nachhaltigkeitsberichterstattung der Banken werden Unternehmenskredite künftig verstärkt an ESG-Nachweise geknüpft. Ein vorhandener ESG-Bericht kann damit direkt die Finanzierungskonditionen Ihres Unternehmens beeinflussen.</p>
+        </div>
+
+        <div class="faq fade-up">
+            <span class="section-tag">Häufige Fragen</span>
+            <h2 class="section-title" style="margin-bottom: 2.5rem;">Was KMU<br><em>am häufigsten fragen</em></h2>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    Bin ich als KMU direkt von der CSRD betroffen?
+                    <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                </div>
+                <div class="faq-answer"><p>Direkt berichtspflichtig nach CSRD sind zunächst Unternehmen mit mehr als 250 Mitarbeitern oder 40 Mio. EUR Umsatz. Für kleinere KMU gibt es noch keine direkte Pflicht. Indirekt sind Sie aber sehr wohl betroffen: Als Zulieferer müssen Sie zunehmend ESG-Daten an Ihre Großkunden liefern, die ihrerseits die gesamte Lieferkette erfassen müssen.</p></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    Was kostet ein professioneller ESG-Bericht ohne ESG Ready?
+                    <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                </div>
+                <div class="faq-answer"><p>Eine klassische ESG-Beratung durch externe Unternehmensberatungen kostet für KMU typischerweise zwischen 15.000 und 50.000 Euro — für die erstmalige Erstellung. Jährliche Updates liegen meist zwischen 5.000 und 15.000 Euro. Für die meisten KMU ist das schlicht nicht leistbar. ESG Ready bietet eine vollständige Alternative zu einem Bruchteil dieser Kosten.</p></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    Wie lange dauert die Erstellung eines ESG-Berichts mit ESG Ready?
+                    <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                </div>
+                <div class="faq-answer"><p>Mit ESG Ready dauert die erstmalige Dateneingabe je nach Unternehmensgröße zwischen 2 und 6 Stunden. Der eigentliche Bericht wird danach automatisch generiert. Wenn Sie das ESG Certified oder Partner Paket gewählt haben, folgt anschließend ein Review-Call mit unserem Experten — typischerweise 1-2 Stunden. Der gesamte Prozess von Dateneingabe bis fertigem Bericht dauert selten länger als eine Woche.</p></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    Ist der Bericht wirklich ESRS-konform?
+                    <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                </div>
+                <div class="faq-answer"><p>Ja. Unser System basiert auf den offiziellen ESRS-Standards der EFRAG (European Financial Reporting Advisory Group). Die Zuordnung aller Datenpunkte, Berechnungsmethoden und Offenlegungsanforderungen folgt den verabschiedeten Delegierten Rechtsakten der EU-Kommission. Bei den Paketen ESG Certified und ESG Partner erfolgt zusätzlich eine persönliche Prüfung durch Dipl.-Ing. Alexander Riedl.</p></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    Was passiert, wenn sich die Regulierung ändert?
+                    <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                </div>
+                <div class="faq-answer"><p>ESG Ready wird laufend an neue regulatorische Anforderungen angepasst. Als Kunde profitieren Sie automatisch von allen Updates — ohne Mehrkosten. Die EU-Regulierung im ESG-Bereich entwickelt sich schnell, und wir behalten das für Sie im Blick.</p></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    Kann ich den fertigen Bericht direkt an meine Partner schicken?
+                    <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                </div>
+                <div class="faq-answer"><p>Für die interne Nutzung und als Nachweisdokument gegenüber Kunden oder Lieferanten ist der Bericht direkt verwendbar. Für eine offizielle, extern testierte Berichterstattung — etwa zur Erfüllung der direkten CSRD-Pflicht — ist jedoch eine Prüfung durch einen unabhängigen Wirtschaftsprüfer erforderlich. Diese externe Prüfung können wir leider nicht anbieten, da der Prüfer gesetzlich unabhängig vom Ersteller des Berichts sein muss. Wir empfehlen in diesem Fall, den fertigen ESG Ready-Bericht als Grundlage für die Wirtschaftsprüfung zu verwenden — das spart erheblich Zeit und Kosten.</p></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    Was brauche ich für die Dateneingabe?
+                    <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                </div>
+                <div class="faq-answer"><p>Die wichtigsten Dokumente und Informationen sind: Strom- und Gasrechnungen, Wasserrechnungen, Tankbelege und Kraftstoffnachweise, Angaben zu Ihren Mitarbeitern (Anzahl, Vollzeit/Teilzeit, Fluktuation), Informationen zu Geschäftsreisen (Flüge, Bahnfahrten, Hotelübernachtungen) sowie vorhandene interne Richtlinien zu Umwelt-, Gleichstellungs- oder Compliance-Themen. Grundsätzlich gilt: Je mehr Unterlagen Sie vorlegen können, desto aussagekräftiger und seriöser wird Ihr Bericht. Das System führt Sie Schritt für Schritt durch alle Datenpunkte — fehlende Angaben können geschätzt oder nachgereicht werden.</p></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    Kann ich zusätzliche Beratungsstunden buchen?
+                    <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                </div>
+                <div class="faq-answer"><p>Ja. Sie können jederzeit über unsere Website weitere Beratungsstunden buchen und direkt einen Termin mit unserem Umweltexperten vereinbaren. Eine Einzelstunde kostet 249 EUR. Das ist besonders hilfreich, wenn nach dem Bericht konkrete Fragen zur ESG-Strategie oder zu spezifischen ESRS-Anforderungen entstehen.</p></div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="cta-block">
+        <h2>Bereit, den ersten Schritt zu machen?</h2>
+        <p>Wir begleiten Sie durch den gesamten Prozess — von der ersten Dateneingabe bis zum fertigen, unterschriebenen Bericht.</p>
+        <a href="packages.html" class="btn-primary">Pakete ansehen</a>
+        <a href="index.html#contact" class="btn-ghost">Kontakt aufnehmen</a>
+    </div>
+
+    <footer>
+        <div class="footer-inner">
+            <a href="index.html" class="footer-logo">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjAwMCIgem9vbUFuZFBhbj0ibWFnbmlmeSIgdmlld0JveD0iMCAwIDE1MDAgMTQ5OS45OTk5MzMiIGhlaWdodD0iMjAwMCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQgbWVldCIgdmVyc2lvbj0iMS4wIj48ZGVmcz48Zy8+PGNsaXBQYXRoIGlkPSJmZGNlY2NjZmFkIj48cGF0aCBkPSJNIDEyLjU3ODEyNSAxMi45Mjk2ODggTCA3OTguNzE4NzUgMTIuOTI5Njg4IEwgNzk4LjcxODc1IDc5OS4wNzAzMTIgTCAxMi41NzgxMjUgNzk5LjA3MDMxMiBaIE0gMTIuNTc4MTI1IDEyLjkyOTY4OCAiIGNsaXAtcnVsZT0ibm9uemVybyIvPjwvY2xpcFBhdGg+PGNsaXBQYXRoIGlkPSIyZjNlMzgyZjRmIj48cGF0aCBkPSJNIDQwNS42NDg0MzggMTIuOTI5Njg4IEMgMTg4LjU1ODU5NCAxMi45Mjk2ODggMTIuNTc4MTI1IDE4OC45MTQwNjIgMTIuNTc4MTI1IDQwNiBDIDEyLjU3ODEyNSA2MjMuMDg1OTM4IDE4OC41NTg1OTQgNzk5LjA3MDMxMiA0MDUuNjQ4NDM4IDc5OS4wNzAzMTIgQyA2MjIuNzM0Mzc1IDc5OS4wNzAzMTIgNzk4LjcxODc1IDYyMy4wODU5MzggNzk4LjcxODc1IDQwNiBDIDc5OC43MTg3NSAxODguOTE0MDYyIDYyMi43MzQzNzUgMTIuOTI5Njg4IDQwNS42NDg0MzggMTIuOTI5Njg4IFogTSA0MDUuNjQ4NDM4IDEyLjkyOTY4OCAiIGNsaXAtcnVsZT0ibm9uemVybyIvPjwvY2xpcFBhdGg+PGNsaXBQYXRoIGlkPSIzNGVhMWU1Mjk1Ij48cGF0aCBkPSJNIDAuNTc4MTI1IDAuOTI5Njg4IEwgNzg2LjcxODc1IDAuOTI5Njg4IEwgNzg2LjcxODc1IDc4Ny4wNzAzMTIgTCAwLjU3ODEyNSA3ODcuMDcwMzEyIFogTSAwLjU3ODEyNSAwLjkyOTY4OCAiIGNsaXAtcnVsZT0ibm9uemVybyIvPjwvY2xpcFBhdGg+PGNsaXBQYXRoIGlkPSIyNDVmMzA3YmM0Ij48cGF0aCBkPSJNIDM5My42NDg0MzggMC45Mjk2ODggQyAxNzYuNTU4NTk0IDAuOTI5Njg4IDAuNTc4MTI1IDE3Ni45MTQwNjIgMC41NzgxMjUgMzk0IEMgMC41NzgxMjUgNjExLjA4NTkzOCAxNzYuNTU4NTk0IDc4Ny4wNzAzMTIgMzkzLjY0ODQzOCA3ODcuMDcwMzEyIEMgNjEwLjczNDM3NSA3ODcuMDcwMzEyIDc4Ni43MTg3NSA2MTEuMDg1OTM4IDc4Ni43MTg3NSAzOTQgQyA3ODYuNzE4NzUgMTc2LjkxNDA2MiA2MTAuNzM0Mzc1IDAuOTI5Njg4IDM5My42NDg0MzggMC45Mjk2ODggWiBNIDM5My42NDg0MzggMC45Mjk2ODggIiBjbGlwLXJ1bGU9Im5vbnplcm8iLz48L2NsaXBQYXRoPjxjbGlwUGF0aCBpZD0iMGJjYzk4Mjk0MiI+PHJlY3QgeD0iMCIgd2lkdGg9Ijc4NyIgeT0iMCIgaGVpZ2h0PSI3ODgiLz48L2NsaXBQYXRoPjxjbGlwUGF0aCBpZD0iYTZiNGMxMWVlZiI+PHBhdGggZD0iTSAxMi41NzgxMjUgMTIuOTI5Njg4IEwgNzk4LjQ5NjA5NCAxMi45Mjk2ODggTCA3OTguNDk2MDk0IDc5OC44NDc2NTYgTCAxMi41NzgxMjUgNzk4Ljg0NzY1NiBaIE0gMTIuNTc4MTI1IDEyLjkyOTY4OCAiIGNsaXAtcnVsZT0ibm9uemVybyIvPjwvY2xpcFBhdGg+PGNsaXBQYXRoIGlkPSI5ZTc0MWUwOTM2Ij48cGF0aCBkPSJNIDQwNS42NDQ1MzEgMTIuOTI5Njg4IEMgMTg4LjU1ODU5NCAxMi45Mjk2ODggMTIuNTc4MTI1IDE4OC45MTAxNTYgMTIuNTc4MTI1IDQwNS45OTYwOTQgQyAxMi41NzgxMjUgNjIzLjA4MjAzMSAxODguNTU4NTk0IDc5OS4wNjI1IDQwNS42NDQ1MzEgNzk5LjA2MjUgQyA2MjIuNzI2NTYyIDc5OS4wNjI1IDc5OC43MTA5MzggNjIzLjA4MjAzMSA3OTguNzEwOTM4IDQwNS45OTYwOTQgQyA3OTguNzEwOTM4IDE4OC45MTAxNTYgNjIyLjcyNjU2MiAxMi45Mjk2ODggNDA1LjY0NDUzMSAxMi45Mjk2ODggWiBNIDQwNS42NDQ1MzEgMTIuOTI5Njg4ICIgY2xpcC1ydWxlPSJub256ZXJvIi8+PC9jbGlwUGF0aD48Y2xpcFBhdGggaWQ9IjUwMmRkNGI5ZTUiPjxyZWN0IHg9IjAiIHdpZHRoPSIzMDUiIHk9IjAiIGhlaWdodD0iNjE5Ii8+PC9jbGlwUGF0aD48Y2xpcFBhdGggaWQ9Ijk5YjYzYjU3ZGQiPjxyZWN0IHg9IjAiIHdpZHRoPSIyOTUiIHk9IjAiIGhlaWdodD0iNzUiLz48L2NsaXBQYXRoPjxjbGlwUGF0aCBpZD0iMzMzZWQ5NjIyNSI+PHJlY3QgeD0iMCIgd2lkdGg9IjgxMiIgeT0iMCIgaGVpZ2h0PSI4MTIiLz48L2NsaXBQYXRoPjwvZGVmcz48ZyB0cmFuc2Zvcm09Im1hdHJpeCgxLCAwLCAwLCAxLCA0MDMsIDM0NCkiPjxnIGNsaXAtcGF0aD0idXJsKCMzMzNlZDk2MjI1KSI+PGcgY2xpcC1wYXRoPSJ1cmwoI2ZkY2VjY2NmYWQpIj48ZyBjbGlwLXBhdGg9InVybCgjMmYzZTM4MmY0ZikiPjxnIHRyYW5zZm9ybT0ibWF0cml4KDEsIDAsIDAsIDEsIDEyLCAxMikiPjxnIGNsaXAtcGF0aD0idXJsKCMwYmNjOTgyOTQyKSI+PGcgY2xpcC1wYXRoPSJ1cmwoIzM0ZWExZTUyOTUpIj48ZyBjbGlwLXBhdGg9InVybCgjMjQ1ZjMwN2JjNCkiPjxwYXRoIGZpbGw9IiMwMjM0MjUiIGQ9Ik0gMC41NzgxMjUgMC45Mjk2ODggTCA3ODYuNzE4NzUgMC45Mjk2ODggTCA3ODYuNzE4NzUgNzg3LjA3MDMxMiBMIDAuNTc4MTI1IDc4Ny4wNzAzMTIgWiBNIDAuNTc4MTI1IDAuOTI5Njg4ICIgZmlsbC1vcGFjaXR5PSIxIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48L2c+PC9nPjwvZz48L2c+PC9nPjwvZz48ZyBjbGlwLXBhdGg9InVybCgjYTZiNGMxMWVlZikiPjxnIGNsaXAtcGF0aD0idXJsKCM5ZTc0MWUwOTM2KSI+PHBhdGggc3Ryb2tlLWxpbmVjYXA9ImJ1dHQiIHRyYW5zZm9ybT0ibWF0cml4KDEuMTQ3MzI1LCAwLCAwLCAxLjE0NzMyNSwgMTIuNTc2ODQzLCAxMi45Mjk3ODMpIiBmaWxsPSJub25lIiBzdHJva2UtbGluZWpvaW49Im1pdGVyIiBkPSJNIDM0Mi41OTQ3NDggLTAuMDAwMDgzNTMwMyBDIDE1My4zODQzMjkgLTAuMDAwMDgzNTMwMyAwLjAwMTExNzI1IDE1My4zODMxMjggMC4wMDExMTcyNSAzNDIuNTkzNTQ3IEMgMC4wMDExMTcyNSA1MzEuODAzOTY2IDE1My4zODQzMjkgNjg1LjE4NzE3OCAzNDIuNTk0NzQ4IDY4NS4xODcxNzggQyA1MzEuODAxNzYyIDY4NS4xODcxNzggNjg1LjE4ODM3OSA1MzEuODAzOTY2IDY4NS4xODgzNzkgMzQyLjU5MzU0NyBDIDY4NS4xODgzNzkgMTUzLjM4MzEyOCA1MzEuODAxNzYyIC0wLjAwMDA4MzUzMDMgMzQyLjU5NDc0OCAtMC4wMDAwODM1MzAzIFogTSAzNDIuNTk0NzQ4IC0wLjAwMDA4MzUzMDMgIiBzdHJva2U9IiMwMjM0MjUiIHN0cm9rZS13aWR0aD0iMy45MjIxNjQiIHN0cm9rZS1vcGFjaXR5PSIxIiBzdHJva2UtbWl0ZXJsaW1pdD0iNCIvPjwvZz48L2c+PGcgZmlsbD0iI2ZkZmVmOSIgZmlsbC1vcGFjaXR5PSIxIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg2NS45ODAwOTksIDYyNi44NTgwMzMpIj48Zz48cGF0aCBkPSJNIDUxLjQ2ODc1IDAgTCA1MS40Njg3NSAtNDQzLjMxMjUgTCAzMjUuNDg0Mzc1IC00NDMuMzEyNSBMIDMyNS40ODQzNzUgLTM5My45MjE4NzUgTCAxMDcuNDA2MjUgLTM5My45MjE4NzUgTCAxMDcuNDA2MjUgLTI0OS4zMjgxMjUgTCAzMTAuMzEyNSAtMjQ5LjMyODEyNSBMIDMxMC4zMTI1IC0xOTkuNjQwNjI1IEwgMTA3LjQwNjI1IC0xOTkuNjQwNjI1IEwgMTA3LjQwNjI1IC00OS4zOTA2MjUgTCAzMjcuNTc4MTI1IC00OS4zOTA2MjUgTCAzMjcuNTc4MTI1IDAgWiBNIDUxLjQ2ODc1IDAgIi8+PC9nPjwvZz48L2c+PGcgZmlsbD0iI2ZkZmVmOSIgZmlsbC1vcGFjaXR5PSIxIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzMjIuODk5MDY1LCA2MjYuODU4MDMzKSI+PGc+PHBhdGggZD0iTSAyMzMuNTYyNSA2LjI1IEMgMTk0LjA4MjAzMSA2LjI1IDE1OS40MTQwNjIgLTMuMTE3MTg4IDEyOS41NjI1IC0yMS44NTkzNzUgQyA5OS43MTg3NSAtNDAuNjA5Mzc1IDc2LjM2MzI4MSAtNjYuOTg4MjgxIDU5LjUgLTEwMSBDIDQyLjY0NDUzMSAtMTM1LjAxOTUzMSAzNC4yMTg3NSAtMTc1LjE0MDYyNSAzNC4yMTg3NSAtMjIxLjM1OTM3NSBDIDM0LjIxODc1IC0yNjcuOTcyNjU2IDQyLjU5NzY1NiAtMzA4LjI4NTE1NiA1OS4zNTkzNzUgLTM0Mi4yOTY4NzUgQyA3Ni4xMTcxODggLTM3Ni4zMTY0MDYgOTkuMzIwMzEyIC00MDIuNjk1MzEyIDEyOC45Njg3NSAtNDIxLjQzNzUgQyAxNTguNjI1IC00NDAuMTg3NSAxOTIuNTkzNzUgLTQ0OS41NjI1IDIzMC44NzUgLTQ0OS41NjI1IEMgMjU0LjI4MTI1IC00NDkuNTYyNSAyNzYuMTk1MzEyIC00NDYuMDM5MDYyIDI5Ni42MjUgLTQzOSBDIDMxNy4wNjI1IC00MzEuOTU3MDMxIDMzNS4zMTI1IC00MjEuOTM3NSAzNTEuMzc1IC00MDguOTM3NSBDIDM2Ny40Mzc1IC0zOTUuOTQ1MzEyIDM4MC44MjAzMTIgLTM4MC41MjM0MzggMzkxLjUzMTI1IC0zNjIuNjcxODc1IEMgNDAyLjI1IC0zNDQuODI4MTI1IDQwOS40OTIxODggLTMyNS4wOTM3NSA0MTMuMjY1NjI1IC0zMDMuNDY4NzUgTCAzNTYuMTQwNjI1IC0zMDMuNDY4NzUgQyAzNTEuNzczNDM4IC0zMTcuNzUgMzQ1Ljc3MzQzOCAtMzMwLjY5MTQwNiAzMzguMTQwNjI1IC0zNDIuMjk2ODc1IEMgMzMwLjUwMzkwNiAtMzUzLjg5ODQzOCAzMjEuMzc4OTA2IC0zNjMuODE2NDA2IDMxMC43NjU2MjUgLTM3Mi4wNDY4NzUgQyAzMDAuMTQ4NDM4IC0zODAuMjg1MTU2IDI4OC4xNDg0MzggLTM4Ni42MzI4MTIgMjc0Ljc2NTYyNSAtMzkxLjA5Mzc1IEMgMjYxLjM3ODkwNiAtMzk1LjU1MDc4MSAyNDYuNzUgLTM5Ny43ODEyNSAyMzAuODc1IC0zOTcuNzgxMjUgQyAyMDQuMTAxNTYyIC0zOTcuNzgxMjUgMTgwLjAwMzkwNiAtMzkwLjg5MDYyNSAxNTguNTc4MTI1IC0zNzcuMTA5Mzc1IEMgMTM3LjE2MDE1NiAtMzYzLjMyODEyNSAxMjAuMjAzMTI1IC0zNDMuMjk2ODc1IDEwNy43MDMxMjUgLTMxNy4wMTU2MjUgQyA5NS4yMDMxMjUgLTI5MC43MzQzNzUgODguOTUzMTI1IC0yNTguODQ3NjU2IDg4Ljk1MzEyNSAtMjIxLjM1OTM3NSBDIDg4Ljk1MzEyNSAtMTg0LjI2NTYyNSA5NS4yNSAtMTUyLjYyNSAxMDcuODQzNzUgLTEyNi40Mzc1IEMgMTIwLjQ0NTMxMiAtMTAwLjI1NzgxMiAxMzcuNjA5Mzc1IC04MC4yMjY1NjIgMTU5LjMyODEyNSAtNjYuMzQzNzUgQyAxODEuMDQ2ODc1IC01Mi40NTcwMzEgMjA1Ljc4OTA2MiAtNDUuNTE1NjI1IDIzMy41NjI1IC00NS41MTU2MjUgQyAyNTguNTUwNzgxIC00NS41MTU2MjUgMjgwLjY2NDA2MiAtNTAuODY3MTg4IDI5OS45MDYyNSAtNjEuNTc4MTI1IEMgMzE5LjE0NDUzMSAtNzIuMjk2ODc1IDMzNC4yNjU2MjUgLTg3LjQ3MjY1NiAzNDUuMjY1NjI1IC0xMDcuMTA5Mzc1IEMgMzU2LjI3MzQzOCAtMTI2Ljc0MjE4OCAzNjEuNzgxMjUgLTE0OS44NTE1NjIgMzYxLjc4MTI1IC0xNzYuNDM3NSBMIDM3OC43NSAtMTczLjQ1MzEyNSBMIDI0Ni42NDA2MjUgLTE3My40NTMxMjUgTCAyNDYuNjQwNjI1IC0yMjIuNTQ2ODc1IEwgNDE2LjUzMTI1IC0yMjIuNTQ2ODc1IEwgNDE2LjUzMTI1IC0xNzQuMzQzNzUgQyA0MTYuNTMxMjUgLTEzOC4wNTA3ODEgNDA4LjU5Mzc1IC0xMDYuMzYzMjgxIDM5Mi43MTg3NSAtNzkuMjgxMjUgQyAzNzYuODUxNTYyIC01Mi4yMDcwMzEgMzU1LjE4NzUgLTMxLjE3OTY4OCAzMjcuNzE4NzUgLTE2LjIwMzEyNSBDIDMwMC4yNSAtMS4yMzQzNzUgMjY4Ljg2MzI4MSA2LjI1IDIzMy41NjI1IDYuMjUgWiBNIDIzMy41NjI1IDYuMjUgIi8+PC9nPjwvZz48L2c+PGcgdHJhbnNmb3JtPSJtYXRyaXgoMSwgMCwgMCwgMSwgMjM2LCA5NykiPjxnIGNsaXAtcGF0aD0idXJsKCM1MDJkZDRiOWU1KSI+PGcgZmlsbD0iI2ZkZmVmOSIgZmlsbC1vcGFjaXR5PSIxIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxLjQ4NTEwNCwgNDk1LjI1NDc3MSkiPjxnPjxwYXRoIGQ9Ik0gMTYyLjYwOTM3NSA2LjQ2ODc1IEMgMTM1LjU0Njg3NSA2LjQ2ODc1IDExMi4wMDc4MTIgMS45NDUzMTIgOTIgLTcuMDkzNzUgQyA3MiAtMTYuMTQ0NTMxIDU2LjQzNzUgLTI4Ljc2NTYyNSA0NS4zMTI1IC00NC45NTMxMjUgQyAzNC4xOTUzMTIgLTYxLjE0MDYyNSAyOC4wNTQ2ODggLTgwLjE4NzUgMjYuODkwNjI1IC0xMDIuMDkzNzUgTCA3NC43MDMxMjUgLTEwMi4wOTM3NSBDIDc1LjcwMzEyNSAtODcuMzIwMzEyIDgwLjE4NzUgLTc0Ljk5MjE4OCA4OC4xNTYyNSAtNjUuMTA5Mzc1IEMgOTYuMTI1IC01NS4yMzQzNzUgMTA2LjYyNSAtNDcuODQ3NjU2IDExOS42NTYyNSAtNDIuOTUzMTI1IEMgMTMyLjY4NzUgLTM4LjA1NDY4OCAxNDcuMDAzOTA2IC0zNS42MDkzNzUgMTYyLjYwOTM3NSAtMzUuNjA5Mzc1IEMgMTc5LjcxMDkzOCAtMzUuNjA5Mzc1IDE5NC45NDUzMTIgLTM4LjM0NzY1NiAyMDguMzEyNSAtNDMuODI4MTI1IEMgMjIxLjY3NTc4MSAtNDkuMzA0Njg4IDIzMi4yMTg3NSAtNTYuOTg0Mzc1IDIzOS45Mzc1IC02Ni44NTkzNzUgQyAyNDcuNjU2MjUgLTc2Ljc0MjE4OCAyNTEuNTE1NjI1IC04OC4yNDIxODggMjUxLjUxNTYyNSAtMTAxLjM1OTM3NSBDIDI1MS41MTU2MjUgLTExMi45NzI2NTYgMjQ4LjM1OTM3NSAtMTIyLjU1NDY4OCAyNDIuMDQ2ODc1IC0xMzAuMTA5Mzc1IEMgMjM1Ljc0MjE4OCAtMTM3LjY3MTg3NSAyMjcuMDcwMzEyIC0xNDMuOTQxNDA2IDIxNi4wMzEyNSAtMTQ4LjkyMTg3NSBDIDIwNC45ODgyODEgLTE1My44OTg0MzggMTkyLjMyODEyNSAtMTU4LjI5Njg3NSAxNzguMDQ2ODc1IC0xNjIuMTA5Mzc1IEwgMTMzLjk2ODc1IC0xNzQuMzEyNSBDIDEwMi4yNTc4MTIgLTE4Mi45NDUzMTIgNzguMTAxNTYyIC0xOTUuMTA5Mzc1IDYxLjUgLTIxMC43OTY4NzUgQyA0NC45MDYyNSAtMjI2LjQ4NDM3NSAzNi42MDkzNzUgLTI0Ni42OTUzMTIgMzYuNjA5Mzc1IC0yNzEuNDM3NSBDIDM2LjYwOTM3NSAtMjkyLjUxOTUzMSA0Mi4xNjQwNjIgLTMxMC45MDYyNSA1My4yODEyNSAtMzI2LjU5Mzc1IEMgNjQuNDA2MjUgLTM0Mi4yODEyNSA3OS41OTc2NTYgLTM1NC40ODQzNzUgOTguODU5Mzc1IC0zNjMuMjAzMTI1IEMgMTE4LjExNzE4OCAtMzcxLjkyMTg3NSAxMzkuODY3MTg4IC0zNzYuMjgxMjUgMTY0LjEwOTM3NSAtMzc2LjI4MTI1IEMgMTg4Ljg0NzY1NiAtMzc2LjI4MTI1IDIxMC42MzI4MTIgLTM3MS44Nzg5MDYgMjI5LjQ2ODc1IC0zNjMuMDc4MTI1IEMgMjQ4LjMxMjUgLTM1NC4yNzM0MzggMjYzLjEyODkwNiAtMzQyLjE1NjI1IDI3My45MjE4NzUgLTMyNi43MTg3NSBDIDI4NC43MTA5MzggLTMxMS4yODEyNSAyOTAuNDQxNDA2IC0yOTMuNjc5Njg4IDI5MS4xMDkzNzUgLTI3My45MjE4NzUgTCAyNDUuMjgxMjUgLTI3My45MjE4NzUgQyAyNDMuMjg5MDYyIC0yOTMuMTc5Njg4IDIzNC43NDIxODggLTMwOC4xMjUgMjE5LjY0MDYyNSAtMzE4Ljc1IEMgMjA0LjUzNTE1NiAtMzI5LjM3NSAxODUuNTIzNDM4IC0zMzQuNjg3NSAxNjIuNjA5Mzc1IC0zMzQuNjg3NSBDIDE0Ni42NzE4NzUgLTMzNC42ODc1IDEzMi42NDA2MjUgLTMzMi4wMzEyNSAxMjAuNTE1NjI1IC0zMjYuNzE4NzUgQyAxMDguMzk4NDM4IC0zMjEuNDA2MjUgOTguOTc2NTYyIC0zMTQuMTc5Njg4IDkyLjI1IC0zMDUuMDQ2ODc1IEMgODUuNTMxMjUgLTI5NS45MjE4NzUgODIuMTcxODc1IC0yODUuNDYwOTM4IDgyLjE3MTg3NSAtMjczLjY3MTg3NSBDIDgyLjE3MTg3NSAtMjYxLjU1NDY4OCA4NS44NjMyODEgLTI1MS42NDA2MjUgOTMuMjUgLTI0My45MjE4NzUgQyAxMDAuNjQ0NTMxIC0yMzYuMjAzMTI1IDEwOS44NjMyODEgLTIzMC4wMTU2MjUgMTIwLjkwNjI1IC0yMjUuMzU5Mzc1IEMgMTMxLjk0NTMxMiAtMjIwLjcxMDkzOCAxNDIuOTQxNDA2IC0yMTYuODk0NTMxIDE1My44OTA2MjUgLTIxMy45MDYyNSBMIDE5MiAtMjAzLjcwMzEyNSBDIDIwMy43ODEyNSAtMjAwLjcxMDkzOCAyMTUuODEyNSAtMTk2LjY4NzUgMjI4LjA5Mzc1IC0xOTEuNjI1IEMgMjQwLjM4MjgxMiAtMTg2LjU2MjUgMjUxLjc1NzgxMiAtMTgwLjEyODkwNiAyNjIuMjE4NzUgLTE3Mi4zMjgxMjUgQyAyNzIuNjc1NzgxIC0xNjQuNTIzNDM4IDI4MS4xNDA2MjUgLTE1NC44MTI1IDI4Ny42MDkzNzUgLTE0My4xODc1IEMgMjk0LjA4NTkzOCAtMTMxLjU2MjUgMjk3LjMyODEyNSAtMTE3LjYxNzE4OCAyOTcuMzI4MTI1IC0xMDEuMzU5Mzc1IEMgMjk3LjMyODEyNSAtODAuNzY1NjI1IDI5MS45NzI2NTYgLTYyLjMzMjAzMSAyODEuMjY1NjI1IC00Ni4wNjI1IEMgMjcwLjU1NDY4OCAtMjkuODAwNzgxIDI1NS4xNjAxNTYgLTE2Ljk3NjU2MiAyMzUuMDc4MTI1IC03LjU5Mzc1IEMgMjE0Ljk5MjE4OCAxLjc4MTI1IDE5MC44MzU5MzggNi40Njg3NSAxNjIuNjA5Mzc1IDYuNDY4NzUgWiBNIDE2Mi42MDkzNzUgNi40Njg3NSAiLz48L2c+PC9nPjwvZz48L2c+PC9nPjxnIHRyYW5zZm9ybT0ibWF0cml4KDEsIDAsIDAsIDEsIDQ1OSwgMzMwKSI+PGcgY2xpcC1wYXRoPSJ1cmwoIzk5YjYzYjU3ZGQpIj48ZyBmaWxsPSIjZmRmZWY5IiBmaWxsLW9wYWNpdHk9IjEiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIuNTc5MTUsIDU1Ljg5NzY0NCkiPjxnPjxwYXRoIGQ9Ik0gMzQuNzM0Mzc1IDAgTCAyNS43MzQzNzUgLTEyLjkwNjI1IEMgMjUuMzU5Mzc1IC0xMi44NjMyODEgMjQuNzg5MDYyIC0xMi44NDM3NSAyNC4wMzEyNSAtMTIuODQzNzUgTCAxNC4wOTM3NSAtMTIuODQzNzUgTCAxNC4wOTM3NSAwIEwgNS45MjE4NzUgMCBMIDUuOTIxODc1IC00NC4wNDY4NzUgTCAyNC4wMzEyNSAtNDQuMDQ2ODc1IEMgMjcuODUxNTYyIC00NC4wNDY4NzUgMzEuMTc1NzgxIC00My40MTQwNjIgMzQgLTQyLjE1NjI1IEMgMzYuODMyMDMxIC00MC44OTQ1MzEgMzkuMDAzOTA2IC0zOS4wODU5MzggNDAuNTE1NjI1IC0zNi43MzQzNzUgQyA0Mi4wMjM0MzggLTM0LjM5MDYyNSA0Mi43ODEyNSAtMzEuNjAxNTYyIDQyLjc4MTI1IC0yOC4zNzUgQyA0Mi43ODEyNSAtMjUuMDYyNSA0MS45NzI2NTYgLTIyLjIwNzAzMSA0MC4zNTkzNzUgLTE5LjgxMjUgQyAzOC43NDIxODggLTE3LjQyNTc4MSAzNi40MjU3ODEgLTE1LjY0NDUzMSAzMy40MDYyNSAtMTQuNDY4NzUgTCA0My41NDY4NzUgMCBaIE0gMzQuNTQ2ODc1IC0yOC4zNzUgQyAzNC41NDY4NzUgLTMxLjE4NzUgMzMuNjE3MTg4IC0zMy4zNDc2NTYgMzEuNzY1NjI1IC0zNC44NTkzNzUgQyAyOS45MjE4NzUgLTM2LjM2NzE4OCAyNy4yMTg3NSAtMzcuMTI1IDIzLjY1NjI1IC0zNy4xMjUgTCAxNC4wOTM3NSAtMzcuMTI1IEwgMTQuMDkzNzUgLTE5LjU2MjUgTCAyMy42NTYyNSAtMTkuNTYyNSBDIDI3LjIxODc1IC0xOS41NjI1IDI5LjkyMTg3NSAtMjAuMzI4MTI1IDMxLjc2NTYyNSAtMjEuODU5Mzc1IEMgMzMuNjE3MTg4IC0yMy4zOTA2MjUgMzQuNTQ2ODc1IC0yNS41NjI1IDM0LjU0Njg3NSAtMjguMzc1IFogTSAzNC41NDY4NzUgLTI4LjM3NSAiLz48L2c+PC9nPjwvZz48ZyBmaWxsPSIjZmRmZWY5IiBmaWxsLW9wYWNpdHk9IjEiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDYwLjQ0NjE4OCwgNTUuODk3NjQ0KSI+PGc+PHBhdGggZD0iTSAzOC45NTMxMjUgLTYuODU5Mzc1IEwgMzguOTUzMTI1IDAgTCA1LjkyMTg3NSAwIEwgNS45MjE4NzUgLTQ0LjA0Njg3NSBMIDM4LjA2MjUgLTQ0LjA0Njg3NSBMIDM4LjA2MjUgLTM3LjE4NzUgTCAxNC4wOTM3NSAtMzcuMTg3NSBMIDE0LjA5Mzc1IC0yNS43MzQzNzUgTCAzNS4zNTkzNzUgLTI1LjczNDM3NSBMIDM1LjM1OTM3NSAtMTkgTCAxNC4wOTM3NSAtMTkgTCAxNC4wOTM3NSAtNi44NTkzNzUgWiBNIDM4Ljk1MzEyNSAtNi44NTkzNzUgIi8+PC9nPjwvZz48L2c+PGcgZmlsbD0iI2ZkZmVmOSIgZmlsbC1vcGFjaXR5PSIxIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMTQuNDc3MDY4LCA1NS44OTc2NDQpIj48Zz48cGF0aCBkPSJNIDM0LjQ4NDM3NSAtMTAuMTg3NSBMIDEyLjQ1MzEyNSAtMTAuMTg3NSBMIDguMTA5Mzc1IDAgTCAtMC4zMTI1IDAgTCAxOS41IC00NC4wNDY4NzUgTCAyNy41NjI1IC00NC4wNDY4NzUgTCA0Ny40Mzc1IDAgTCAzOC44OTA2MjUgMCBaIE0gMzEuNzgxMjUgLTE2LjYwOTM3NSBMIDIzLjQ2ODc1IC0zNS44NTkzNzUgTCAxNS4yMzQzNzUgLTE2LjYwOTM3NSBaIE0gMzEuNzgxMjUgLTE2LjYwOTM3NSAiLz48L2c+PC9nPjwvZz48ZyBmaWxsPSIjZmRmZWY5IiBmaWxsLW9wYWNpdHk9IjEiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE3My40NzYwOTUsIDU1Ljg5NzY0NCkiPjxnPjxwYXRoIGQ9Ik0gNS45MjE4NzUgLTQ0LjA0Njg3NSBMIDI1LjE3MTg3NSAtNDQuMDQ2ODc1IEMgMjkuODY3MTg4IC00NC4wNDY4NzUgMzQuMDM5MDYyIC00My4xMzI4MTIgMzcuNjg3NSAtNDEuMzEyNSBDIDQxLjM0Mzc1IC0zOS40ODgyODEgNDQuMTc1NzgxIC0zNi45MDYyNSA0Ni4xODc1IC0zMy41NjI1IEMgNDguMTk1MzEyIC0zMC4yMjY1NjIgNDkuMjAzMTI1IC0yNi4zNzg5MDYgNDkuMjAzMTI1IC0yMi4wMTU2MjUgQyA0OS4yMDMxMjUgLTE3LjY2MDE1NiA0OC4xOTUzMTIgLTEzLjgxMjUgNDYuMTg3NSAtMTAuNDY4NzUgQyA0NC4xNzU3ODEgLTcuMTMyODEyIDQxLjM0Mzc1IC00LjU1NDY4OCAzNy42ODc1IC0yLjczNDM3NSBDIDM0LjAzOTA2MiAtMC45MTAxNTYgMjkuODY3MTg4IDAgMjUuMTcxODc1IDAgTCA1LjkyMTg3NSAwIFogTSAyNC43OTY4NzUgLTYuOTIxODc1IEMgMjguMDIzNDM4IC02LjkyMTg3NSAzMC44NjMyODEgLTcuNTM5MDYyIDMzLjMxMjUgLTguNzgxMjUgQyAzNS43Njk1MzEgLTEwLjAxOTUzMSAzNy42NjAxNTYgLTExLjc4MTI1IDM4Ljk4NDM3NSAtMTQuMDYyNSBDIDQwLjMwNDY4OCAtMTYuMzUxNTYyIDQwLjk2ODc1IC0xOS4wMDM5MDYgNDAuOTY4NzUgLTIyLjAxNTYyNSBDIDQwLjk2ODc1IC0yNS4wMzUxNTYgNDAuMzA0Njg4IC0yNy42ODc1IDM4Ljk4NDM3NSAtMjkuOTY4NzUgQyAzNy42NjAxNTYgLTMyLjI1NzgxMiAzNS43Njk1MzEgLTM0LjAyMzQzOCAzMy4zMTI1IC0zNS4yNjU2MjUgQyAzMC44NjMyODEgLTM2LjUwMzkwNiAyOC4wMjM0MzggLTM3LjEyNSAyNC43OTY4NzUgLTM3LjEyNSBMIDE0LjA5Mzc1IC0zNy4xMjUgTCAxNC4wOTM3NSAtNi45MjE4NzUgWiBNIDI0Ljc5Njg3NSAtNi45MjE4NzUgIi8+PC9nPjwvZz48L2c+PGcgZmlsbD0iI2ZkZmVmOSIgZmlsbC1vcGFjaXR5PSIxIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyMzcuMzE3NTA0LCA1NS44OTc2NDQpIj48Zz48cGF0aCBkPSJNIDI0LjkyMTg3NSAtMTUuNTQ2ODc1IEwgMjQuOTIxODc1IDAgTCAxNi43MzQzNzUgMCBMIDE2LjczNDM3NSAtMTUuNDIxODc1IEwgLTAuNTYyNSAtNDQuMDQ2ODc1IEwgOC4xODc1IC00NC4wNDY4NzUgTCAyMS4wNzgxMjUgLTIyLjU5Mzc1IEwgMzQuMTA5Mzc1IC00NC4wNDY4NzUgTCA0Mi4xNTYyNSAtNDQuMDQ2ODc1IFogTSAyNC45MjE4NzUgLTE1LjU0Njg3NSAiLz48L2c+PC9nPjwvZz48L2c+PC9nPjwvZz48L2c+PC9zdmc+" alt="ESG Ready">
+                <span class="footer-logo-text">ESG Ready</span>
+            </a>
+            <ul class="footer-links">
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Impressum</a></li>
+            </ul>
+            <span class="footer-copy">&copy; 2025 ESG Ready Pte. Ltd.</span>
+        </div>
+    </footer>
+
+    <script>
+        const fadeElements = document.querySelectorAll('.fade-up');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => entry.target.classList.add('visible'), index * 100);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.05 });
+        fadeElements.forEach(el => observer.observe(el));
+        setTimeout(() => { fadeElements.forEach(el => { const r = el.getBoundingClientRect(); if (r.top < window.innerHeight) el.classList.add('visible'); }); }, 100);
+
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const isOpen = item.classList.contains('open');
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+                if (!isOpen) item.classList.add('open');
+            });
+        });
+    </script>
+
+</body>
+</html>
