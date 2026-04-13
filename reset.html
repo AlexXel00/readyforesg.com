@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Redirecting…</title>
+  <script>
+    window.onload = function () {
+      const hash = window.location.hash.substring(1);
+      const params = new URLSearchParams(hash);
+
+      const accessToken = params.get("access_token");
+      const refreshToken = params.get("refresh_token");
+      const type = params.get("type");
+
+      if (type === "recovery" && accessToken && refreshToken) {
+        const target =
+          "https://readyforesg.streamlit.app/?mode=reset" +
+          "&access_token=" + encodeURIComponent(accessToken) +
+          "&refresh_token=" + encodeURIComponent(refreshToken);
+
+        window.location.replace(target);
+      } else {
+        document.body.innerHTML = "<p>Invalid or expired reset link.</p>";
+      }
+    };
+  </script>
+</head>
+<body>
+  <p>Redirecting you to password reset…</p>
+</body>
+</html>
