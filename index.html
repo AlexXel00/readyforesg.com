@@ -919,6 +919,7 @@
 
     function setLang(lang) {
         const t = translations[lang];
+        localStorage.setItem('siteLang', lang);
         if (!t) return;
 
         const labels = { de: 'DE', en: 'EN', fr: 'FR', it: 'IT' };
@@ -979,7 +980,13 @@
         set('pillar4_h', t.pillar4_h); set('pillar4_p', t.pillar4_p);
         set('contact_tag', t.contact_tag); set('contact_h2', t.contact_h2); set('contact_sub', t.contact_sub);
     }
-    </script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('siteLang');
+    if (savedLang && translations[savedLang]) {
+        setLang(savedLang);
+    }
+});
+</script>
 
 </body>
 </html>
