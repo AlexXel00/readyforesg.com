@@ -20,6 +20,13 @@
         .nav-links a { font-size: 0.75rem; color: var(--light); text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s; }
         .nav-links a:hover, .nav-links a.active { color: var(--cream); }
         .nav-cta { background: var(--cream) !important; color: var(--deep) !important; padding: 0.55rem 1.2rem !important; border-radius: 2px !important; font-weight: 500 !important; }
+        .lang-switcher { position: relative; display: flex; align-items: center; }
+        .lang-dropdown { display: flex; align-items: center; gap: 0.3rem; border: 1px solid rgba(253,254,249,0.25); color: var(--light); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em; padding: 0.35rem 0.7rem; border-radius: 2px; cursor: pointer; transition: all 0.2s; user-select: none; position: relative; }
+        .lang-dropdown:hover { border-color: var(--cream); color: var(--cream); }
+        .lang-menu { display: none; position: absolute; top: calc(100% + 0.5rem); right: 0; background: #023425; border: 1px solid rgba(253,254,249,0.15); border-radius: 2px; list-style: none; min-width: 130px; z-index: 200; overflow: hidden; }
+        .lang-menu.open { display: block; }
+        .lang-menu li { padding: 0.6rem 1rem; font-size: 0.78rem; color: var(--light); cursor: pointer; transition: background 0.15s; letter-spacing: 0.04em; }
+        .lang-menu li:hover { background: rgba(253,254,249,0.08); color: var(--cream); }
 
         .hero { background: var(--deep); padding: 10rem 4rem 6rem; position: relative; overflow: hidden; }
         .hero::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(253,254,249,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(253,254,249,0.04) 1px, transparent 1px); background-size: 60px 60px; }
@@ -133,19 +140,31 @@
             <span class="nav-logo-text">ESG Ready</span>
         </a>
         <ul class="nav-links">
-            <li><a href="index.html">Startseite</a></li>
-            <li><a href="esrs.html">ESRS & CSRD</a></li>
-            <li><a href="packages.html" class="active">Pakete</a></li>
-            <li><a href="about.html">Über uns</a></li>
-            <li><a href="index.html#contact" class="nav-cta">Jetzt starten</a></li>
-        </ul>
+            <li><a href="index.html" id="nav_home">Startseite</a></li>
+            <li><a href="esrs.html" id="nav_esrs">ESRS & CSRD</a></li>
+            <li><a href="packages.html" class="active" id="nav_packages">Pakete</a></li>
+            <li><a href="about.html" id="nav_about">Über uns</a></li>
+            <li><a href="index.html#contact" class="nav-cta" id="nav_cta">Jetzt starten</a></li>
+            <li class="lang-switcher">
+                <div class="lang-dropdown" onclick="toggleLangMenu(event)">
+                    <span id="lang-current">DE</span>
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    <ul class="lang-menu" id="lang-menu">
+                        <li onclick="setLang('de')">DE — Deutsch</li>
+                        <li onclick="setLang('en')">EN — English</li>
+                        <li onclick="setLang('fr')">FR — Français</li>
+                        <li onclick="setLang('it')">IT — Italiano</li>
+                    </ul>
+                </div>
+            </li>
+        </ul>>
     </nav>
 
     <div class="hero">
         <div class="hero-inner">
-            <span class="hero-tag">Unsere Pakete</span>
-            <h1 class="hero-h1">Transparent bepreist —<br><em>persönlich begleitet</em></h1>
-            <p class="hero-sub">Kein Abo, kein Kleingedrucktes. Eine Jahresgebühr, unbegrenzte ESG-Berichte — und ein Experte, der Sie durch den Prozess begleitet.</p>
+            <span class="hero-tag" id="hero_tag">Unsere Pakete</span>
+            <h1 class="hero-h1" id="hero_h1">Transparent bepreist —<br><em>persönlich begleitet</em></h1>
+            <p class="hero-sub" id="hero_sub">Kein Abo, kein Kleingedrucktes. Eine Jahresgebühr, unbegrenzte ESG-Berichte — und ein Experte, der Sie durch den Prozess begleitet.</p>
         </div>
     </div>
 
@@ -171,7 +190,7 @@
                         <li>E-Mail Support</li>
                     </ul>
                 </div>
-                <div class="pkg-footer"><a href="index.html#contact" class="pkg-btn">Jetzt anfragen</a></div>
+                <div class="pkg-footer"><a href="index.html#contact" class="pkg-btn pkg-btn-main">Jetzt anfragen</a></div>
             </div>
 
             <div class="pkg featured">
@@ -193,7 +212,7 @@
                         <li>Revisionsschere Archivierung aller Belege</li>
                     </ul>
                 </div>
-                <div class="pkg-footer"><a href="index.html#contact" class="pkg-btn">Jetzt anfragen</a></div>
+                <div class="pkg-footer"><a href="index.html#contact" class="pkg-btn pkg-btn-main">Jetzt anfragen</a></div>
             </div>
 
             <div class="pkg">
@@ -214,7 +233,7 @@
                         <li>Jahresvergleich und Fortschrittsanalyse</li>
                     </ul>
                 </div>
-                <div class="pkg-footer"><a href="index.html#contact" class="pkg-btn">Jetzt anfragen</a></div>
+                <div class="pkg-footer"><a href="index.html#contact" class="pkg-btn pkg-btn-main">Jetzt anfragen</a></div>
             </div>
         </div>
 
@@ -407,6 +426,98 @@
             document.getElementById('tab-' + name).classList.add('active');
             event.target.classList.add('active');
         }
+        const translations = {
+            de: {
+                nav_home: "Startseite",
+                nav_esrs: "ESRS & CSRD",
+                nav_packages: "Pakete",
+                nav_about: "Über uns",
+                nav_cta: "Jetzt starten",
+                hero_tag: "Unsere Pakete",
+                hero_h1: "Transparent bepreist —<br><em>persönlich begleitet</em>",
+                hero_sub: "Kein Abo, kein Kleingedrucktes. Eine Jahresgebühr, unbegrenzte ESG-Berichte — und ein Experte, der Sie durch den Prozess begleitet.",
+                pkg_btn: "Jetzt anfragen"
+            },
+            en: {
+                nav_home: "Home",
+                nav_esrs: "ESRS & CSRD",
+                nav_packages: "Packages",
+                nav_about: "About us",
+                nav_cta: "Get started",
+                hero_tag: "Our packages",
+                hero_h1: "Clearly priced —<br><em>personally supported</em>",
+                hero_sub: "No subscription traps, no fine print. One annual fee, unlimited ESG reports — and an expert guiding you through the process.",
+                pkg_btn: "Request access"
+            },
+            fr: {
+                nav_home: "Accueil",
+                nav_esrs: "ESRS & CSRD",
+                nav_packages: "Forfaits",
+                nav_about: "À propos",
+                nav_cta: "Commencer",
+                hero_tag: "Nos forfaits",
+                hero_h1: "Tarification claire —<br><em>accompagnement personnel</em>",
+                hero_sub: "Pas d’abonnement caché, pas de petites lignes. Un tarif annuel, des rapports ESG illimités — avec un expert à vos côtés.",
+                pkg_btn: "Demander l’accès"
+            },
+            it: {
+                nav_home: "Home",
+                nav_esrs: "ESRS & CSRD",
+                nav_packages: "Pacchetti",
+                nav_about: "Chi siamo",
+                nav_cta: "Inizia ora",
+                hero_tag: "I nostri pacchetti",
+                hero_h1: "Prezzi trasparenti —<br><em>supporto personale</em>",
+                hero_sub: "Nessun abbonamento nascosto, nessuna clausola complicata. Un costo annuale, report ESG illimitati — con un esperto al tuo fianco.",
+                pkg_btn: "Richiedi accesso"
+            }
+        };
+        
+        function toggleLangMenu(e) {
+            e.stopPropagation();
+            document.getElementById('lang-menu').classList.toggle('open');
+        }
+        
+        document.addEventListener('click', () => {
+            const menu = document.getElementById('lang-menu');
+            if (menu) menu.classList.remove('open');
+        });
+        
+        function setLang(lang) {
+            const t = translations[lang];
+            if (!t) return;
+        
+            localStorage.setItem('siteLang', lang);
+        
+            const labels = { de: 'DE', en: 'EN', fr: 'FR', it: 'IT' };
+            document.getElementById('lang-current').textContent = labels[lang];
+        
+            const set = (id, val) => {
+                const el = document.getElementById(id);
+                if (el) el.innerHTML = val;
+            };
+        
+            set('nav_home', t.nav_home);
+            set('nav_esrs', t.nav_esrs);
+            set('nav_packages', t.nav_packages);
+            set('nav_about', t.nav_about);
+            set('nav_cta', t.nav_cta);
+            set('hero_tag', t.hero_tag);
+            set('hero_h1', t.hero_h1);
+            set('hero_sub', t.hero_sub);
+        
+            document.querySelectorAll('.pkg-btn-main').forEach(el => {
+                el.innerHTML = t.pkg_btn;
+            });
+        
+            document.getElementById('lang-menu').classList.remove('open');
+            document.documentElement.lang = lang;
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('siteLang') || 'de';
+            setLang(savedLang);
+        });
     </script>
 
 </body>
