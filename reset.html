@@ -3,30 +3,52 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Redirecting…</title>
+  <title>Reset Debug</title>
   <script>
     window.onload = function () {
-      const hash = window.location.hash.substring(1);
-      const params = new URLSearchParams(hash);
+      const params = new URLSearchParams(window.location.search);
 
-      const accessToken = params.get("access_token");
-      const refreshToken = params.get("refresh_token");
+      const tokenHash = params.get("token_hash");
       const type = params.get("type");
+      const email = params.get("email");
 
-      if (type === "recovery" && accessToken && refreshToken) {
+      document.getElementById("full-url").textContent = window.location.href;
+      document.getElementById("token-hash").textContent = tokenHash ? "YES" : "NO";
+      document.getElementById("type").textContent = type ? type : "MISSING";
+      document.getElementById("email").textContent = email ? email : "MISSING";
+
+      if (type === "recovery" && tokenHash && email) {
         const target =
-          "https://readyforesg.streamlit.app/?mode=reset" +
-          "&access_token=" + encodeURIComponent(accessToken) +
-          "&refresh_token=" + encodeURIComponent(refreshToken);
+          "https://readyforesg.streamlit.app/?" +
+          "mode=reset" +
+          "&token_hash=" + encodeURIComponent(tokenHash) +
+          "&type=" + encodeURIComponent(type) +
+          "&email=" + encodeURIComponent(email);
 
-        window.location.replace(target);
+        document.getElementById("result").textContent = "VALID - would redirect";
+        document.getElementById("redirect-target").textContent = target;
+
+        // TEMPORARILY DISABLED FOR DEBUG
+        // window.location.replace(target);
       } else {
-        document.body.innerHTML = "<p>Invalid or expired reset link.</p>";
+        document.getElementById("result").textContent = "INVALID OR INCOMPLETE";
       }
     };
   </script>
 </head>
-<body>
-  <p>Redirecting you to password reset…</p>
+<body style="font-family: Arial, sans-serif; padding: 30px;">
+  <h2>Reset Debug</h2>
+
+  <p><strong>Result:</strong> <span id="result">Checking...</span></p>
+
+  <p><strong>Full URL:</strong></p>
+  <pre id="full-url" style="white-space: pre-wrap; word-break: break-word;"></pre>
+
+  <p><strong>token_hash present:</strong> <span id="token-hash"></span></p>
+  <p><strong>type:</strong> <span id="type"></span></p>
+  <p><strong>email:</strong> <span id="email"></span></p>
+
+  <p><strong>Redirect target:</strong></p>
+  <pre id="redirect-target" style="white-space: pre-wrap; word-break: break-word;"></pre>
 </body>
 </html>
