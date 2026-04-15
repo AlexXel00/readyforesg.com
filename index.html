@@ -605,7 +605,7 @@
     const translations = {
         de: {
             nav_problem: "Das Problem",
-            nav_how: "Wie es funktioniert",
+            nav_how: "ESRS & CSRD",
             nav_pricing: "Pakete",
             nav_about: "Über uns",
             nav_cta: "Jetzt starten",
@@ -681,7 +681,7 @@
         },
         en: {
             nav_problem: "The Problem",
-            nav_how: "How it works",
+            nav_how: "ESRS & CSRD",
             nav_pricing: "Packages",
             nav_about: "About us",
             nav_cta: "Get started",
@@ -757,7 +757,7 @@
         },
         fr: {
             nav_problem: "Le problème",
-            nav_how: "Comment ça marche",
+            nav_how: "ESRS & CSRD",
             nav_pricing: "Forfaits",
             nav_about: "À propos",
             nav_cta: "Commencer",
@@ -833,7 +833,7 @@
         },
         it: {
             nav_problem: "Il problema",
-            nav_how: "Come funziona",
+            nav_how: "ESRS & CSRD",
             nav_pricing: "Pacchetti",
             nav_about: "Chi siamo",
             nav_cta: "Inizia ora",
@@ -928,6 +928,11 @@
 
         const set = (id, val) => { const el = document.getElementById(id); if (el) el.innerHTML = val; };
 
+        set('nav_problem', t.nav_problem);
+        set('nav_how', t.nav_how);
+        set('nav_pricing', t.nav_pricing);
+        set('nav_about', t.nav_about);
+        set('nav_cta', t.nav_cta);
         set('hero_tag', t.hero_tag);
         set('hero_h1', t.hero_h1);
         set('hero_sub', t.hero_sub);
