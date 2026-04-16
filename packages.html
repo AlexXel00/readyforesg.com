@@ -132,7 +132,7 @@
         }
     </style>
 </head>
-<body>
+<body data-page="packages">
 
     <nav>
         <a href="index.html" class="nav-logo">
@@ -140,11 +140,11 @@
             <span class="nav-logo-text">ESG Ready</span>
         </a>
         <ul class="nav-links">
-            <li><a href="index.html" id="nav_home">Startseite</a></li>
-            <li><a href="esrs.html" id="nav_esrs">ESRS & CSRD</a></li>
-            <li><a href="packages.html" class="active" id="nav_packages">Pakete</a></li>
-            <li><a href="about.html" id="nav_about">Über uns</a></li>
-            <li><a href="index.html#contact" class="nav-cta" id="nav_cta">Jetzt starten</a></li>
+            <li><a href="index.html" id="nav_home" data-i18n="common.nav_home">Startseite</a></li>
+            <li><a href="esrs.html" id="nav_esrs" data-i18n="common.nav_esrs">ESRS &amp; CSRD</a></li>
+            <li><a href="packages.html" class="active" id="nav_packages" data-i18n="common.nav_packages">Pakete</a></li>
+            <li><a href="about.html" id="nav_about" data-i18n="common.nav_about">Über uns</a></li>
+            <li><a href="index.html#contact" class="nav-cta" id="nav_cta" data-i18n="common.nav_cta">Jetzt starten</a></li>
             <li class="lang-switcher">
                 <div class="lang-dropdown" onclick="toggleLangMenu(event)">
                     <span id="lang-current">DE</span>
@@ -162,9 +162,9 @@
 
     <div class="hero">
         <div class="hero-inner">
-            <span class="hero-tag" id="hero_tag">Unsere Pakete</span>
-            <h1 class="hero-h1" id="hero_h1">Transparent bepreist —<br><em>persönlich begleitet</em></h1>
-            <p class="hero-sub" id="hero_sub">Kein Abo, kein Kleingedrucktes. Eine Jahresgebühr, unbegrenzte ESG-Berichte — und ein Experte, der Sie durch den Prozess begleitet.</p>
+            <span class="hero-tag" data-i18n="packages.hero_tag">Unsere Pakete</span>
+            <h1 class="hero-h1" data-i18n="packages.hero_h1" data-i18n-mode="html">Transparent bepreist —<br><em>persönlich begleitet</em></h1>
+            <p class="hero-sub" data-i18n="packages.hero_sub">Kein Abo, kein Kleingedrucktes. Eine Jahresgebühr, unbegrenzte ESG-Berichte — und ein Experte, der Sie durch den Prozess begleitet.</p>
         </div>
     </div>
 
@@ -173,67 +173,69 @@
         <div class="packages-grid fade-up">
             <div class="pkg">
                 <div class="pkg-header">
-                    <div class="pkg-name">ESG Ready</div>
-                    <div class="pkg-tagline">Für den Einstieg</div>
+                    <div class="pkg-name" data-i18n="packages.pkg1_name">ESG Ready</div>
+                    <div class="pkg-tagline" data-i18n="packages.pkg1_tag">Für den Einstieg</div>
                     <div class="pkg-price">1.099&thinsp;<span>EUR</span></div>
-                    <div class="pkg-period">pro Jahr &middot; einmalige Zahlung</div>
+                    <div class="pkg-period" data-i18n="packages.pkg1_period">pro Jahr &middot; einmalige Zahlung</div>
                 </div>
                 <div class="pkg-body">
                     <ul class="pkg-features">
-                        <li>Software-Zugang für 12 Monate</li>
-                        <li>Geführter ESG-Wizard durch alle relevanten ESRS-Standards</li>
-                        <li>KI-gestützter Bericht (GPT-4)</li>
-                        <li>Environment, Social &amp; Governance Abdeckung</li>
-                        <li>Monatliches Verbrauchsportal mit CO2-Berechnung</li>
-                        <li>Unbegrenzte Standorte und Dateneingaben</li>
-                        <li>PDF-Bericht zum Download</li>
-                        <li>E-Mail Support</li>
+                        <li data-i18n="packages.pkg1_f1">Software-Zugang für 12 Monate</li>
+                        <li data-i18n="packages.pkg1_f2">Geführter ESG-Wizard durch alle relevanten ESRS-Standards</li>
+                        <li data-i18n="packages.pkg1_f3">KI-gestützter Bericht (GPT-4)</li>
+                        <li data-i18n="packages.pkg1_f4" data-i18n-mode="html">Environment, Social &amp; Governance Abdeckung</li>
+                        <li data-i18n="packages.pkg1_f5">Monatliches Verbrauchsportal mit CO2-Berechnung</li>
+                        <li data-i18n="packages.pkg1_f6">Unbegrenzte Standorte und Dateneingaben</li>
+                        <li data-i18n="packages.pkg1_f7">PDF-Bericht zum Download</li>
+                        <li data-i18n="packages.pkg1_f8">E-Mail Support</li>
                     </ul>
                 </div>
-                <div class="pkg-footer"><a href="index.html#contact" class="pkg-btn pkg-btn-main">Jetzt anfragen</a></div>
+                <div class="pkg-footer"><a href="index.html#contact" class="pkg-btn pkg-btn-main" data-i18n="packages.pkg_btn">Jetzt anfragen</a></div>
             </div>
 
             <div class="pkg featured">
-                <div class="pkg-badge">Beliebteste Wahl</div>
+                <div class="pkg-badge" data-i18n="packages.pkg2_badge">Beliebteste Wahl</div>
                 <div class="pkg-header">
-                    <div class="pkg-name">ESG Certified</div>
-                    <div class="pkg-tagline">Mit Expertenbegleitung</div>
+                    <div class="pkg-name" data-i18n="packages.pkg2_name">ESG Certified</div>
+                    <div class="pkg-tagline" data-i18n="packages.pkg2_tag">Mit Expertenbegleitung</div>
                     <div class="pkg-price">1.799&thinsp;<span>EUR</span></div>
-                    <div class="pkg-period">pro Jahr &middot; einmalige Zahlung</div>
+                    <div class="pkg-period" data-i18n="packages.pkg2_period">pro Jahr &middot; einmalige Zahlung</div>
                 </div>
                 <div class="pkg-body">
                     <ul class="pkg-features">
-                        <li><strong>Alles aus ESG Ready</strong></li>
-                        <li><strong>2 Stunden Beratung inklusive</strong> (Video-Call mit Dipl.-Ing. Alexander Riedl)</li>
-                        <li><strong>Persönliche Berichts-Durchsicht</strong> durch unseren Umweltingenieur</li>
-                        <li>Erklärung aller Kennzahlen und CO2-Berechnungen</li>
-                        <li><strong>Unterschriebene Bestätigung</strong> als Qualitätsnachweis</li>
-                        <li>Priority Support für 12 Monate</li>
-                        <li>Revisionsschere Archivierung aller Belege</li>
+                        <li data-i18n="packages.pkg2_f1" data-i18n-mode="html"><strong>Alles aus ESG Ready</strong></li>
+                        <li data-i18n="packages.pkg2_f2" data-i18n-mode="html"><strong>2 Stunden Beratung inklusive</strong> (Video-Call mit Dipl.-Ing. Alexander Riedl)</li>
+                        <li data-i18n="packages.pkg2_f3" data-i18n-mode="html"><strong>Persönliche Berichts-Durchsicht</strong> durch unseren Umweltingenieur</li>
+                        <li data-i18n="packages.pkg2_f4">Erklärung aller Kennzahlen und CO2-Berechnungen</li>
+                        <li data-i18n="packages.pkg2_f5" data-i18n-mode="html"><strong>Unterschriebene Bestätigung</strong> als Qualitätsnachweis</li>
+                        <li data-i18n="packages.pkg2_f6">Priority Support für 12 Monate</li>
+                        <li data-i18n="packages.pkg2_f7">Revisionssichere Archivierung aller Belege</li>
                     </ul>
                 </div>
-                <div class="pkg-footer"><a href="index.html#contact" class="pkg-btn pkg-btn-main">Jetzt anfragen</a></div>
+                <div class="pkg-footer">
+                    <a href="index.html#contact" class="pkg-btn pkg-btn-main" data-i18n="packages.pkg_btn">Jetzt anfragen</a>
+                </div>
             </div>
 
             <div class="pkg">
                 <div class="pkg-header">
-                    <div class="pkg-name">ESG Partner</div>
-                    <div class="pkg-tagline">Vollständige Begleitung</div>
+                    <div class="pkg-name" data-i18n="packages.pkg3_name">ESG Partner</div>
+                    <div class="pkg-tagline" data-i18n="packages.pkg3_tag">Vollständige Begleitung</div>
                     <div class="pkg-price">3.299&thinsp;<span>EUR</span></div>
-                    <div class="pkg-period">pro Jahr &middot; einmalige Zahlung</div>
+                    <div class="pkg-period" data-i18n="packages.pkg3_period">pro Jahr &middot; einmalige Zahlung</div>
                 </div>
                 <div class="pkg-body">
                     <ul class="pkg-features">
-                        <li><strong>Alles aus ESG Certified</strong></li>
-                        <li><strong>1 zusätzliche Beratungsstunde</strong> (gesamt 3 Stunden)</li>
-                        <li><strong>Quartalsweise Check-ins</strong> &ndash; 4 x 30 Min. pro Jahr</li>
-                        <li>ESG-Strategieentwicklung für Ihr Unternehmen</li>
-                        <li>Dedicated Account Manager</li>
-                        <li>Frühzeitiger Zugang zu neuen Features</li>
-                        <li>Jahresvergleich und Fortschrittsanalyse</li>
+                        <li data-i18n="packages.pkg3_f1" data-i18n-mode="html"><strong>Alles aus ESG Certified</strong></li>
+                        <li data-i18n="packages.pkg3_f2" data-i18n-mode="html"><strong>1 zusätzliche Beratungsstunde</strong> (gesamt 3 Stunden)</li>
+                        <li data-i18n="packages.pkg3_f3" data-i18n-mode="html"><strong>Quartalsweise Check-ins</strong> &ndash; 4 x 30 Min. pro Jahr</li>
+                        <li data-i18n="packages.pkg3_f4">ESG-Strategieentwicklung für Ihr Unternehmen</li>
+                        <li data-i18n="packages.pkg3_f5">Dedicated Account Manager</li>
+                        <li data-i18n="packages.pkg3_f6">Frühzeitiger Zugang zu neuen Features</li>
+                        <li data-i18n="packages.pkg3_f7">Jahresvergleich und Fortschrittsanalyse</li>
                     </ul>
                 </div>
-                <div class="pkg-footer"><a href="index.html#contact" class="pkg-btn pkg-btn-main">Jetzt anfragen</a></div>
+                <div class="pkg-footer"><a href="index.html#contact" class="pkg-btn pkg-btn-main" data-i18n="packages.pkg_btn">Jetzt anfragen</a></div>
             </div>
         </div>
 
@@ -270,10 +272,10 @@
             <p style="margin-bottom: 2rem;">Der geführte Wizard bringt Sie Schritt für Schritt durch alle relevanten Datenpunkte. Keine Fachkenntnisse nötig — das System erklärt jeden Begriff und jeden Schritt.</p>
 
             <div class="screenshot-tabs">
-                <button class="tab-btn active" onclick="showTab('wizard')">ESG Wizard</button>
-                <button class="tab-btn" onclick="showTab('dashboard')">Dashboard</button>
-                <button class="tab-btn" onclick="showTab('portal')">Document Portal</button>
-                <button class="tab-btn" onclick="showTab('report')">Bericht</button>
+                <button class="tab-btn active" onclick="showTab('wizard', event)">ESG Wizard</button>
+                <button class="tab-btn" onclick="showTab('dashboard', event)">Dashboard</button>
+                <button class="tab-btn" onclick="showTab('portal', event)">Document Portal</button>
+                <button class="tab-btn" onclick="showTab('report', event)">Bericht</button>
             </div>
 
             <div class="tab-content active" id="tab-wizard">
@@ -406,345 +408,34 @@
             <span class="footer-copy">&copy; 2025 ESG Ready Pte. Ltd.</span>
         </div>
     </footer>
-
-    <script>
-        const fadeElements = document.querySelectorAll('.fade-up');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => entry.target.classList.add('visible'), index * 100);
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.05 });
-        fadeElements.forEach(el => observer.observe(el));
-        setTimeout(() => { fadeElements.forEach(el => { const r = el.getBoundingClientRect(); if (r.top < window.innerHeight) el.classList.add('visible'); }); }, 100);
-
-        function showTab(name) {
-            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
-            document.getElementById('tab-' + name).classList.add('active');
-            event.target.classList.add('active');
-        }
-        const translations = {
-            de: {
-                nav_home: "Startseite",
-                nav_esrs: "ESRS & CSRD",
-                nav_packages: "Pakete",
-                nav_about: "Über uns",
-                nav_cta: "Jetzt starten",
-        
-                hero_tag: "Unsere Pakete",
-                hero_h1: "Transparent bepreist —<br><em>persönlich begleitet</em>",
-                hero_sub: "Kein Abo, kein Kleingedrucktes. Eine Jahresgebühr, unbegrenzte ESG-Berichte — und ein Experte, der Sie durch den Prozess begleitet.",
-        
-                pkg_btn: "Jetzt anfragen",
-        
-                pkg1: {
-                    name: "ESG Ready",
-                    tag: "Für den Einstieg",
-                    period: "pro Jahr · einmalige Zahlung",
-                    features: [
-                        "Software-Zugang für 12 Monate",
-                        "Geführter ESG-Wizard durch alle relevanten ESRS-Standards",
-                        "KI-gestützter Bericht (GPT-4)",
-                        "Environment, Social &amp; Governance Abdeckung",
-                        "Monatliches Verbrauchsportal mit CO2-Berechnung",
-                        "Unbegrenzte Standorte und Dateneingaben",
-                        "PDF-Bericht zum Download",
-                        "E-Mail Support"
-                    ]
-                },
-        
-                pkg2: {
-                    badge: "Beliebteste Wahl",
-                    name: "ESG Certified",
-                    tag: "Mit Expertenbegleitung",
-                    period: "pro Jahr · einmalige Zahlung",
-                    features: [
-                        "<strong>Alles aus ESG Ready</strong>",
-                        "<strong>2 Stunden Beratung inklusive</strong> (Video-Call mit Dipl.-Ing. Alexander Riedl)",
-                        "<strong>Persönliche Berichts-Durchsicht</strong> durch unseren Umweltingenieur",
-                        "Erklärung aller Kennzahlen und CO2-Berechnungen",
-                        "<strong>Unterschriebene Bestätigung</strong> als Qualitätsnachweis",
-                        "Priority Support für 12 Monate",
-                        "Revisionssichere Archivierung aller Belege"
-                    ]
-                },
-        
-                pkg3: {
-                    name: "ESG Partner",
-                    tag: "Vollständige Begleitung",
-                    period: "pro Jahr · einmalige Zahlung",
-                    features: [
-                        "<strong>Alles aus ESG Certified</strong>",
-                        "<strong>1 zusätzliche Beratungsstunde</strong> (gesamt 3 Stunden)",
-                        "<strong>Quartalsweise Check-ins</strong> – 4 x 30 Min. pro Jahr",
-                        "ESG-Strategieentwicklung für Ihr Unternehmen",
-                        "Dedicated Account Manager",
-                        "Frühzeitiger Zugang zu neuen Features",
-                        "Jahresvergleich und Fortschrittsanalyse"
-                    ]
-                }
-            },
-        
-            en: {
-                nav_home: "Home",
-                nav_esrs: "ESRS & CSRD",
-                nav_packages: "Packages",
-                nav_about: "About",
-                nav_cta: "Start Now",
-        
-                hero_tag: "Our packages",
-                hero_h1: "Clearly priced —<br><em>personally supported</em>",
-                hero_sub: "No subscription, no fine print. One annual fee, unlimited ESG reports — and an expert guiding you through the process.",
-        
-                pkg_btn: "Request now",
-        
-                pkg1: {
-                    name: "ESG Ready",
-                    tag: "For getting started",
-                    period: "per year · one-time payment",
-                    features: [
-                        "Software access for 12 months",
-                        "Guided ESG wizard through all relevant ESRS standards",
-                        "AI-supported report (GPT-4)",
-                        "Environment, Social &amp; Governance coverage",
-                        "Monthly consumption portal with CO2 calculation",
-                        "Unlimited locations and data entries",
-                        "PDF report download",
-                        "Email support"
-                    ]
-                },
-        
-                pkg2: {
-                    badge: "Most popular choice",
-                    name: "ESG Certified",
-                    tag: "With expert support",
-                    period: "per year · one-time payment",
-                    features: [
-                        "<strong>Everything in ESG Ready</strong>",
-                        "<strong>2 hours consulting included</strong> (video call with Dipl.-Ing. Alexander Riedl)",
-                        "<strong>Personal report review</strong> by our environmental engineer",
-                        "Explanation of all KPIs and CO2 calculations",
-                        "<strong>Signed confirmation</strong> as proof of quality",
-                        "Priority support for 12 months",
-                        "Audit-safe archiving of all documents"
-                    ]
-                },
-        
-                pkg3: {
-                    name: "ESG Partner",
-                    tag: "Full support",
-                    period: "per year · one-time payment",
-                    features: [
-                        "<strong>Everything in ESG Certified</strong>",
-                        "<strong>1 additional consulting hour</strong> (3 hours total)",
-                        "<strong>Quarterly check-ins</strong> – 4 x 30 min per year",
-                        "ESG strategy development for your company",
-                        "Dedicated account manager",
-                        "Early access to new features",
-                        "Year-over-year comparison and progress analysis"
-                    ]
-                }
-            },
-        
-            fr: {
-                nav_home: "Accueil",
-                nav_esrs: "ESRS & CSRD",
-                nav_packages: "Forfaits",
-                nav_about: "À propos",
-                nav_cta: "Commencer",
-        
-                hero_tag: "Nos forfaits",
-                hero_h1: "Tarification claire —<br><em>accompagnement personnel</em>",
-                hero_sub: "Pas d’abonnement, pas de petites lignes. Un tarif annuel, des rapports ESG illimités — avec un expert à vos côtés.",
-        
-                pkg_btn: "Demander maintenant",
-        
-                pkg1: {
-                    name: "ESG Ready",
-                    tag: "Pour commencer",
-                    period: "par an · paiement unique",
-                    features: [
-                        "Accès au logiciel pendant 12 mois",
-                        "Assistant ESG guidé couvrant toutes les normes ESRS pertinentes",
-                        "Rapport assisté par IA (GPT-4)",
-                        "Couverture Environment, Social &amp; Governance",
-                        "Portail mensuel de consommation avec calcul du CO2",
-                        "Sites et saisies illimités",
-                        "Téléchargement du rapport PDF",
-                        "Support par e-mail"
-                    ]
-                },
-        
-                pkg2: {
-                    badge: "Choix le plus populaire",
-                    name: "ESG Certified",
-                    tag: "Avec accompagnement expert",
-                    period: "par an · paiement unique",
-                    features: [
-                        "<strong>Tout ce qui est inclus dans ESG Ready</strong>",
-                        "<strong>2 heures de conseil incluses</strong> (appel vidéo avec Dipl.-Ing. Alexander Riedl)",
-                        "<strong>Relecture personnelle du rapport</strong> par notre ingénieur environnemental",
-                        "Explication de tous les indicateurs et calculs CO2",
-                        "<strong>Confirmation signée</strong> comme preuve de qualité",
-                        "Support prioritaire pendant 12 mois",
-                        "Archivage sécurisé de tous les justificatifs"
-                    ]
-                },
-        
-                pkg3: {
-                    name: "ESG Partner",
-                    tag: "Accompagnement complet",
-                    period: "par an · paiement unique",
-                    features: [
-                        "<strong>Tout ce qui est inclus dans ESG Certified</strong>",
-                        "<strong>1 heure de conseil supplémentaire</strong> (3 heures au total)",
-                        "<strong>Suivis trimestriels</strong> – 4 x 30 min par an",
-                        "Développement d’une stratégie ESG pour votre entreprise",
-                        "Account manager dédié",
-                        "Accès anticipé aux nouvelles fonctionnalités",
-                        "Comparaison annuelle et analyse des progrès"
-                    ]
-                }
-            },
-        
-            it: {
-                nav_home: "Home",
-                nav_esrs: "ESRS & CSRD",
-                nav_packages: "Pacchetti",
-                nav_about: "Chi siamo",
-                nav_cta: "Inizia ora",
-        
-                hero_tag: "I nostri pacchetti",
-                hero_h1: "Prezzi trasparenti —<br><em>supporto personale</em>",
-                hero_sub: "Nessun abbonamento, nessuna clausola nascosta. Un costo annuale, report ESG illimitati — con un esperto al tuo fianco.",
-        
-                pkg_btn: "Richiedi ora",
-        
-                pkg1: {
-                    name: "ESG Ready",
-                    tag: "Per iniziare",
-                    period: "all’anno · pagamento unico",
-                    features: [
-                        "Accesso al software per 12 mesi",
-                        "Wizard ESG guidato attraverso tutti gli standard ESRS rilevanti",
-                        "Report supportato dall’IA (GPT-4)",
-                        "Copertura Environment, Social &amp; Governance",
-                        "Portale mensile dei consumi con calcolo CO2",
-                        "Sedi e inserimenti dati illimitati",
-                        "Download del report PDF",
-                        "Supporto via e-mail"
-                    ]
-                },
-        
-                pkg2: {
-                    badge: "Scelta più popolare",
-                    name: "ESG Certified",
-                    tag: "Con supporto esperto",
-                    period: "all’anno · pagamento unico",
-                    features: [
-                        "<strong>Tutto ciò che è incluso in ESG Ready</strong>",
-                        "<strong>2 ore di consulenza incluse</strong> (video call con Dipl.-Ing. Alexander Riedl)",
-                        "<strong>Revisione personale del report</strong> da parte del nostro ingegnere ambientale",
-                        "Spiegazione di tutti i KPI e dei calcoli CO2",
-                        "<strong>Conferma firmata</strong> come prova di qualità",
-                        "Priority support per 12 mesi",
-                        "Archiviazione sicura di tutti i documenti"
-                    ]
-                },
-        
-                pkg3: {
-                    name: "ESG Partner",
-                    tag: "Supporto completo",
-                    period: "all’anno · pagamento unico",
-                    features: [
-                        "<strong>Tutto ciò che è incluso in ESG Certified</strong>",
-                        "<strong>1 ora di consulenza aggiuntiva</strong> (3 ore totali)",
-                        "<strong>Check-in trimestrali</strong> – 4 x 30 min all’anno",
-                        "Sviluppo della strategia ESG per la tua azienda",
-                        "Dedicated account manager",
-                        "Accesso anticipato alle nuove funzionalità",
-                        "Confronto annuale e analisi dei progressi"
-                    ]
-                }
+<script>
+    const fadeElements = document.querySelectorAll('.fade-up');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => entry.target.classList.add('visible'), index * 100);
+                observer.unobserve(entry.target);
             }
-        };
-        
-        function toggleLangMenu(e) {
-            e.stopPropagation();
-            document.getElementById('lang-menu').classList.toggle('open');
-        }
-        
-        document.addEventListener('click', () => {
-            const menu = document.getElementById('lang-menu');
-            if (menu) menu.classList.remove('open');
         });
-        
-        function applyPackageContent(cardIndex, data, buttonLabel) {
-            const card = document.querySelector(`.packages-grid .pkg:nth-child(${cardIndex})`);
-            if (!card) return;
-        
-            const badge = card.querySelector('.pkg-badge');
-            if (badge && data.badge) badge.innerHTML = data.badge;
-        
-            const name = card.querySelector('.pkg-name');
-            if (name) name.innerHTML = data.name;
-        
-            const tag = card.querySelector('.pkg-tagline');
-            if (tag) tag.innerHTML = data.tag;
-        
-            const period = card.querySelector('.pkg-period');
-            if (period) period.innerHTML = data.period;
-        
-            const features = card.querySelectorAll('.pkg-features li');
-            data.features.forEach((text, index) => {
-                if (features[index]) features[index].innerHTML = text;
-            });
-        
-            const btn = card.querySelector('.pkg-btn-main');
-            if (btn) btn.innerHTML = buttonLabel;
-        }
-        
-        function setLang(lang) {
-            const t = translations[lang];
-            if (!t) return;
-        
-            localStorage.setItem('siteLang', lang);
-        
-            const labels = { de: 'DE', en: 'EN', fr: 'FR', it: 'IT' };
-            const current = document.getElementById('lang-current');
-            if (current) current.textContent = labels[lang];
-        
-            const set = (id, val) => {
-                const el = document.getElementById(id);
-                if (el) el.innerHTML = val;
-            };
-        
-            set('nav_home', t.nav_home);
-            set('nav_esrs', t.nav_esrs);
-            set('nav_packages', t.nav_packages);
-            set('nav_about', t.nav_about);
-            set('nav_cta', t.nav_cta);
-        
-            set('hero_tag', t.hero_tag);
-            set('hero_h1', t.hero_h1);
-            set('hero_sub', t.hero_sub);
-        
-            applyPackageContent(1, t.pkg1, t.pkg_btn);
-            applyPackageContent(2, t.pkg2, t.pkg_btn);
-            applyPackageContent(3, t.pkg3, t.pkg_btn);
-        
-            document.getElementById('lang-menu').classList.remove('open');
-            document.documentElement.lang = lang;
-        }
-        
-        document.addEventListener('DOMContentLoaded', () => {
-            const savedLang = localStorage.getItem('siteLang') || 'de';
-            setLang(savedLang);
-        });
-    </script>
+    }, { threshold: 0.05 });
 
+    fadeElements.forEach(el => observer.observe(el));
+
+    setTimeout(() => {
+        fadeElements.forEach(el => {
+            const r = el.getBoundingClientRect();
+            if (r.top < window.innerHeight) el.classList.add('visible');
+        });
+    }, 100);
+
+    function showTab(name, event) {
+        document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+        document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+        document.getElementById('tab-' + name).classList.add('active');
+        if (event) event.target.classList.add('active');
+    }
+</script>
+<script src="translations.js"></script>
+<script src="i18n.js"></script>
 </body>
 </html>
