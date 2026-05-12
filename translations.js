@@ -235,17 +235,17 @@ window.TRANSLATIONS = {
       cta_primary: "Get in touch",
       cta_secondary: "ESRS explained"
   },
-  esrs: {
+   esrs: {
     hero_tag: "Regulation explained clearly",
     hero_h1: "What are ESRS &amp; CSRD —<br>and why does it matter for your company?",
-    hero_sub: "New EU rules are changing how companies must report on sustainability. We explain what that means in practice — for large corporations and for SMEs."
+    hero_sub: "New EU rules are changing how companies must report on sustainability. We explain what that means in practice — for large corporations and for SMEs.",
     basics_tag: "The basics",
     basics_title: "Two terms<br>you need to know",
     basics_p1: "With the Corporate Sustainability Reporting Directive (CSRD), the EU has created a new binding framework for sustainability reporting.",
-    basics_p2: "In short: CSRD is the law. ESRS are the detailed requirements defining what must appear in an ESG report.",
+    basics_p2: "In short: CSRD is the law. ESRS are the detailed requirements defining what must appear in an ESG report."
     basics_p3: "What many do not realize: these obligations do not only affect large corporations. Through the supply chain, small and medium-sized companies are increasingly affected as well."
-  }
-  },
+  }},
+    
   fr: {
     common: {
       nav_home: "Accueil",
