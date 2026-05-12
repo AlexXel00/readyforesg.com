@@ -234,13 +234,13 @@ window.TRANSLATIONS = {
       cta_text: "We advise you free of charge and without obligation on which package fits your company.",
       cta_primary: "Get in touch",
       cta_secondary: "ESRS explained"
-    }
   },
   esrs: {
     hero_tag: "Regulation explained clearly"
     hero_h1: "What are ESRS &amp; CSRD —<br>and why does it matter for your company?"
     hero_sub: "New EU rules are changing how companies must report on sustainability. We explain what that means in practice — for large corporations and for SMEs."
-  },
+  }
+},
   fr: {
     common: {
       nav_home: "Accueil",
