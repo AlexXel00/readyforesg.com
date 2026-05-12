@@ -357,12 +357,12 @@ window.TRANSLATIONS = {
       cta_text: "Nous vous conseillons gratuitement et sans engagement sur le forfait le plus adapté à votre entreprise.",
       cta_primary: "Nous contacter",
       cta_secondary: "ESRS expliqué"
-    }
   },
   esrs: {
     hero_tag: "Réglementation expliquée clairement",
     hero_h1: "Que sont les ESRS &amp; la CSRD —<br>et pourquoi cela concerne-t-il votre entreprise ?",
     hero_sub: "Les nouvelles règles de l’UE changent la manière dont les entreprises doivent rendre compte de la durabilité. Nous expliquons ce que cela signifie concrètement — pour les grands groupes comme pour les PME."
+  }
   },
   it: {
     common: {
