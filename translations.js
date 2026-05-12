@@ -480,12 +480,12 @@ window.TRANSLATIONS = {
       cta_text: "Ti consigliamo gratuitamente e senza impegno su quale pacchetto sia più adatto alla tua azienda.",
       cta_primary: "Contattaci",
       cta_secondary: "ESRS spiegato"
-    }
-  }
-,
-    esrs: {
-      hero_tag: "Regolamentazione spiegata chiaramente",
-      hero_h1: "Cosa sono ESRS &amp; CSRD —<br>e perché riguardano la tua azienda?",
-      hero_sub: "Le nuove regole UE stanno cambiando il modo in cui le aziende devono rendicontare la sostenibilità. Spieghiamo cosa significa concretamente — per grandi aziende e PMI."
-    }
+    },
+
+esrs: {
+  hero_tag: "Regolamentazione spiegata chiaramente",
+  hero_h1: "Cosa sono ESRS &amp; CSRD —<br>e perché riguardano la tua azienda?",
+  hero_sub: "Le nuove regole UE stanno cambiando il modo in cui le aziende devono rendicontare la sostenibilità. Spieghiamo cosa significa concretamente — per grandi aziende e PMI."
+}
+}
 };
