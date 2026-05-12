@@ -359,7 +359,11 @@ window.TRANSLATIONS = {
       cta_secondary: "ESRS expliqué"
     }
   },
-
+  esrs: {
+    hero_tag: "Réglementation expliquée clairement",
+    hero_h1: "Que sont les ESRS &amp; la CSRD —<br>et pourquoi cela concerne-t-il votre entreprise ?",
+    hero_sub: "Les nouvelles règles de l’UE changent la manière dont les entreprises doivent rendre compte de la durabilité. Nous expliquons ce que cela signifie concrètement — pour les grands groupes comme pour les PME."
+  },
   it: {
     common: {
       nav_home: "Home",
@@ -478,4 +482,10 @@ window.TRANSLATIONS = {
       cta_secondary: "ESRS spiegato"
     }
   }
+,
+    esrs: {
+      hero_tag: "Regolamentazione spiegata chiaramente",
+      hero_h1: "Cosa sono ESRS &amp; CSRD —<br>e perché riguardano la tua azienda?",
+      hero_sub: "Le nuove regole UE stanno cambiando il modo in cui le aziende devono rendicontare la sostenibilità. Spieghiamo cosa significa concretamente — per grandi aziende e PMI."
+    }
 };
