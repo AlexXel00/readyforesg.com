@@ -116,6 +116,16 @@ window.TRANSLATIONS = {
       cta_primary: "Kontakt aufnehmen",
       cta_secondary: "ESRS erklärt"
     }
+    esrs: {
+      hero_tag: "Regulierung verständlich erklärt",
+      hero_h1: "Was sind ESRS &amp; CSRD —<br>und warum betrifft es Ihr Unternehmen?",
+      hero_sub: "Neue EU-Vorschriften verändern, wie Unternehmen über Nachhaltigkeit berichten müssen. Wir erklären, was das konkret bedeutet — für große Konzerne und für KMU.",
+      basics_tag: "Die Grundlagen",
+      basics_title: "Zwei Begriffe,<br>die Sie kennen müssen",
+      basics_p1: "Die EU hat mit der Corporate Sustainability Reporting Directive (CSRD) einen neuen, verbindlichen Rahmen für Nachhaltigkeitsberichte geschaffen.",
+      basics_p2: "Kurz gesagt: Die CSRD ist das Gesetz. Die ESRS sind die genauen Vorgaben, was in einem ESG-Bericht stehen muss.",
+      basics_p3: "Was viele nicht wissen: Diese Pflichten treffen nicht nur Großunternehmen. Über die Lieferkette werden auch kleine und mittlere Unternehmen zunehmend in die Pflicht genommen."
+    }
   },
 
   en: {
