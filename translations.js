@@ -245,7 +245,7 @@ window.TRANSLATIONS = {
     basics_p2: "In short: CSRD is the law. ESRS are the detailed requirements defining what must appear in an ESG report.",
     basics_p3: "What many do not realize: these obligations do not only affect large corporations. Through the supply chain, small and medium-sized companies are increasingly affected as well."
   }
-    
+  },  
   fr: {
     common: {
       nav_home: "Accueil",
