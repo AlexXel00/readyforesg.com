@@ -502,14 +502,15 @@ window.TRANSLATIONS = {
       cta_secondary: "ESRS spiegato"
     },
 
-esrs: {
-  hero_tag: "Regolamentazione spiegata chiaramente",
-  hero_h1: "Cosa sono ESRS &amp; CSRD —<br>e perché riguardano la tua azienda?",
-  hero_sub: "Le nuove regole UE stanno cambiando il modo in cui le aziende devono rendicontare la sostenibilità. Spieghiamo cosa significa concretamente — per grandi aziende e PMI.",
-  basics_tag: "Le basi",
-  basics_title: "Due termini<br>da conoscere",
-  basics_p1: "Con la Corporate Sustainability Reporting Directive (CSRD), l’UE ha creato un nuovo quadro vincolante per la rendicontazione della sostenibilità.",
-  basics_p2: "In breve: la CSRD è la legge. Gli ESRS sono i requisiti dettagliati che definiscono cosa deve comparire in un report ESG.",
-  basics_p3: "Quello che molti non sanno: questi obblighi non riguardano solo le grandi imprese. Attraverso la catena di fornitura, anche le PMI sono sempre più coinvolte."
-}
+    esrs: {
+      hero_tag: "Regolamentazione spiegata chiaramente",
+      hero_h1: "Cosa sono ESRS &amp; CSRD —<br>e perché riguardano la tua azienda?",
+      hero_sub: "Le nuove regole UE stanno cambiando il modo in cui le aziende devono rendicontare la sostenibilità. Spieghiamo cosa significa concretamente — per grandi aziende e PMI.",
+      basics_tag: "Le basi",
+      basics_title: "Due termini<br>da conoscere",
+      basics_p1: "Con la Corporate Sustainability Reporting Directive (CSRD), l’UE ha creato un nuovo quadro vincolante per la rendicontazione della sostenibilità.",
+      basics_p2: "In breve: la CSRD è la legge. Gli ESRS sono i requisiti dettagliati che definiscono cosa deve comparire in un report ESG.",
+      basics_p3: "Quello che molti non sanno: questi obblighi non riguardano solo le grandi imprese. Attraverso la catena di fornitura, anche le PMI sono sempre più coinvolte."
+    }
+  }
 };
