@@ -115,7 +115,7 @@ window.TRANSLATIONS = {
       cta_text: "Wir beraten Sie kostenlos und unverbindlich, welches Paket für Ihr Unternehmen passt.",
       cta_primary: "Kontakt aufnehmen",
       cta_secondary: "ESRS erklärt"
-    }
+    },
     esrs: {
       hero_tag: "Regulierung verständlich erklärt",
       hero_h1: "Was sind ESRS &amp; CSRD —<br>und warum betrifft es Ihr Unternehmen?",
