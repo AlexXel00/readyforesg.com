@@ -1,5 +1,5 @@
 window.TRANSLATIONS = {
-  de: {
+  de: {t
     common: {
       nav_home: "Startseite",
       nav_esrs: "ESRS & CSRD",
@@ -160,6 +160,22 @@ window.TRANSLATIONS = {
     timeline_now_status: "Indirekter Druck",
     timeline_now_title: "Alle KMU als Zulieferer",
     timeline_now_text: "Auch wenn KMU formal noch nicht berichtspflichtig sind: Große Unternehmen müssen ihre gesamte Lieferkette erfassen. Als Lieferant werden Sie zunehmend nach ESG-Daten gefragt — von Ihren Kunden.",
+    
+    standards_tag: "Die zwölf Standards",
+    standards_title: "Was die ESRS<br><em>konkret verlangen</em>",
+    standards_intro: "Die ESRS decken drei Bereiche ab: Querschnittsthemen, Umwelt (E), Soziales (S) und Governance (G). Jeder Standard definiert, welche Informationen offenzulegen sind.",
+    
+    std1_code: "ESRS 1 & 2",
+    std1_title: "Allgemeine Anforderungen",
+    std1_text: "Grundprinzipien der Berichterstattung, Wesentlichkeitsbewertung und allgemeine Angaben zum Unternehmen und seiner Nachhaltigkeitsstrategie.",
+    
+    std2_code: "ESRS E1",
+    std2_title: "Klimawandel",
+    std2_text: "CO2-Emissionen (Scope 1, 2 & 3), Klimarisiken, Energieverbrauch und Maßnahmen zur Emissionsreduzierung.",
+    
+    std3_code: "ESRS E2",
+    std3_title: "Umweltverschmutzung",
+    std3_text: "Schadstoffemissionen in Luft, Wasser und Boden. Verwendung und Freisetzung gefährlicher Stoffe.",
     }
   },
 
@@ -324,6 +340,22 @@ window.TRANSLATIONS = {
   timeline_now_status: "Indirect pressure",
   timeline_now_title: "All SMEs as suppliers",
   timeline_now_text: "Even if SMEs are not yet formally obliged to report, large companies must capture their entire supply chain. As a supplier, you are increasingly being asked for ESG data by your customers.",
+    
+  standards_tag: "The twelve standards",
+  standards_title: "What the ESRS<br><em>actually require</em>",
+  standards_intro: "The ESRS cover three areas: cross-cutting topics, environment (E), social matters (S), and governance (G). Each standard defines which information must be disclosed.",
+  
+  std1_code: "ESRS 1 & 2",
+  std1_title: "General requirements",
+  std1_text: "Core reporting principles, materiality assessment, and general disclosures about the company and its sustainability strategy.",
+  
+  std2_code: "ESRS E1",
+  std2_title: "Climate change",
+  std2_text: "CO2 emissions (Scope 1, 2 & 3), climate risks, energy consumption, and measures to reduce emissions.",
+  
+  std3_code: "ESRS E2",
+  std3_title: "Pollution",
+  std3_text: "Pollutant emissions into air, water, and soil. Use and release of hazardous substances.",
     }
   },  
   fr: {
@@ -487,6 +519,22 @@ window.TRANSLATIONS = {
   timeline_now_status: "Pression indirecte",
   timeline_now_title: "Toutes les PME en tant que fournisseurs",
   timeline_now_text: "Même si les PME ne sont pas encore formellement tenues de publier un rapport, les grandes entreprises doivent couvrir toute leur chaîne d’approvisionnement. En tant que fournisseur, vos clients vous demandent de plus en plus des données ESG.",
+   
+  standards_tag: "Les douze normes",
+  standards_title: "Ce que les ESRS<br><em>exigent concrètement</em>",
+  standards_intro: "Les ESRS couvrent trois domaines : les thèmes transversaux, l’environnement (E), le social (S) et la gouvernance (G). Chaque norme définit quelles informations doivent être publiées.",
+  
+  std1_code: "ESRS 1 & 2",
+  std1_title: "Exigences générales",
+  std1_text: "Principes fondamentaux du reporting, analyse de matérialité et informations générales sur l’entreprise et sa stratégie de durabilité.",
+  
+  std2_code: "ESRS E1",
+  std2_title: "Changement climatique",
+  std2_text: "Émissions de CO2 (Scope 1, 2 & 3), risques climatiques, consommation d’énergie et mesures de réduction des émissions.",
+  
+  std3_code: "ESRS E2",
+  std3_title: "Pollution",
+  std3_text: "Émissions polluantes dans l’air, l’eau et le sol. Utilisation et rejet de substances dangereuses.",
     }
   },
   it: {
@@ -651,6 +699,22 @@ window.TRANSLATIONS = {
     timeline_now_status: "Pressione indiretta",
     timeline_now_title: "Tutte le PMI come fornitori",
     timeline_now_text: "Anche se le PMI non sono ancora formalmente obbligate a rendicontare, le grandi aziende devono coprire l’intera catena di fornitura. Come fornitore, i clienti ti chiedono sempre più dati ESG.",
+    
+    standards_tag: "I dodici standard",
+    standards_title: "Cosa richiedono gli ESRS<br><em>in concreto</em>",
+    standards_intro: "Gli ESRS coprono tre aree: temi trasversali, ambiente (E), sociale (S) e governance (G). Ogni standard definisce quali informazioni devono essere divulgate.",
+    
+    std1_code: "ESRS 1 & 2",
+    std1_title: "Requisiti generali",
+    std1_text: "Principi fondamentali della rendicontazione, analisi di materialità e informazioni generali sull’azienda e sulla sua strategia di sostenibilità.",
+    
+    std2_code: "ESRS E1",
+    std2_title: "Cambiamento climatico",
+    std2_text: "Emissioni di CO2 (Scope 1, 2 & 3), rischi climatici, consumo energetico e misure per ridurre le emissioni.",
+    
+    std3_code: "ESRS E2",
+    std3_title: "Inquinamento",
+    std3_text: "Emissioni inquinanti nell’aria, nell’acqua e nel suolo. Uso e rilascio di sostanze pericolose.",
     }
   }
 };
