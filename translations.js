@@ -124,7 +124,7 @@ window.TRANSLATIONS = {
       basics_title: "Zwei Begriffe,<br>die Sie kennen müssen",
       basics_p1: "Die EU hat mit der Corporate Sustainability Reporting Directive (CSRD) einen neuen, verbindlichen Rahmen für Nachhaltigkeitsberichte geschaffen.",
       basics_p2: "Kurz gesagt: Die CSRD ist das Gesetz. Die ESRS sind die genauen Vorgaben, was in einem ESG-Bericht stehen muss.",
-      basics_p3: "Was viele nicht wissen: Diese Pflichten treffen nicht nur Großunternehmen. Über die Lieferkette werden auch kleine und mittlere Unternehmen zunehmend in die Pflicht genommen."
+      basics_p3: "Was viele nicht wissen: Diese Pflichten treffen nicht nur Großunternehmen. Über die Lieferkette werden auch kleine und mittlere Unternehmen zunehmend in die Pflicht genommen.",
 
     card1_title: "CSRD",
     card1_abbr: "Corporate Sustainability Reporting Directive",
@@ -265,7 +265,7 @@ window.TRANSLATIONS = {
     basics_title: "Two terms<br>you need to know",
     basics_p1: "With the Corporate Sustainability Reporting Directive (CSRD), the EU has created a new binding framework for sustainability reporting.",
     basics_p2: "In short: CSRD is the law. ESRS are the detailed requirements defining what must appear in an ESG report.",
-    basics_p3: "What many do not realize: these obligations do not only affect large corporations. Through the supply chain, small and medium-sized companies are increasingly affected as well."
+    basics_p3: "What many do not realize: these obligations do not only affect large corporations. Through the supply chain, small and medium-sized companies are increasingly affected as well.",
   
   card1_title: "CSRD",
   card1_abbr: "Corporate Sustainability Reporting Directive",
@@ -405,7 +405,7 @@ window.TRANSLATIONS = {
     basics_title: "Deux termes<br>à connaître",
     basics_p1: "Avec la Corporate Sustainability Reporting Directive (CSRD), l’UE a créé un nouveau cadre contraignant pour le reporting de durabilité.",
     basics_p2: "En bref : la CSRD est la loi. Les ESRS sont les exigences détaillées qui définissent ce qui doit figurer dans un rapport ESG.",
-    basics_p3: "Ce que beaucoup ignorent : ces obligations ne concernent pas seulement les grands groupes. Par la chaîne d’approvisionnement, les PME sont elles aussi de plus en plus concernées."
+    basics_p3: "Ce que beaucoup ignorent : ces obligations ne concernent pas seulement les grands groupes. Par la chaîne d’approvisionnement, les PME sont elles aussi de plus en plus concernées.",
   
   card1_title: "CSRD",
   card1_abbr: "Corporate Sustainability Reporting Directive",
@@ -546,7 +546,7 @@ window.TRANSLATIONS = {
       basics_title: "Due termini<br>da conoscere",
       basics_p1: "Con la Corporate Sustainability Reporting Directive (CSRD), l’UE ha creato un nuovo quadro vincolante per la rendicontazione della sostenibilità.",
       basics_p2: "In breve: la CSRD è la legge. Gli ESRS sono i requisiti dettagliati che definiscono cosa deve comparire in un report ESG.",
-      basics_p3: "Quello che molti non sanno: questi obblighi non riguardano solo le grandi imprese. Attraverso la catena di fornitura, anche le PMI sono sempre più coinvolte."
+      basics_p3: "Quello che molti non sanno: questi obblighi non riguardano solo le grandi imprese. Attraverso la catena di fornitura, anche le PMI sono sempre più coinvolte.",
 
     card1_title: "CSRD",
     card1_abbr: "Corporate Sustainability Reporting Directive",
