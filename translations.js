@@ -137,6 +137,29 @@ window.TRANSLATIONS = {
     card3_title: "ESG",
     card3_abbr: "Environmental, Social &amp; Governance",
     card3_text: "Die drei Säulen der Nachhaltigkeitsberichterstattung: Umwelt, Soziales und Unternehmensführung. ESG ist der übergeordnete Begriff, ESRS die technische Umsetzung.",
+    
+    timeline_tag: "Zeitplan der EU",
+    timeline_title: "Wer muss wann<br><em>berichten?</em>",
+    
+    timeline_2024_date: "2024",
+    timeline_2024_status: "Bereits in Kraft",
+    timeline_2024_title: "Große kapitalmarktorientierte Unternehmen",
+    timeline_2024_text: "Unternehmen mit mehr als 500 Mitarbeitern, die bereits unter die NFRD-Pflicht fielen. Erste Berichte nach neuem Standard für das Geschäftsjahr 2024.",
+    
+    timeline_2025_date: "2025",
+    timeline_2025_status: "Läuft gerade an",
+    timeline_2025_title: "Alle großen Unternehmen",
+    timeline_2025_text: "Unternehmen mit mehr als 250 Mitarbeitern oder 40 Mio. EUR Umsatz. Ab diesem Jahr müssen sie ESRS-konforme Berichte für das Geschäftsjahr 2025 vorlegen.",
+    
+    timeline_2026_date: "2026",
+    timeline_2026_status: "Bald relevant",
+    timeline_2026_title: "Börsennotierte KMU",
+    timeline_2026_text: "Kleine und mittlere Unternehmen, die an einem EU-regulierten Markt gelistet sind, fallen ab 2026 unter die Berichtspflicht.",
+    
+    timeline_now_date: "Jetzt",
+    timeline_now_status: "Indirekter Druck",
+    timeline_now_title: "Alle KMU als Zulieferer",
+    timeline_now_text: "Auch wenn KMU formal noch nicht berichtspflichtig sind: Große Unternehmen müssen ihre gesamte Lieferkette erfassen. Als Lieferant werden Sie zunehmend nach ESG-Daten gefragt — von Ihren Kunden.",
     }
   },
 
@@ -278,6 +301,29 @@ window.TRANSLATIONS = {
   card3_title: "ESG",
   card3_abbr: "Environmental, Social &amp; Governance",
   card3_text: "The three pillars of sustainability reporting: environment, social matters, and corporate governance. ESG is the broader concept, ESRS is the technical implementation.",  
+
+  timeline_tag: "EU timeline",
+  timeline_title: "Who has to report<br><em>and when?</em>",
+  
+  timeline_2024_date: "2024",
+  timeline_2024_status: "Already in force",
+  timeline_2024_title: "Large listed companies",
+  timeline_2024_text: "Companies with more than 500 employees that were already subject to the NFRD. First reports under the new standard for financial year 2024.",
+  
+  timeline_2025_date: "2025",
+  timeline_2025_status: "Rolling out now",
+  timeline_2025_title: "All large companies",
+  timeline_2025_text: "Companies with more than 250 employees or EUR 40 million in revenue. From this year onward, they must submit ESRS-compliant reports for financial year 2025.",
+  
+  timeline_2026_date: "2026",
+  timeline_2026_status: "Relevant soon",
+  timeline_2026_title: "Listed SMEs",
+  timeline_2026_text: "Small and medium-sized companies listed on an EU-regulated market fall under the reporting obligation from 2026 onward.",
+  
+  timeline_now_date: "Now",
+  timeline_now_status: "Indirect pressure",
+  timeline_now_title: "All SMEs as suppliers",
+  timeline_now_text: "Even if SMEs are not yet formally obliged to report, large companies must capture their entire supply chain. As a supplier, you are increasingly being asked for ESG data by your customers.",
     }
   },  
   fr: {
@@ -418,6 +464,29 @@ window.TRANSLATIONS = {
   card3_title: "ESG",
   card3_abbr: "Environmental, Social &amp; Governance",
   card3_text: "Les trois piliers du reporting de durabilité : environnement, social et gouvernance d’entreprise. ESG est le concept global, ESRS en est la mise en œuvre technique.",  
+    
+  timeline_tag: "Calendrier de l’UE",
+  timeline_title: "Qui doit publier<br><em>et quand ?</em>",
+  
+  timeline_2024_date: "2024",
+  timeline_2024_status: "Déjà en vigueur",
+  timeline_2024_title: "Grandes entreprises cotées",
+  timeline_2024_text: "Entreprises de plus de 500 salariés déjà soumises à la NFRD. Premiers rapports selon la nouvelle norme pour l’exercice 2024.",
+  
+  timeline_2025_date: "2025",
+  timeline_2025_status: "En cours de déploiement",
+  timeline_2025_title: "Toutes les grandes entreprises",
+  timeline_2025_text: "Entreprises de plus de 250 salariés ou réalisant 40 millions d’euros de chiffre d’affaires. À partir de cette année, elles doivent publier des rapports conformes aux ESRS pour l’exercice 2025.",
+  
+  timeline_2026_date: "2026",
+  timeline_2026_status: "Bientôt concernées",
+  timeline_2026_title: "PME cotées",
+  timeline_2026_text: "Les petites et moyennes entreprises cotées sur un marché réglementé de l’UE seront soumises à l’obligation de reporting à partir de 2026.",
+  
+  timeline_now_date: "Maintenant",
+  timeline_now_status: "Pression indirecte",
+  timeline_now_title: "Toutes les PME en tant que fournisseurs",
+  timeline_now_text: "Même si les PME ne sont pas encore formellement tenues de publier un rapport, les grandes entreprises doivent couvrir toute leur chaîne d’approvisionnement. En tant que fournisseur, vos clients vous demandent de plus en plus des données ESG.",
     }
   },
   it: {
@@ -559,6 +628,29 @@ window.TRANSLATIONS = {
     card3_title: "ESG",
     card3_abbr: "Environmental, Social &amp; Governance",
     card3_text: "I tre pilastri della rendicontazione di sostenibilità: ambiente, sociale e governance aziendale. ESG è il concetto generale, ESRS è la sua attuazione tecnica.",
+    
+    timeline_tag: "Calendario UE",
+    timeline_title: "Chi deve rendicontare<br><em>e quando?</em>",
+    
+    timeline_2024_date: "2024",
+    timeline_2024_status: "Già in vigore",
+    timeline_2024_title: "Grandi società quotate",
+    timeline_2024_text: "Aziende con oltre 500 dipendenti già soggette alla NFRD. Primi report secondo il nuovo standard per l’esercizio 2024.",
+    
+    timeline_2025_date: "2025",
+    timeline_2025_status: "In fase di avvio",
+    timeline_2025_title: "Tutte le grandi aziende",
+    timeline_2025_text: "Aziende con oltre 250 dipendenti o 40 milioni di euro di fatturato. Da quest’anno devono presentare report conformi agli ESRS per l’esercizio 2025.",
+    
+    timeline_2026_date: "2026",
+    timeline_2026_status: "Presto rilevante",
+    timeline_2026_title: "PMI quotate",
+    timeline_2026_text: "Le piccole e medie imprese quotate su un mercato regolamentato dell’UE saranno soggette all’obbligo di rendicontazione a partire dal 2026.",
+    
+    timeline_now_date: "Ora",
+    timeline_now_status: "Pressione indiretta",
+    timeline_now_title: "Tutte le PMI come fornitori",
+    timeline_now_text: "Anche se le PMI non sono ancora formalmente obbligate a rendicontare, le grandi aziende devono coprire l’intera catena di fornitura. Come fornitore, i clienti ti chiedono sempre più dati ESG.",
     }
   }
 };
