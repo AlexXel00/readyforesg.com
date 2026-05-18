@@ -47,10 +47,10 @@
         p { font-size: 1rem; font-weight: 300; color: #4a5a54; line-height: 1.85; margin-bottom: 1.2rem; }
 
         .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; margin-bottom: 6rem; }
-        .timeline { position: relative; padding-left: 2rem; }
+        .timeline { position: relative; padding-left: 2.5rem; }
         .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 1px; background: linear-gradient(to bottom, var(--mid), transparent); }
         .timeline-item { position: relative; margin-bottom: 2.5rem; }
-        .timeline-item::before { content: ''; position: absolute; left: -2.35rem; top: 0.4rem; width: 8px; height: 8px; border-radius: 50%; background: var(--mid); }
+        .timeline-item::before { content: ''; position: absolute; left: 0; top: 0.4rem; width: 8px; height: 8px; border-radius: 50%; background: var(--mid); transform: translateX(-50%); }
         .timeline-year { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); margin-bottom: 0.3rem; }
         .timeline-title { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400; color: var(--deep); margin-bottom: 0.4rem; }
         .timeline-p { font-size: 0.88rem; font-weight: 300; color: #5a6a64; line-height: 1.7; margin-bottom: 0; }
