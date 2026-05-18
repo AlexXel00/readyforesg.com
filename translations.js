@@ -6,6 +6,7 @@ window.TRANSLATIONS = {
       nav_packages: "Pakete",
       nav_about: "Über uns",
       nav_cta: "Jetzt starten",
+      nav_login: "Login",
       footer_terms: "Terms of Service",
       footer_privacy: "Privacy Policy",
       footer_imprint: "Impressum"
@@ -308,6 +309,7 @@ window.TRANSLATIONS = {
       nav_packages: "Packages",
       nav_about: "About",
       nav_cta: "Start Now",
+      nav_login: "Login",
       footer_terms: "Terms of Service",
       footer_privacy: "Privacy Policy",
       footer_imprint: "Imprint"
@@ -610,6 +612,7 @@ window.TRANSLATIONS = {
       nav_packages: "Forfaits",
       nav_about: "À propos",
       nav_cta: "Commencer",
+      nav_login: "Login",
       footer_terms: "Conditions d’utilisation",
       footer_privacy: "Politique de confidentialité",
       footer_imprint: "Mentions légales"
@@ -911,6 +914,7 @@ window.TRANSLATIONS = {
       nav_packages: "Pacchetti",
       nav_about: "Chi siamo",
       nav_cta: "Inizia ora",
+      nav_login: "Login",
       footer_terms: "Termini di servizio",
       footer_privacy: "Informativa sulla privacy",
       footer_imprint: "Impressum"
