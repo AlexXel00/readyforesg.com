@@ -115,7 +115,7 @@ window.TRANSLATIONS = {
       cta_text: "Wir beraten Sie kostenlos und unverbindlich, welches Paket für Ihr Unternehmen passt.",
       cta_primary: "Kontakt aufnehmen",
       cta_secondary: "ESRS erklärt"
-    },
+      },
     esrs: {
       hero_tag: "Regulierung verständlich erklärt",
       hero_h1: "Was sind ESRS & CSRD —<br>und warum betrifft es Ihr Unternehmen?",
@@ -551,7 +551,7 @@ window.TRANSLATIONS = {
     cta_bottom_text: "We guide you through the entire process — from the first data entry to the finished, signed report.",
     cta_bottom_primary: "View packages",
     cta_bottom_secondary: "Get in touch"
-  }, 
+    }, 
 
   about: {
     hero_tag: "About the founder",
@@ -719,7 +719,7 @@ window.TRANSLATIONS = {
       cta_text: "Nous vous conseillons gratuitement et sans engagement sur le forfait le plus adapté à votre entreprise.",
       cta_primary: "Nous contacter",
       cta_secondary: "ESRS expliqué"
-  },
+      },
   esrs: {
     hero_tag: "Réglementation expliquée clairement",
     hero_h1: "Que sont les ESRS & la CSRD —<br>et pourquoi cela concerne-t-il votre entreprise ?",
@@ -1020,7 +1020,7 @@ window.TRANSLATIONS = {
       cta_text: "Ti consigliamo gratuitamente e senza impegno su quale pacchetto sia più adatto alla tua azienda.",
       cta_primary: "Contattaci",
       cta_secondary: "ESRS spiegato"
-    },
+      },
 
     esrs: {
       hero_tag: "Regolamentazione spiegata chiaramente",
@@ -1206,4 +1206,4 @@ window.TRANSLATIONS = {
       cta_button: "Contattami ora"
       }
     }
-};
+  };
