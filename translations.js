@@ -1,5 +1,5 @@
 window.TRANSLATIONS = {
-  de: {t
+  de: {
     common: {
       nav_home: "Startseite",
       nav_esrs: "ESRS & CSRD",
