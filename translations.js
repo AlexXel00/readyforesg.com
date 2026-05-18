@@ -22,7 +22,7 @@ window.TRANSLATIONS = {
       pkg1_f1: "Software-Zugang für 12 Monate",
       pkg1_f2: "Geführter ESG-Wizard durch alle relevanten ESRS-Standards",
       pkg1_f3: "KI-gestützter Bericht (GPT-4)",
-      pkg1_f4: "Environment, Social &amp; Governance Abdeckung",
+      pkg1_f4: "Environment, Social & Governance Abdeckung",
       pkg1_f5: "Monatliches Verbrauchsportal mit CO2-Berechnung",
       pkg1_f6: "Unbegrenzte Standorte und Dateneingaben",
       pkg1_f7: "PDF-Bericht zum Download",
@@ -118,7 +118,7 @@ window.TRANSLATIONS = {
     },
     esrs: {
       hero_tag: "Regulierung verständlich erklärt",
-      hero_h1: "Was sind ESRS &amp; CSRD —<br>und warum betrifft es Ihr Unternehmen?",
+      hero_h1: "Was sind ESRS & CSRD —<br>und warum betrifft es Ihr Unternehmen?",
       hero_sub: "Neue EU-Vorschriften verändern, wie Unternehmen über Nachhaltigkeit berichten müssen. Wir erklären, was das konkret bedeutet — für große Konzerne und für KMU.",
       basics_tag: "Die Grundlagen",
       basics_title: "Zwei Begriffe,<br>die Sie kennen müssen",
@@ -132,10 +132,10 @@ window.TRANSLATIONS = {
     
     card2_title: "ESRS",
     card2_abbr: "European Sustainability Reporting Standards",
-    card2_text: "12 detaillierte Standards, die vorgeben wie berichtet werden muss. Aufgeteilt in Querschnittsstandards (ESRS 1 &amp; 2) und thematische Standards zu Umwelt, Soziales und Governance.",
+    card2_text: "12 detaillierte Standards, die vorgeben wie berichtet werden muss. Aufgeteilt in Querschnittsstandards (ESRS 1 & 2) und thematische Standards zu Umwelt, Soziales und Governance.",
     
     card3_title: "ESG",
-    card3_abbr: "Environmental, Social &amp; Governance",
+    card3_abbr: "Environmental, Social & Governance",
     card3_text: "Die drei Säulen der Nachhaltigkeitsberichterstattung: Umwelt, Soziales und Unternehmensführung. ESG ist der übergeordnete Begriff, ESRS die technische Umsetzung.",
     
     timeline_tag: "Zeitplan der EU",
@@ -275,7 +275,7 @@ window.TRANSLATIONS = {
       pkg1_f1: "Software access for 12 months",
       pkg1_f2: "Guided ESG wizard through all relevant ESRS standards",
       pkg1_f3: "AI-supported report (GPT-4)",
-      pkg1_f4: "Environment, Social &amp; Governance coverage",
+      pkg1_f4: "Environment, Social & Governance coverage",
       pkg1_f5: "Monthly consumption portal with CO2 calculation",
       pkg1_f6: "Unlimited locations and data entries",
       pkg1_f7: "PDF report download",
@@ -371,7 +371,7 @@ window.TRANSLATIONS = {
   },
   esrs: {
     hero_tag: "Regulation explained clearly",
-    hero_h1: "What are ESRS &amp; CSRD —<br>and why does it matter for your company?",
+    hero_h1: "What are ESRS & CSRD —<br>and why does it matter for your company?",
     hero_sub: "New EU rules are changing how companies must report on sustainability. We explain what that means in practice — for large corporations and for SMEs.",
     basics_tag: "The basics",
     basics_title: "Two terms<br>you need to know",
@@ -385,10 +385,10 @@ window.TRANSLATIONS = {
   
   card2_title: "ESRS",
   card2_abbr: "European Sustainability Reporting Standards",
-  card2_text: "12 detailed standards that define how reporting must be done. They are divided into cross-cutting standards (ESRS 1 &amp; 2) and thematic standards for environment, social issues, and governance.",
+  card2_text: "12 detailed standards that define how reporting must be done. They are divided into cross-cutting standards (ESRS 1 & 2) and thematic standards for environment, social issues, and governance.",
   
   card3_title: "ESG",
-  card3_abbr: "Environmental, Social &amp; Governance",
+  card3_abbr: "Environmental, Social & Governance",
   card3_text: "The three pillars of sustainability reporting: environment, social matters, and corporate governance. ESG is the broader concept, ESRS is the technical implementation.",  
 
   timeline_tag: "EU timeline",
@@ -527,7 +527,7 @@ window.TRANSLATIONS = {
       pkg1_f1: "Accès au logiciel pendant 12 mois",
       pkg1_f2: "Assistant ESG guidé couvrant toutes les normes ESRS pertinentes",
       pkg1_f3: "Rapport assisté par IA (GPT-4)",
-      pkg1_f4: "Couverture Environment, Social &amp; Governance",
+      pkg1_f4: "Couverture Environment, Social & Governance",
       pkg1_f5: "Portail mensuel de consommation avec calcul du CO2",
       pkg1_f6: "Sites et saisies illimités",
       pkg1_f7: "Téléchargement du rapport PDF",
@@ -623,7 +623,7 @@ window.TRANSLATIONS = {
   },
   esrs: {
     hero_tag: "Réglementation expliquée clairement",
-    hero_h1: "Que sont les ESRS &amp; la CSRD —<br>et pourquoi cela concerne-t-il votre entreprise ?",
+    hero_h1: "Que sont les ESRS & la CSRD —<br>et pourquoi cela concerne-t-il votre entreprise ?",
     hero_sub: "Les nouvelles règles de l’UE changent la manière dont les entreprises doivent rendre compte de la durabilité. Nous expliquons ce que cela signifie concrètement — pour les grands groupes comme pour les PME.",
     basics_tag: "Les bases",
     basics_title: "Deux termes<br>à connaître",
@@ -637,10 +637,10 @@ window.TRANSLATIONS = {
   
   card2_title: "ESRS",
   card2_abbr: "European Sustainability Reporting Standards",
-  card2_text: "12 normes détaillées qui définissent la manière de rendre compte. Elles sont divisées en normes transversales (ESRS 1 &amp; 2) et en normes thématiques sur l’environnement, le social et la gouvernance.",
+  card2_text: "12 normes détaillées qui définissent la manière de rendre compte. Elles sont divisées en normes transversales (ESRS 1 & 2) et en normes thématiques sur l’environnement, le social et la gouvernance.",
   
   card3_title: "ESG",
-  card3_abbr: "Environmental, Social &amp; Governance",
+  card3_abbr: "Environmental, Social & Governance",
   card3_text: "Les trois piliers du reporting de durabilité : environnement, social et gouvernance d’entreprise. ESG est le concept global, ESRS en est la mise en œuvre technique.",  
     
   timeline_tag: "Calendrier de l’UE",
@@ -779,7 +779,7 @@ window.TRANSLATIONS = {
       pkg1_f1: "Accesso al software per 12 mesi",
       pkg1_f2: "Wizard ESG guidato attraverso tutti gli standard ESRS rilevanti",
       pkg1_f3: "Report supportato dall’IA (GPT-4)",
-      pkg1_f4: "Copertura Environment, Social &amp; Governance",
+      pkg1_f4: "Copertura Environment, Social & Governance",
       pkg1_f5: "Portale mensile dei consumi con calcolo CO2",
       pkg1_f6: "Sedi e inserimenti dati illimitati",
       pkg1_f7: "Download del report PDF",
@@ -876,7 +876,7 @@ window.TRANSLATIONS = {
 
     esrs: {
       hero_tag: "Regolamentazione spiegata chiaramente",
-      hero_h1: "Cosa sono ESRS &amp; CSRD —<br>e perché riguardano la tua azienda?",
+      hero_h1: "Cosa sono ESRS & CSRD —<br>e perché riguardano la tua azienda?",
       hero_sub: "Le nuove regole UE stanno cambiando il modo in cui le aziende devono rendicontare la sostenibilità. Spieghiamo cosa significa concretamente — per grandi aziende e PMI.",
       basics_tag: "Le basi",
       basics_title: "Due termini<br>da conoscere",
@@ -890,10 +890,10 @@ window.TRANSLATIONS = {
     
     card2_title: "ESRS",
     card2_abbr: "European Sustainability Reporting Standards",
-    card2_text: "12 standard dettagliati che definiscono come deve essere fatta la rendicontazione. Sono suddivisi in standard trasversali (ESRS 1 &amp; 2) e standard tematici su ambiente, sociale e governance.",
+    card2_text: "12 standard dettagliati che definiscono come deve essere fatta la rendicontazione. Sono suddivisi in standard trasversali (ESRS 1 & 2) e standard tematici su ambiente, sociale e governance.",
     
     card3_title: "ESG",
-    card3_abbr: "Environmental, Social &amp; Governance",
+    card3_abbr: "Environmental, Social & Governance",
     card3_text: "I tre pilastri della rendicontazione di sostenibilità: ambiente, sociale e governance aziendale. ESG è il concetto generale, ESRS è la sua attuazione tecnica.",
     
     timeline_tag: "Calendario UE",
