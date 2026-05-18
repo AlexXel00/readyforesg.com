@@ -21,6 +21,14 @@
         .nav-links a:hover, .nav-links a.active { color: var(--cream); }
         .nav-cta { background: var(--cream) !important; color: var(--deep) !important; padding: 0.55rem 1.2rem !important; border-radius: 2px !important; font-weight: 500 !important; }
 
+        .lang-switcher { position: relative; display: flex; align-items: center; }
+        .lang-dropdown { display: flex; align-items: center; gap: 0.3rem; border: 1px solid rgba(253,254,249,0.25); color: var(--light); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em; padding: 0.35rem 0.7rem; border-radius: 2px; cursor: pointer; transition: all 0.2s; user-select: none; position: relative; }
+        .lang-dropdown:hover { border-color: var(--cream); color: var(--cream); }
+        .lang-menu { display: none; position: absolute; top: calc(100% + 0.5rem); right: 0; background: #023425; border: 1px solid rgba(253,254,249,0.15); border-radius: 2px; list-style: none; min-width: 130px; z-index: 200; overflow: hidden; }
+        .lang-menu.open { display: block; }
+        .lang-menu li { padding: 0.6rem 1rem; font-size: 0.78rem; color: var(--light); cursor: pointer; transition: background 0.15s; letter-spacing: 0.04em; }
+        .lang-menu li:hover { background: rgba(253,254,249,0.08); color: var(--cream); }
+        
         .hero { background: var(--deep); padding: 10rem 4rem 6rem; position: relative; overflow: hidden; }
         .hero::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(253,254,249,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(253,254,249,0.04) 1px, transparent 1px); background-size: 60px 60px; }
         .hero-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
@@ -89,7 +97,7 @@
         }
     </style>
 </head>
-<body>
+<body data-page="about">
 
     <nav>
         <a href="index.html" class="nav-logo">
@@ -97,11 +105,25 @@
             <span class="nav-logo-text">ESG Ready</span>
         </a>
         <ul class="nav-links">
-            <li><a href="index.html">Startseite</a></li>
-            <li><a href="esrs.html">ESRS & CSRD</a></li>
-            <li><a href="packages.html">Pakete</a></li>
-            <li><a href="about.html" class="active">Über uns</a></li>
-            <li><a href="index.html#contact" class="nav-cta">Jetzt starten</a></li>
+            <li><a href="index.html" id="nav_home" data-i18n="common.nav_home">Startseite</a></li>
+            <li><a href="esrs.html" id="nav_esrs" data-i18n="common.nav_esrs">ESRS &amp; CSRD</a></li>
+            <li><a href="packages.html" id="nav_packages" data-i18n="common.nav_packages">Pakete</a></li>
+            <li><a href="about.html" class="active" id="nav_about" data-i18n="common.nav_about">Über uns</a></li>
+            <li><a href="index.html#contact" class="nav-cta" id="nav_cta" data-i18n="common.nav_cta">Jetzt starten</a></li>
+            <li class="lang-switcher">
+                <div class="lang-dropdown" onclick="toggleLangMenu(event)">
+                    <span id="lang-current">DE</span>
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9"/>
+                    </svg>
+                    <ul class="lang-menu" id="lang-menu">
+                        <li onclick="setLang('de')">DE — Deutsch</li>
+                        <li onclick="setLang('en')">EN — English</li>
+                        <li onclick="setLang('fr')">FR — Français</li>
+                        <li onclick="setLang('it')">IT — Italiano</li>
+                    </ul>
+                </div>
+            </li>
         </ul>
     </nav>
 
