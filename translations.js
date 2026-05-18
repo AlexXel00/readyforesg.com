@@ -176,6 +176,79 @@ window.TRANSLATIONS = {
     std3_code: "ESRS E2",
     std3_title: "Umweltverschmutzung",
     std3_text: "Schadstoffemissionen in Luft, Wasser und Boden. Verwendung und Freisetzung gefährlicher Stoffe.",
+    
+    std4_code: "ESRS E3",
+    std4_title: "Wasserressourcen",
+    std4_text: "Wasserverbrauch, Wasserentnahme, Abwasser und Auswirkungen auf Wasserökosysteme.",
+    
+    std5_code: "ESRS E4",
+    std5_title: "Biodiversität",
+    std5_text: "Auswirkungen auf Ökosysteme und Artenvielfalt. Besonders relevant für Unternehmen mit direktem Naturflächenbezug.",
+    
+    std6_code: "ESRS E5",
+    std6_title: "Ressourcen & Kreislaufwirtschaft",
+    std6_text: "Materialverbrauch, Abfallmanagement, Kreislaufwirtschaftsprinzipien und Produktlebensdauer.",
+    
+    std7_code: "ESRS S1",
+    std7_title: "Eigene Belegschaft",
+    std7_text: "Arbeitsbedingungen, Gehälter, Vielfalt, Gesundheit und Sicherheit der eigenen Mitarbeiter.",
+    
+    std8_code: "ESRS S2 & S3",
+    std8_title: "Lieferkette & Gemeinschaften",
+    std8_text: "Soziale Standards entlang der Lieferkette und Auswirkungen auf lokale Gemeinschaften.",
+    
+    std9_code: "ESRS S4",
+    std9_title: "Verbraucher & Endnutzer",
+    std9_text: "Produktsicherheit, Verbraucherschutz und verantwortungsvolle Vermarktung.",
+    
+    std10_code: "ESRS G1",
+    std10_title: "Unternehmensführung",
+    std10_text: "Compliance, Anti-Korruption, Transparenz, Lobbying und Verantwortung im Lieferkettenmanagement.",
+    
+    std11_code: "Wesentlichkeit",
+    std11_title: "Was ist für Sie relevant?",
+    std11_text: "Nicht alle Standards gelten gleich. Eine Wesentlichkeitsanalyse bestimmt, welche Themen für Ihr Unternehmen tatsächlich berichtspflichtig sind.",
+    
+    std12_code: "ESG Ready",
+    std12_title: "Wir übernehmen das",
+    std12_text: "Unser Wizard führt Sie durch alle relevanten Standards — und ermittelt automatisch, welche Punkte für Ihre Branche und Unternehmensgröße wesentlich sind.",
+    
+    warning_title: "Was passiert bei Nichteinhaltung?",
+    warning_p1: "Unternehmen, die der CSRD-Berichtspflicht unterliegen und keine konformen Berichte vorlegen, riskieren Bussgelder, den Verlust von Bankfinanzierungen (EU-Taxonomie-Konformität wird vorausgesetzt) und den Ausschluss aus Lieferketten von Großunternehmen.",
+    warning_p2: "Für KMU als Zulieferer gilt: Wer keine ESG-Daten liefern kann, verliert Aufträge. Bereits heute fordern immer mehr Großunternehmen strukturierte Nachhaltigkeitsnachweise von ihren Lieferanten — auch wenn diese noch nicht formal berichtspflichtig sind.",
+    warning_p3: "Auch Banken und Kreditinstitute berücksichtigen ESG-Kriterien zunehmend bei der Kreditvergabe. Im Rahmen der EU-Taxonomie und der eigenen Nachhaltigkeitsberichterstattung der Banken werden Unternehmenskredite künftig verstärkt an ESG-Nachweise geknüpft. Ein vorhandener ESG-Bericht kann damit direkt die Finanzierungskonditionen Ihres Unternehmens beeinflussen.",
+    
+    faq_tag: "Häufige Fragen",
+    faq_title: "Was KMU<br><em>am häufigsten fragen</em>",
+    
+    faq1_q: "Bin ich als KMU direkt von der CSRD betroffen?",
+    faq1_a: "Direkt berichtspflichtig nach CSRD sind zunächst Unternehmen mit mehr als 250 Mitarbeitern oder 40 Mio. EUR Umsatz. Für kleinere KMU gibt es noch keine direkte Pflicht. Indirekt sind Sie aber sehr wohl betroffen: Als Zulieferer müssen Sie zunehmend ESG-Daten an Ihre Großkunden liefern, die ihrerseits die gesamte Lieferkette erfassen müssen.",
+    
+    faq2_q: "Was kostet ein professioneller ESG-Bericht ohne ESG Ready?",
+    faq2_a: "Eine klassische ESG-Beratung durch externe Unternehmensberatungen kostet für KMU typischerweise zwischen 15.000 und 50.000 Euro — für die erstmalige Erstellung. Jährliche Updates liegen meist zwischen 5.000 und 15.000 Euro. Für die meisten KMU ist das schlicht nicht leistbar. ESG Ready bietet eine vollständige Alternative zu einem Bruchteil dieser Kosten.",
+    
+    faq3_q: "Wie lange dauert die Erstellung eines ESG-Berichts mit ESG Ready?",
+    faq3_a: "Mit ESG Ready dauert die erstmalige Dateneingabe je nach Unternehmensgröße zwischen 2 und 6 Stunden. Der eigentliche Bericht wird danach automatisch generiert. Wenn Sie das ESG Certified oder Partner Paket gewählt haben, folgt anschließend ein Review-Call mit unserem Experten — typischerweise 1-2 Stunden. Der gesamte Prozess von Dateneingabe bis fertigem Bericht dauert selten länger als eine Woche.",
+    
+    faq4_q: "Ist der Bericht wirklich ESRS-konform?",
+    faq4_a: "Ja. Unser System basiert auf den offiziellen ESRS-Standards der EFRAG (European Financial Reporting Advisory Group). Die Zuordnung aller Datenpunkte, Berechnungsmethoden und Offenlegungsanforderungen folgt den verabschiedeten Delegierten Rechtsakten der EU-Kommission. Bei den Paketen ESG Certified und ESG Partner erfolgt zusätzlich eine persönliche Prüfung durch Dipl.-Ing. Alexander Riedl.",
+    
+    faq5_q: "Was passiert, wenn sich die Regulierung ändert?",
+    faq5_a: "ESG Ready wird laufend an neue regulatorische Anforderungen angepasst. Als Kunde profitieren Sie automatisch von allen Updates — ohne Mehrkosten. Die EU-Regulierung im ESG-Bereich entwickelt sich schnell, und wir behalten das für Sie im Blick.",
+    
+    faq6_q: "Kann ich den fertigen Bericht direkt an meine Partner schicken?",
+    faq6_a: "Für die interne Nutzung und als Nachweisdokument gegenüber Kunden oder Lieferanten ist der Bericht direkt verwendbar. Für eine offizielle, extern testierte Berichterstattung — etwa zur Erfüllung der direkten CSRD-Pflicht — ist jedoch eine Prüfung durch einen unabhängigen Wirtschaftsprüfer erforderlich. Diese externe Prüfung können wir leider nicht anbieten, da der Prüfer gesetzlich unabhängig vom Ersteller des Berichts sein muss. Wir empfehlen in diesem Fall, den fertigen ESG Ready-Bericht als Grundlage für die Wirtschaftsprüfung zu verwenden — das spart erheblich Zeit und Kosten.",
+    
+    faq7_q: "Was brauche ich für die Dateneingabe?",
+    faq7_a: "Die wichtigsten Dokumente und Informationen sind: Strom- und Gasrechnungen, Wasserrechnungen, Tankbelege und Kraftstoffnachweise, Angaben zu Ihren Mitarbeitern (Anzahl, Vollzeit/Teilzeit, Fluktuation), Informationen zu Geschäftsreisen (Flüge, Bahnfahrten, Hotelübernachtungen) sowie vorhandene interne Richtlinien zu Umwelt-, Gleichstellungs- oder Compliance-Themen. Grundsätzlich gilt: Je mehr Unterlagen Sie vorlegen können, desto aussagekräftiger und seriöser wird Ihr Bericht. Das System führt Sie Schritt für Schritt durch alle Datenpunkte — fehlende Angaben können geschätzt oder nachgereicht werden.",
+    
+    faq8_q: "Kann ich zusätzliche Beratungsstunden buchen?",
+    faq8_a: "Ja. Sie können jederzeit über unsere Website weitere Beratungsstunden buchen und direkt einen Termin mit unserem Umweltexperten vereinbaren. Eine Einzelstunde kostet 249 EUR. Das ist besonders hilfreich, wenn nach dem Bericht konkrete Fragen zur ESG-Strategie oder zu spezifischen ESRS-Anforderungen entstehen.",
+    
+    cta_bottom_title: "Bereit, den ersten Schritt zu machen?",
+    cta_bottom_text: "Wir begleiten Sie durch den gesamten Prozess — von der ersten Dateneingabe bis zum fertigen, unterschriebenen Bericht.",
+    cta_bottom_primary: "Pakete ansehen",
+    cta_bottom_secondary: "Kontakt aufnehmen"
     }
   },
 
@@ -356,6 +429,79 @@ window.TRANSLATIONS = {
   std3_code: "ESRS E2",
   std3_title: "Pollution",
   std3_text: "Pollutant emissions into air, water, and soil. Use and release of hazardous substances.",
+    
+  std4_code: "ESRS E3",
+  std4_title: "Water resources",
+  std4_text: "Water consumption, water withdrawal, wastewater, and impacts on aquatic ecosystems.",
+  
+  std5_code: "ESRS E4",
+  std5_title: "Biodiversity",
+  std5_text: "Impacts on ecosystems and biodiversity. Especially relevant for companies with a direct relationship to natural land areas.",
+  
+  std6_code: "ESRS E5",
+  std6_title: "Resources & circular economy",
+  std6_text: "Material consumption, waste management, circular economy principles, and product lifespan.",
+  
+  std7_code: "ESRS S1",
+  std7_title: "Own workforce",
+  std7_text: "Working conditions, pay, diversity, health, and safety of the company’s own employees.",
+  
+  std8_code: "ESRS S2 & S3",
+  std8_title: "Supply chain & communities",
+  std8_text: "Social standards across the supply chain and impacts on local communities.",
+  
+  std9_code: "ESRS S4",
+  std9_title: "Consumers & end users",
+  std9_text: "Product safety, consumer protection, and responsible marketing.",
+  
+  std10_code: "ESRS G1",
+  std10_title: "Corporate governance",
+  std10_text: "Compliance, anti-corruption, transparency, lobbying, and responsibility in supply chain management.",
+  
+  std11_code: "Materiality",
+  std11_title: "What is relevant for you?",
+  std11_text: "Not all standards apply equally. A materiality assessment determines which topics are actually reportable for your company.",
+  
+  std12_code: "ESG Ready",
+  std12_title: "We handle it",
+  std12_text: "Our wizard guides you through all relevant standards — and automatically determines which points are material for your industry and company size.",
+  
+  warning_title: "What happens in case of non-compliance?",
+  warning_p1: "Companies subject to the CSRD reporting obligation that fail to provide compliant reports risk fines, loss of bank financing (EU taxonomy compliance is increasingly expected), and exclusion from supply chains of large companies.",
+  warning_p2: "For SMEs acting as suppliers, the rule is simple: if you cannot provide ESG data, you lose contracts. Even today, more and more large companies require structured sustainability evidence from their suppliers — even if those suppliers are not yet formally required to report.",
+  warning_p3: "Banks and financial institutions are also increasingly taking ESG criteria into account when granting loans. In the context of the EU taxonomy and banks’ own sustainability reporting, corporate loans will increasingly be tied to ESG evidence. Having an ESG report can therefore directly influence your company’s financing conditions.",
+  
+  faq_tag: "Frequently asked questions",
+  faq_title: "What SMEs<br><em>ask most often</em>",
+  
+  faq1_q: "Am I directly affected by the CSRD as an SME?",
+  faq1_a: "Companies with more than 250 employees or EUR 40 million in revenue are initially directly subject to CSRD reporting. Smaller SMEs are not yet directly required to report. Indirectly, however, you are already affected: as a supplier, you are increasingly required to provide ESG data to large customers that in turn must report on their full supply chain.",
+  
+  faq2_q: "What does a professional ESG report cost without ESG Ready?",
+  faq2_a: "Traditional ESG consulting by external advisory firms typically costs SMEs between EUR 15,000 and EUR 50,000 for the initial report. Annual updates usually range from EUR 5,000 to EUR 15,000. For most SMEs, this is simply unaffordable. ESG Ready offers a complete alternative at a fraction of that cost.",
+  
+  faq3_q: "How long does it take to create an ESG report with ESG Ready?",
+  faq3_a: "With ESG Ready, the initial data entry typically takes between 2 and 6 hours depending on company size. The report itself is then generated automatically. If you choose the ESG Certified or Partner package, a review call with our expert follows — typically 1 to 2 hours. The full process from data entry to finished report rarely takes more than a week.",
+  
+  faq4_q: "Is the report really ESRS-compliant?",
+  faq4_a: "Yes. Our system is based on the official ESRS standards of EFRAG (European Financial Reporting Advisory Group). The mapping of all data points, calculation methods, and disclosure requirements follows the delegated acts adopted by the European Commission. For the ESG Certified and ESG Partner packages, an additional personal review is carried out by Dipl.-Ing. Alexander Riedl.",
+  
+  faq5_q: "What happens if the regulation changes?",
+  faq5_a: "ESG Ready is continuously updated to reflect new regulatory requirements. As a customer, you automatically benefit from all updates at no extra cost. ESG regulation in the EU is evolving quickly, and we keep track of it for you.",
+  
+  faq6_q: "Can I send the finished report directly to my partners?",
+  faq6_a: "For internal use and as supporting documentation for customers or suppliers, the report can be used directly. However, for official externally assured reporting — for example to fulfill a direct CSRD obligation — a review by an independent auditor is required. We cannot offer that external assurance because the auditor must legally remain independent from the report preparer. In such cases, we recommend using the finished ESG Ready report as the basis for the external audit — which saves substantial time and cost.",
+  
+  faq7_q: "What do I need for data entry?",
+  faq7_a: "The most important documents and information include electricity and gas bills, water bills, fuel receipts and proof of fuel consumption, employee information (headcount, full-time/part-time, turnover), business travel information (flights, train journeys, hotel stays), and any internal policies on environmental matters, equality, or compliance. In general, the more documentation you can provide, the more meaningful and credible your report will be. The system guides you step by step through all data points — missing information can be estimated or added later.",
+  
+  faq8_q: "Can I book additional consulting hours?",
+  faq8_a: "Yes. You can book additional consulting hours at any time via our website and arrange an appointment directly with our environmental expert. A single hour costs EUR 249. This is particularly useful if specific questions arise after the report regarding ESG strategy or particular ESRS requirements.",
+  
+  cta_bottom_title: "Ready to take the first step?",
+  cta_bottom_text: "We guide you through the entire process — from the first data entry to the finished, signed report.",
+  cta_bottom_primary: "View packages",
+  cta_bottom_secondary: "Get in touch"
     }
   },  
   fr: {
@@ -535,6 +681,79 @@ window.TRANSLATIONS = {
   std3_code: "ESRS E2",
   std3_title: "Pollution",
   std3_text: "Émissions polluantes dans l’air, l’eau et le sol. Utilisation et rejet de substances dangereuses.",
+    
+  std4_code: "ESRS E3",
+  std4_title: "Ressources en eau",
+  std4_text: "Consommation d’eau, prélèvements, eaux usées et impacts sur les écosystèmes aquatiques.",
+  
+  std5_code: "ESRS E4",
+  std5_title: "Biodiversité",
+  std5_text: "Impacts sur les écosystèmes et la biodiversité. Particulièrement pertinent pour les entreprises ayant un lien direct avec les surfaces naturelles.",
+  
+  std6_code: "ESRS E5",
+  std6_title: "Ressources & économie circulaire",
+  std6_text: "Consommation de matériaux, gestion des déchets, principes d’économie circulaire et durée de vie des produits.",
+  
+  std7_code: "ESRS S1",
+  std7_title: "Effectif propre",
+  std7_text: "Conditions de travail, rémunérations, diversité, santé et sécurité des propres salariés de l’entreprise.",
+  
+  std8_code: "ESRS S2 & S3",
+  std8_title: "Chaîne d’approvisionnement & communautés",
+  std8_text: "Normes sociales tout au long de la chaîne d’approvisionnement et impacts sur les communautés locales.",
+  
+  std9_code: "ESRS S4",
+  std9_title: "Consommateurs & utilisateurs finaux",
+  std9_text: "Sécurité des produits, protection des consommateurs et marketing responsable.",
+  
+  std10_code: "ESRS G1",
+  std10_title: "Gouvernance d’entreprise",
+  std10_text: "Conformité, lutte contre la corruption, transparence, lobbying et responsabilité dans la gestion de la chaîne d’approvisionnement.",
+  
+  std11_code: "Matérialité",
+  std11_title: "Qu’est-ce qui est pertinent pour vous ?",
+  std11_text: "Toutes les normes ne s’appliquent pas de la même manière. Une analyse de matérialité détermine quels sujets sont réellement soumis à obligation de reporting pour votre entreprise.",
+  
+  std12_code: "ESG Ready",
+  std12_title: "Nous nous en chargeons",
+  std12_text: "Notre assistant vous guide à travers toutes les normes pertinentes — et détermine automatiquement quels points sont matériels pour votre secteur et la taille de votre entreprise.",
+  
+  warning_title: "Que se passe-t-il en cas de non-conformité ?",
+  warning_p1: "Les entreprises soumises à l’obligation de reporting CSRD qui ne fournissent pas de rapports conformes risquent des amendes, la perte de financements bancaires (la conformité à la taxonomie de l’UE étant de plus en plus attendue) et l’exclusion des chaînes d’approvisionnement des grandes entreprises.",
+  warning_p2: "Pour les PME fournisseurs, la règle est simple : si vous ne pouvez pas fournir de données ESG, vous perdez des contrats. Déjà aujourd’hui, de plus en plus de grandes entreprises exigent de leurs fournisseurs des preuves structurées de durabilité — même si ces derniers ne sont pas encore formellement tenus de publier un rapport.",
+  warning_p3: "Les banques et établissements de crédit prennent eux aussi de plus en plus en compte les critères ESG dans l’octroi des prêts. Dans le cadre de la taxonomie de l’UE et du propre reporting de durabilité des banques, les financements aux entreprises seront de plus en plus liés à des preuves ESG. Disposer d’un rapport ESG peut donc influencer directement les conditions de financement de votre entreprise.",
+  
+  faq_tag: "Questions fréquentes",
+  faq_title: "Ce que les PME<br><em>demandent le plus souvent</em>",
+  
+  faq1_q: "En tant que PME, suis-je directement concerné par la CSRD ?",
+  faq1_a: "Les entreprises de plus de 250 salariés ou réalisant 40 millions d’euros de chiffre d’affaires sont d’abord directement soumises au reporting CSRD. Les petites PME ne sont pas encore directement obligées. Indirectement, vous êtes néanmoins déjà concerné : en tant que fournisseur, vous devez de plus en plus fournir des données ESG à vos grands clients, qui doivent eux-mêmes couvrir l’ensemble de leur chaîne d’approvisionnement.",
+  
+  faq2_q: "Combien coûte un rapport ESG professionnel sans ESG Ready ?",
+  faq2_a: "Un accompagnement ESG classique par des cabinets de conseil externes coûte généralement aux PME entre 15 000 et 50 000 EUR pour une première mise en place. Les mises à jour annuelles coûtent le plus souvent entre 5 000 et 15 000 EUR. Pour la plupart des PME, c’est tout simplement inabordable. ESG Ready offre une alternative complète à une fraction de ce coût.",
+  
+  faq3_q: "Combien de temps faut-il pour créer un rapport ESG avec ESG Ready ?",
+  faq3_a: "Avec ESG Ready, la première saisie des données prend généralement entre 2 et 6 heures selon la taille de l’entreprise. Le rapport lui-même est ensuite généré automatiquement. Si vous choisissez le forfait ESG Certified ou Partner, un appel de relecture avec notre expert suit ensuite — généralement 1 à 2 heures. L’ensemble du processus, de la saisie des données au rapport final, dépasse rarement une semaine.",
+  
+  faq4_q: "Le rapport est-il vraiment conforme aux ESRS ?",
+  faq4_a: "Oui. Notre système est basé sur les normes ESRS officielles de l’EFRAG (European Financial Reporting Advisory Group). Le rattachement de tous les points de données, méthodes de calcul et exigences de divulgation suit les actes délégués adoptés par la Commission européenne. Pour les forfaits ESG Certified et ESG Partner, une vérification personnelle supplémentaire est effectuée par Dipl.-Ing. Alexander Riedl.",
+  
+  faq5_q: "Que se passe-t-il si la réglementation change ?",
+  faq5_a: "ESG Ready est continuellement mis à jour pour refléter les nouvelles exigences réglementaires. En tant que client, vous bénéficiez automatiquement de toutes les mises à jour sans coût supplémentaire. La réglementation ESG de l’UE évolue rapidement, et nous la suivons pour vous.",
+  
+  faq6_q: "Puis-je envoyer directement le rapport finalisé à mes partenaires ?",
+  faq6_a: "Pour un usage interne et comme document justificatif auprès de clients ou de fournisseurs, le rapport peut être utilisé directement. En revanche, pour un reporting officiel avec assurance externe — par exemple afin de satisfaire à une obligation CSRD directe — une vérification par un auditeur indépendant est nécessaire. Nous ne pouvons pas proposer cette assurance externe, car l’auditeur doit légalement rester indépendant du rédacteur du rapport. Dans ce cas, nous recommandons d’utiliser le rapport ESG Ready finalisé comme base pour l’audit externe — ce qui permet d’économiser beaucoup de temps et de coûts.",
+  
+  faq7_q: "De quoi ai-je besoin pour la saisie des données ?",
+  faq7_a: "Les documents et informations les plus importants sont : factures d’électricité et de gaz, factures d’eau, justificatifs de carburant et de consommation, données sur vos salariés (effectif, temps plein/temps partiel, rotation), informations sur les déplacements professionnels (vols, trajets en train, nuitées à l’hôtel) ainsi que les éventuelles politiques internes relatives à l’environnement, à l’égalité ou à la conformité. En règle générale, plus vous pouvez fournir de documents, plus votre rapport sera solide et crédible. Le système vous guide pas à pas à travers tous les points de données — les informations manquantes peuvent être estimées ou complétées plus tard.",
+  
+  faq8_q: "Puis-je réserver des heures de conseil supplémentaires ?",
+  faq8_a: "Oui. Vous pouvez réserver des heures de conseil supplémentaires à tout moment via notre site web et convenir directement d’un rendez-vous avec notre expert environnemental. Une heure individuelle coûte 249 EUR. C’est particulièrement utile si des questions concrètes apparaissent après le rapport concernant la stratégie ESG ou des exigences ESRS spécifiques.",
+  
+  cta_bottom_title: "Prêt à faire le premier pas ?",
+  cta_bottom_text: "Nous vous accompagnons tout au long du processus — de la première saisie des données jusqu’au rapport final signé.",
+  cta_bottom_primary: "Voir les forfaits",
+  cta_bottom_secondary: "Nous contacter"
     }
   },
   it: {
@@ -715,6 +934,79 @@ window.TRANSLATIONS = {
     std3_code: "ESRS E2",
     std3_title: "Inquinamento",
     std3_text: "Emissioni inquinanti nell’aria, nell’acqua e nel suolo. Uso e rilascio di sostanze pericolose.",
+    
+    std4_code: "ESRS E3",
+    std4_title: "Risorse idriche",
+    std4_text: "Consumo d’acqua, prelievi, acque reflue e impatti sugli ecosistemi acquatici.",
+    
+    std5_code: "ESRS E4",
+    std5_title: "Biodiversità",
+    std5_text: "Impatto sugli ecosistemi e sulla biodiversità. Particolarmente rilevante per le aziende con un rapporto diretto con aree naturali.",
+    
+    std6_code: "ESRS E5",
+    std6_title: "Risorse & economia circolare",
+    std6_text: "Consumo di materiali, gestione dei rifiuti, principi di economia circolare e durata del ciclo di vita dei prodotti.",
+    
+    std7_code: "ESRS S1",
+    std7_title: "Forza lavoro propria",
+    std7_text: "Condizioni di lavoro, retribuzioni, diversità, salute e sicurezza dei dipendenti dell’azienda.",
+    
+    std8_code: "ESRS S2 & S3",
+    std8_title: "Catena di fornitura & comunità",
+    std8_text: "Standard sociali lungo la catena di fornitura e impatti sulle comunità locali.",
+    
+    std9_code: "ESRS S4",
+    std9_title: "Consumatori & utenti finali",
+    std9_text: "Sicurezza dei prodotti, tutela dei consumatori e marketing responsabile.",
+    
+    std10_code: "ESRS G1",
+    std10_title: "Governance aziendale",
+    std10_text: "Compliance, anticorruzione, trasparenza, lobbying e responsabilità nella gestione della catena di fornitura.",
+    
+    std11_code: "Materialità",
+    std11_title: "Cosa è rilevante per voi?",
+    std11_text: "Non tutti gli standard si applicano allo stesso modo. Un’analisi di materialità determina quali temi sono effettivamente soggetti a rendicontazione per la vostra azienda.",
+    
+    std12_code: "ESG Ready",
+    std12_title: "Ce ne occupiamo noi",
+    std12_text: "Il nostro wizard vi guida attraverso tutti gli standard rilevanti — e determina automaticamente quali punti sono materiali per il vostro settore e la dimensione della vostra azienda.",
+    
+    warning_title: "Cosa succede in caso di mancata conformità?",
+    warning_p1: "Le aziende soggette all’obbligo di rendicontazione CSRD che non presentano report conformi rischiano sanzioni, la perdita di finanziamenti bancari (la conformità alla tassonomia UE è sempre più richiesta) e l’esclusione dalle catene di fornitura delle grandi imprese.",
+    warning_p2: "Per le PMI che operano come fornitori, la regola è semplice: se non siete in grado di fornire dati ESG, perdete contratti. Già oggi sempre più grandi aziende richiedono ai propri fornitori prove strutturate di sostenibilità — anche se questi ultimi non sono ancora formalmente obbligati alla rendicontazione.",
+    warning_p3: "Anche banche e istituti finanziari considerano sempre più i criteri ESG nella concessione del credito. Nel contesto della tassonomia UE e della rendicontazione di sostenibilità delle banche stesse, i finanziamenti alle imprese saranno sempre più legati a evidenze ESG. Disporre di un report ESG può quindi influenzare direttamente le condizioni di finanziamento della vostra azienda.",
+    
+    faq_tag: "Domande frequenti",
+    faq_title: "Cosa chiedono più spesso<br><em>le PMI</em>",
+    
+    faq1_q: "Come PMI, sono direttamente interessato dalla CSRD?",
+    faq1_a: "Le aziende con più di 250 dipendenti o 40 milioni di euro di fatturato sono inizialmente soggette direttamente alla rendicontazione CSRD. Le PMI più piccole non hanno ancora un obbligo diretto. Indirettamente, tuttavia, siete già coinvolti: come fornitori, dovete sempre più spesso fornire dati ESG ai vostri grandi clienti, che a loro volta devono coprire l’intera catena di fornitura.",
+    
+    faq2_q: "Quanto costa un report ESG professionale senza ESG Ready?",
+    faq2_a: "Una consulenza ESG tradizionale da parte di società esterne costa tipicamente alle PMI tra 15.000 e 50.000 EUR per il primo report. Gli aggiornamenti annuali variano di solito tra 5.000 e 15.000 EUR. Per la maggior parte delle PMI, questo è semplicemente insostenibile. ESG Ready offre un’alternativa completa a una frazione di quel costo.",
+    
+    faq3_q: "Quanto tempo serve per creare un report ESG con ESG Ready?",
+    faq3_a: "Con ESG Ready, l’inserimento iniziale dei dati richiede in genere tra 2 e 6 ore a seconda della dimensione dell’azienda. Il report viene poi generato automaticamente. Se scegliete il pacchetto ESG Certified o Partner, segue una call di revisione con il nostro esperto — in genere da 1 a 2 ore. L’intero processo, dall’inserimento dei dati al report finale, raramente richiede più di una settimana.",
+    
+    faq4_q: "Il report è davvero conforme agli ESRS?",
+    faq4_a: "Sì. Il nostro sistema si basa sugli standard ESRS ufficiali di EFRAG (European Financial Reporting Advisory Group). L’associazione di tutti i dati, dei metodi di calcolo e dei requisiti di disclosure segue gli atti delegati adottati dalla Commissione europea. Per i pacchetti ESG Certified ed ESG Partner, viene inoltre effettuata una revisione personale da parte di Dipl.-Ing. Alexander Riedl.",
+    
+    faq5_q: "Cosa succede se la normativa cambia?",
+    faq5_a: "ESG Ready viene aggiornato continuamente per riflettere i nuovi requisiti normativi. Come cliente, beneficiate automaticamente di tutti gli aggiornamenti senza costi aggiuntivi. La regolamentazione ESG nell’UE si evolve rapidamente e noi la monitoriamo per voi.",
+    
+    faq6_q: "Posso inviare direttamente il report finito ai miei partner?",
+    faq6_a: "Per uso interno e come documento di supporto verso clienti o fornitori, il report può essere utilizzato direttamente. Tuttavia, per una rendicontazione ufficiale con assurance esterna — ad esempio per adempiere a un obbligo diretto CSRD — è necessaria una verifica da parte di un revisore indipendente. Noi non possiamo offrire tale assurance esterna, perché il revisore deve rimanere legalmente indipendente da chi prepara il report. In questi casi, consigliamo di utilizzare il report ESG Ready come base per l’audit esterno — con un notevole risparmio di tempo e costi.",
+    
+    faq7_q: "Di cosa ho bisogno per l’inserimento dei dati?",
+    faq7_a: "I documenti e le informazioni più importanti sono: bollette di elettricità e gas, bollette dell’acqua, ricevute del carburante e prove dei consumi, dati sui dipendenti (numero, full-time/part-time, turnover), informazioni sui viaggi di lavoro (voli, viaggi in treno, pernottamenti in hotel) e eventuali policy interne su ambiente, pari opportunità o compliance. In generale, più documentazione potete fornire, più il report sarà solido e credibile. Il sistema vi guida passo dopo passo attraverso tutti i dati richiesti — le informazioni mancanti possono essere stimate o aggiunte successivamente.",
+    
+    faq8_q: "Posso prenotare ulteriori ore di consulenza?",
+    faq8_a: "Sì. Potete prenotare ulteriori ore di consulenza in qualsiasi momento tramite il nostro sito web e fissare direttamente un appuntamento con il nostro esperto ambientale. Un’ora singola costa 249 EUR. Questo è particolarmente utile se dopo il report emergono domande specifiche sulla strategia ESG o su particolari requisiti ESRS.",
+    
+    cta_bottom_title: "Pronti a fare il primo passo?",
+    cta_bottom_text: "Vi accompagniamo durante tutto il processo — dal primo inserimento dei dati fino al report finale firmato.",
+    cta_bottom_primary: "Vedi i pacchetti",
+    cta_bottom_secondary: "Contattaci"
     }
   }
 };
