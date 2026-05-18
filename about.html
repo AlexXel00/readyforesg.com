@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="contact-modal.css">
     <style>
         :root { --deep: #023425; --mid: #416852; --sage: #8a9a93; --cream: #fdfef9; --light: #dfe1d6; --black: #0a0f0d; }
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -261,7 +262,7 @@
     <div class="cta-block">
         <h2 data-i18n="about.cta_title">Bereit für Ihren ESG-Bericht?</h2>
         <p data-i18n="about.cta_text">Ich begleite Sie persönlich durch den gesamten Prozess — von der ersten Dateneingabe bis zur Unterschrift.</p>
-        <a href="index.html#contact" class="btn-primary" data-i18n="about.cta_button">Jetzt Kontakt aufnehmen</a>
+        <a href="#" class="btn-primary js-open-inquiry" data-i18n="about.cta_button" data-inquiry-source="About CTA">Jetzt Kontakt aufnehmen</a>
     </div>
 
     <footer>
@@ -459,5 +460,90 @@
     });
 })();
 </script>
+<div class="contact-modal" id="contactModal" aria-hidden="true">
+    <div class="contact-modal__backdrop"></div>
+
+    <div class="contact-modal__dialog">
+        <button type="button" class="contact-modal__close" data-close-contact-modal>&times;</button>
+
+        <span class="contact-modal__tag">Anfrage</span>
+        <h2 class="contact-modal__title">Kontakt aufnehmen</h2>
+        <p class="contact-modal__text">
+            Senden Sie uns Ihre Anfrage. Nach dem Absenden erhalten Sie die Angaben direkt per E-Mail über Netlify Forms.
+        </p>
+
+        <form
+            id="leadInquiryForm"
+            name="lead-inquiry"
+            method="POST"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+            class="contact-form"
+        >
+            <input type="hidden" name="form-name" value="lead-inquiry">
+            <input type="hidden" name="subject" data-remove-prefix value="Neue Anfrage über ESG Ready">
+            <input type="hidden" name="source" value="">
+            <input type="hidden" name="page" value="">
+
+            <p class="hidden-bot-field">
+                <label>Do not fill this out if you're human: <input name="bot-field" type="text"></label>
+            </p>
+
+            <div class="contact-form__row">
+                <div class="contact-form__field">
+                    <label for="inq-name">Name</label>
+                    <input id="inq-name" name="name" type="text" required>
+                </div>
+
+                <div class="contact-form__field">
+                    <label for="inq-email">E-Mail</label>
+                    <input id="inq-email" name="email" type="email" required>
+                </div>
+            </div>
+
+            <div class="contact-form__row">
+                <div class="contact-form__field">
+                    <label for="inq-company">Unternehmen</label>
+                    <input id="inq-company" name="company" type="text" required>
+                </div>
+
+                <div class="contact-form__field">
+                    <label for="inq-phone">Telefon</label>
+                    <input id="inq-phone" name="phone" type="text">
+                </div>
+            </div>
+
+            <div class="contact-form__field">
+                <label for="inq-topic">Thema</label>
+                <select id="inq-topic" name="topic" required>
+                    <option value="">Bitte wählen</option>
+                    <option value="ESG Ready">ESG Ready</option>
+                    <option value="ESG Certified">ESG Certified</option>
+                    <option value="ESG Partner">ESG Partner</option>
+                    <option value="General question">Allgemeine Frage</option>
+                </select>
+            </div>
+
+            <div class="contact-form__field">
+                <label for="inq-message">Nachricht</label>
+                <textarea id="inq-message" name="message" required></textarea>
+            </div>
+
+            <div class="contact-form__actions">
+                <button type="submit" class="btn-primary">Anfrage senden</button>
+                <button type="button" class="btn-ghost" data-close-contact-modal>Abbrechen</button>
+            </div>
+
+            <div class="contact-form__success">Danke — Ihre Anfrage wurde gesendet.</div>
+            <div class="contact-form__error">Senden fehlgeschlagen. Bitte versuchen Sie es erneut.</div>
+
+            <p class="contact-form__note">
+                Felder wie Seite und Button-Herkunft werden automatisch mitgeschickt, damit Sie sehen, woher die Anfrage kam.
+            </p>
+        </form>
+    </div>
+</div>
+
+<script src="contact-modal.js"></script>
 </body>
 </html>
