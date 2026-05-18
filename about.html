@@ -251,6 +251,28 @@
 
 <script src="translations.js"></script>
 <script>
+    const fadeElements = document.querySelectorAll('.fade-up');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => entry.target.classList.add('visible'), index * 100);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.05 });
+
+    fadeElements.forEach(el => observer.observe(el));
+
+    setTimeout(() => {
+        fadeElements.forEach(el => {
+            const r = el.getBoundingClientRect();
+            if (r.top < window.innerHeight) el.classList.add('visible');
+        });
+    }, 100);
+</script>
+
+<script src="translations.js"></script>
+<script>
     (function () {
         const labels = { de: "DE", en: "EN", fr: "FR", it: "IT" };
     
@@ -321,4 +343,4 @@
     })();
     </script>
     </body>
-</html>
+    </html>
