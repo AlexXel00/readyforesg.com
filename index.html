@@ -188,6 +188,167 @@
         .contact-section .section-sub { color: var(--sage); max-width: 100%; margin: 0 auto 2.5rem; text-align: center; }
         .contact-email { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--cream); text-decoration: none; border-bottom: 1px solid var(--mid); padding-bottom: 0.2rem; transition: border-color 0.2s; }
         .contact-email:hover { border-color: var(--cream); }
+        .contact-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            display: none;
+        }
+        
+        .contact-modal.is-open {
+            display: block;
+        }
+        
+        .contact-modal__backdrop {
+            position: absolute;
+            inset: 0;
+            background: rgba(10, 15, 13, 0.62);
+            backdrop-filter: blur(6px);
+        }
+        
+        .contact-modal__dialog {
+            position: relative;
+            width: min(680px, calc(100vw - 2rem));
+            max-height: calc(100vh - 2rem);
+            overflow-y: auto;
+            margin: 1rem auto;
+            background: var(--cream);
+            color: var(--black);
+            border-radius: 4px;
+            box-shadow: 0 24px 80px rgba(0,0,0,0.28);
+            padding: 2rem;
+        }
+        
+        .contact-modal__close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            border: 0;
+            background: transparent;
+            color: var(--deep);
+            font-size: 1.5rem;
+            line-height: 1;
+            cursor: pointer;
+        }
+        
+        .contact-modal__tag {
+            font-size: 0.72rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--mid);
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+        
+        .contact-modal__title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 300;
+            line-height: 1.1;
+            color: var(--deep);
+            margin-bottom: 0.8rem;
+        }
+        
+        .contact-modal__text {
+            font-size: 0.98rem;
+            font-weight: 300;
+            color: #4a5a54;
+            line-height: 1.75;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-form {
+            display: grid;
+            gap: 1rem;
+        }
+        
+        .contact-form__row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        .contact-form__field {
+            display: grid;
+            gap: 0.45rem;
+        }
+        
+        .contact-form__field label {
+            font-size: 0.78rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--mid);
+        }
+        
+        .contact-form__field input,
+        .contact-form__field select,
+        .contact-form__field textarea {
+            width: 100%;
+            border: 1px solid #d6d9d1;
+            background: #fff;
+            color: var(--black);
+            padding: 0.9rem 1rem;
+            border-radius: 2px;
+            font: inherit;
+        }
+        
+        .contact-form__field textarea {
+            min-height: 140px;
+            resize: vertical;
+        }
+        
+        .contact-form__actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+        
+        .contact-form__note {
+            font-size: 0.82rem;
+            color: #66756e;
+            line-height: 1.6;
+        }
+        
+        .contact-form__success,
+        .contact-form__error {
+            display: none;
+            margin-top: 0.75rem;
+            font-size: 0.9rem;
+        }
+        
+        .contact-form__success.is-visible {
+            display: block;
+            color: #1f6a49;
+        }
+        
+        .contact-form__error.is-visible {
+            display: block;
+            color: #9a2f2f;
+        }
+        
+        .hidden-bot-field {
+            position: absolute !important;
+            left: -9999px !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
+        }
+        
+        @media (max-width: 700px) {
+            .contact-modal__dialog {
+                padding: 1.4rem;
+            }
+        
+            .contact-form__row {
+                grid-template-columns: 1fr;
+            }
+        
+            .contact-form__actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
 
         footer { background: var(--black); padding: 2.5rem 4rem; }
         .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
@@ -596,7 +757,75 @@
             <span class="footer-copy">&copy; 2025 ESG Ready Pte. Ltd.</span>
         </div>
     </footer>
-
+    <div class="contact-modal" id="contactModal" aria-hidden="true">
+        <div class="contact-modal__backdrop"></div>
+    
+        <div class="contact-modal__dialog">
+            <button type="button" class="contact-modal__close" data-close-contact-modal>&times;</button>
+    
+            <span class="contact-modal__tag">Anfrage</span>
+            <h2 class="contact-modal__title">Kontakt aufnehmen</h2>
+            <p class="contact-modal__text">
+                Senden Sie uns Ihre Anfrage. Die Nachricht wird direkt an contact@readyforesg.com gesendet.
+            </p>
+    
+            <form id="leadInquiryForm" class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="df2608b7-ba20-4abe-81d8-339d83312c2b">
+                <input type="hidden" name="subject" value="Neue Anfrage über ESG Ready">
+                <input type="hidden" name="from_name" value="ESG Ready Website">
+                <input type="checkbox" name="botcheck" class="hidden-bot-field" tabindex="-1" autocomplete="off">
+                <input type="hidden" name="source" value="">
+                <input type="hidden" name="page" value="">
+    
+                <div class="contact-form__row">
+                    <div class="contact-form__field">
+                        <label for="inq-name">Name</label>
+                        <input id="inq-name" name="name" type="text" required>
+                    </div>
+    
+                    <div class="contact-form__field">
+                        <label for="inq-email">E-Mail</label>
+                        <input id="inq-email" name="email" type="email" required>
+                    </div>
+                </div>
+    
+                <div class="contact-form__row">
+                    <div class="contact-form__field">
+                        <label for="inq-company">Unternehmen</label>
+                        <input id="inq-company" name="company" type="text" required>
+                    </div>
+    
+                    <div class="contact-form__field">
+                        <label for="inq-topic">Thema</label>
+                        <select id="inq-topic" name="topic" required>
+                            <option value="">Bitte wählen</option>
+                            <option value="ESG Ready">ESG Ready</option>
+                            <option value="ESG Certified">ESG Certified</option>
+                            <option value="ESG Partner">ESG Partner</option>
+                            <option value="General question">Allgemeine Frage</option>
+                        </select>
+                    </div>
+                </div>
+    
+                <div class="contact-form__field">
+                    <label for="inq-message">Nachricht</label>
+                    <textarea id="inq-message" name="message" required></textarea>
+                </div>
+    
+                <div class="contact-form__actions">
+                    <button type="submit" class="btn-primary">Anfrage senden</button>
+                    <button type="button" class="btn-ghost" data-close-contact-modal>Abbrechen</button>
+                </div>
+    
+                <div class="contact-form__success">Danke — Ihre Anfrage wurde gesendet.</div>
+                <div class="contact-form__error">Senden fehlgeschlagen. Bitte versuchen Sie es erneut.</div>
+    
+                <p class="contact-form__note">
+                    Seite und Button-Herkunft werden automatisch mitgeschickt, damit Sie sehen, woher die Anfrage kam.
+                </p>
+            </form>
+        </div>
+    </div>
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
@@ -1096,7 +1325,7 @@
         </form>
     </div>
 </div>
-
+<script src="contact-modal1.js"></script>
 <script src="contact-modal.js"></script>
 </body>
 </html>
