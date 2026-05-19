@@ -14,10 +14,13 @@
     function openModal(sourceLabel) {
         modal.classList.add("is-open");
         document.body.style.overflow = "hidden";
+
         if (sourceInput) sourceInput.value = sourceLabel || "Unknown trigger";
         if (pageInput) pageInput.value = window.location.pathname;
+
         successBox.classList.remove("is-visible");
         errorBox.classList.remove("is-visible");
+        errorBox.textContent = "Senden fehlgeschlagen. Bitte versuchen Sie es erneut.";
     }
 
     function closeModal() {
@@ -33,7 +36,9 @@
         });
     });
 
-    backdrop.addEventListener("click", closeModal);
+    if (backdrop) {
+        backdrop.addEventListener("click", closeModal);
+    }
 
     closeButtons.forEach((btn) => {
         btn.addEventListener("click", closeModal);
@@ -50,6 +55,7 @@
 
         successBox.classList.remove("is-visible");
         errorBox.classList.remove("is-visible");
+        errorBox.textContent = "Senden fehlgeschlagen. Bitte versuchen Sie es erneut.";
 
         const originalText = submitButton.textContent;
         submitButton.disabled = true;
@@ -66,7 +72,7 @@
             const result = await response.json();
 
             if (!result.success) {
-                throw new Error("Submission failed");
+                throw new Error(result.message || "Submission failed");
             }
 
             form.reset();
@@ -74,9 +80,11 @@
 
             setTimeout(() => {
                 closeModal();
-            }, 1400);
+            }, 1500);
         } catch (error) {
+            errorBox.textContent = error.message || "Senden fehlgeschlagen. Bitte versuchen Sie es erneut.";
             errorBox.classList.add("is-visible");
+            console.error("Web3Forms error:", error);
         } finally {
             submitButton.disabled = false;
             submitButton.textContent = originalText;
