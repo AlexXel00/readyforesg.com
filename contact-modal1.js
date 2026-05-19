@@ -11,6 +11,12 @@
     const pageInput = form.querySelector('input[name="page"]');
     const submitButton = form.querySelector('button[type="submit"]');
 
+    function resetMessages() {
+        successBox.classList.remove("is-visible");
+        errorBox.classList.remove("is-visible");
+        errorBox.textContent = "Senden fehlgeschlagen. Bitte versuchen Sie es erneut.";
+    }
+
     function openModal(sourceLabel) {
         modal.classList.add("is-open");
         document.body.style.overflow = "hidden";
@@ -18,9 +24,7 @@
         if (sourceInput) sourceInput.value = sourceLabel || "Unknown trigger";
         if (pageInput) pageInput.value = window.location.pathname;
 
-        successBox.classList.remove("is-visible");
-        errorBox.classList.remove("is-visible");
-        errorBox.textContent = "Senden fehlgeschlagen. Bitte versuchen Sie es erneut.";
+        resetMessages();
     }
 
     function closeModal() {
@@ -53,9 +57,7 @@
     form.addEventListener("submit", async function (event) {
         event.preventDefault();
 
-        successBox.classList.remove("is-visible");
-        errorBox.classList.remove("is-visible");
-        errorBox.textContent = "Senden fehlgeschlagen. Bitte versuchen Sie es erneut.";
+        resetMessages();
 
         const originalText = submitButton.textContent;
         submitButton.disabled = true;
@@ -72,7 +74,7 @@
             const result = await response.json();
 
             if (!result.success) {
-                throw new Error(result.message || "Submission failed");
+                throw new Error(result.message || "Senden fehlgeschlagen. Bitte versuchen Sie es erneut.");
             }
 
             form.reset();
