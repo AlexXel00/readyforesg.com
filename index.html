@@ -1250,22 +1250,13 @@
 
         </p>
 
-        <form
-            id="leadInquiryForm"
-            name="lead-inquiry"
-            method="POST"
-            data-netlify="true"
-            netlify-honeypot="bot-field"
-            class="contact-form"
-        >
-            <input type="hidden" name="form-name" value="lead-inquiry">
-            <input type="hidden" name="subject" data-remove-prefix value="Neue Anfrage über ESG Ready">
+        <form id="leadInquiryForm" class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="df2608b7-ba20-4abe-81d8-339d83312c2b">
+            <input type="hidden" name="subject" value="Neue Anfrage über ESG Ready">
+            <input type="hidden" name="from_name" value="ESG Ready Website">
+            <input type="checkbox" name="botcheck" class="hidden-bot-field" tabindex="-1" autocomplete="off">
             <input type="hidden" name="source" value="">
             <input type="hidden" name="page" value="">
-
-            <p class="hidden-bot-field">
-                <label>Do not fill this out if you're human: <input name="bot-field" type="text"></label>
-            </p>
 
             <div class="contact-form__row">
                 <div class="contact-form__field">
@@ -1322,6 +1313,5 @@
     </div>
 </div>
 <script src="contact-modal1.js"></script>
-<script src="contact-modal.js"></script>
 </body>
 </html>
