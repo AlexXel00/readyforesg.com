@@ -655,7 +655,7 @@
                         <li id="pkg1_f5">Monatliches Verbrauchsportal</li>
                         <li id="pkg1_f6">E-Mail Support</li>
                     </ul>
-                    <a href="#" class="pricing-btn pkg_btn js-open-inquiry" data-inquiry-source="Pricing Card">Jetzt anfragen</a>
+                    <a href="#" class="pricing-btn pkg_btn js-open-inquiry" id="pkg_btn1" data-inquiry-source="Pricing Card">Jetzt anfragen</a>
                 </div>
                 <div class="pricing-card featured fade-up">
                     <div class="pricing-badge" id="pkg2_badge">Beliebteste Wahl</div>
@@ -765,9 +765,9 @@
         <div class="contact-modal__dialog">
             <button type="button" class="contact-modal__close" data-close-contact-modal>&times;</button>
     
-            <span class="contact-modal__tag">Anfrage</span>
-            <h2 class="contact-modal__title">Kontakt aufnehmen</h2>
-            <p class="contact-modal__text">
+            <span class="contact-modal__tag" id="modal_tag">Anfrage</span>
+            <h2 class="contact-modal__title" id="modal_title">Kontakt aufnehmen</h2>
+            <p class="contact-modal__text" id="modal_text">
                 Senden Sie uns Ihre Anfrage. Die Nachricht wird direkt an contact@readyforesg.com gesendet.
             </p>
     
@@ -781,53 +781,53 @@
     
                 <div class="contact-form__row">
                     <div class="contact-form__field">
-                        <label for="inq-name">Name</label>
+                        <label for="inq-name" id="form_name_label">Name</label>
                         <input id="inq-name" name="name" type="text" required>
                     </div>
     
                     <div class="contact-form__field">
-                        <label for="inq-email">E-Mail</label>
+                        <label for="inq-email" id="form_email_label">E-Mail</label>
                         <input id="inq-email" name="email" type="email" required>
                     </div>
                 </div>
     
                 <div class="contact-form__row">
                     <div class="contact-form__field">
-                        <label for="inq-company">Unternehmen</label>
+                        <label for="inq-company" id="form_company_label">Unternehmen</label>
                         <input id="inq-company" name="company" type="text" required>
                     </div>
     
                     <div class="contact-form__field">
-                        <label for="inq-phone">Telefon</label>
+                        <label for="inq-phone" id="form_phone_label">Telefon</label>
                         <input id="inq-phone" name="phone" type="text">
                     </div>
                 </div>
     
                 <div class="contact-form__field">
-                    <label for="inq-topic">Thema</label>
+                    <label for="inq-topic" id="form_topic_label">Thema</label>
                     <select id="inq-topic" name="topic" required>
-                        <option value="">Bitte wählen</option>
-                        <option value="ESG Ready">ESG Ready</option>
-                        <option value="ESG Certified">ESG Certified</option>
-                        <option value="ESG Partner">ESG Partner</option>
-                        <option value="General question">Allgemeine Frage</option>
+                        <option value="" id="form_topic_placeholder">Bitte wählen</option>
+                        <option value="ESG Ready" id="form_topic_ready">ESG Ready</option>
+                        <option value="ESG Certified" id="form_topic_certified">ESG Certified</option>
+                        <option value="ESG Partner" id="form_topic_partner">ESG Partner</option>
+                        <option value="General question" id="form_topic_general">Allgemeine Frage</option>
                     </select>
                 </div>
     
                 <div class="contact-form__field">
-                    <label for="inq-message">Nachricht</label>
+                    <label for="inq-message" id="form_message_label">Nachricht</label>
                     <textarea id="inq-message" name="message" required></textarea>
                 </div>
     
                 <div class="contact-form__actions">
-                    <button type="submit" class="btn-primary">Anfrage senden</button>
-                    <button type="button" class="btn-ghost" data-close-contact-modal>Abbrechen</button>
+                    <button type="submit" class="btn-primary" id="form_submit">Anfrage senden</button>
+                    <button type="button" class="btn-ghost" data-close-contact-modal id="form_cancel">Abbrechen</button>
                 </div>
     
-                <div class="contact-form__success">Danke — Ihre Anfrage wurde gesendet.</div>
-                <div class="contact-form__error">Senden fehlgeschlagen. Bitte versuchen Sie es erneut.</div>
+                <div class="contact-form__success" id="form_success">Danke — Ihre Anfrage wurde gesendet.</div>
+                <div class="contact-form__error" id="form_error">Senden fehlgeschlagen. Bitte versuchen Sie es erneut.</div>
     
-                <p class="contact-form__note">
+                <p class="contact-form__note" id="form_note">
                     Felder wie Seite und Button-Herkunft werden automatisch mitgeschickt, damit Sie sehen, woher die Anfrage kam.
                 </p>
             </form>
@@ -940,6 +940,31 @@
             contact_tag: "Kontakt",
             contact_h2: "Bereit für Ihren<br><em>ersten ESG-Bericht?</em>",
             contact_sub: "Schreiben Sie uns und wir richten Ihren Zugang ein. Kein Vertrag, kein Risiko — wir begleiten Sie von Anfang an.",
+            pkg_btn1: "Jetzt anfragen",
+            pkg_btn2: "Jetzt anfragen",
+            pkg_btn3: "Jetzt anfragen",
+            
+            modal_tag: "Anfrage",
+            modal_title: "Kontakt aufnehmen",
+            modal_text: "Senden Sie uns Ihre Anfrage. Die Nachricht wird direkt an contact@readyforesg.com gesendet.",
+            
+            form_name_label: "Name",
+            form_email_label: "E-Mail",
+            form_company_label: "Unternehmen",
+            form_phone_label: "Telefon",
+            form_topic_label: "Thema",
+            form_topic_placeholder: "Bitte wählen",
+            form_topic_ready: "ESG Ready",
+            form_topic_certified: "ESG Certified",
+            form_topic_partner: "ESG Partner",
+            form_topic_general: "Allgemeine Frage",
+            form_message_label: "Nachricht",
+            
+            form_submit: "Anfrage senden",
+            form_cancel: "Abbrechen",
+            form_success: "Danke — Ihre Anfrage wurde gesendet.",
+            form_error: "Senden fehlgeschlagen. Bitte versuchen Sie es erneut.",
+            form_note: "Felder wie Seite und Button-Herkunft werden automatisch mitgeschickt, damit Sie sehen, woher die Anfrage kam."
         },
         en: {
             nav_problem: "Home",
@@ -1016,6 +1041,31 @@
             contact_tag: "Contact",
             contact_h2: "Ready for your<br><em>first ESG report?</em>",
             contact_sub: "Write to us and we will set up your access. No contract, no risk — we accompany you from the very beginning.",
+            pkg_btn1: "Request now",
+            pkg_btn2: "Request now",
+            pkg_btn3: "Request now",
+            
+            modal_tag: "Inquiry",
+            modal_title: "Get in touch",
+            modal_text: "Send us your inquiry. The message will be sent directly to contact@readyforesg.com.",
+            
+            form_name_label: "Name",
+            form_email_label: "Email",
+            form_company_label: "Company",
+            form_phone_label: "Phone",
+            form_topic_label: "Topic",
+            form_topic_placeholder: "Please choose",
+            form_topic_ready: "ESG Ready",
+            form_topic_certified: "ESG Certified",
+            form_topic_partner: "ESG Partner",
+            form_topic_general: "General question",
+            form_message_label: "Message",
+            
+            form_submit: "Send inquiry",
+            form_cancel: "Cancel",
+            form_success: "Thank you — your inquiry has been sent.",
+            form_error: "Sending failed. Please try again.",
+            form_note: "Fields such as page and button source are sent automatically so you can see where the inquiry came from."
         },
         fr: {
             nav_problem: "Accueil",
@@ -1092,6 +1142,31 @@
             contact_tag: "Contact",
             contact_h2: "Prêt pour votre<br><em>premier rapport ESG?</em>",
             contact_sub: "Écrivez-nous et nous configurerons votre accès. Pas de contrat, pas de risque — nous vous accompagnons dès le début.",
+            pkg_btn1: "Demander maintenant",
+            pkg_btn2: "Demander maintenant",
+            pkg_btn3: "Demander maintenant",
+            
+            modal_tag: "Demande",
+            modal_title: "Nous contacter",
+            modal_text: "Envoyez-nous votre demande. Le message sera envoyé directement à contact@readyforesg.com.",
+            
+            form_name_label: "Nom",
+            form_email_label: "E-mail",
+            form_company_label: "Entreprise",
+            form_phone_label: "Téléphone",
+            form_topic_label: "Sujet",
+            form_topic_placeholder: "Veuillez choisir",
+            form_topic_ready: "ESG Ready",
+            form_topic_certified: "ESG Certified",
+            form_topic_partner: "ESG Partner",
+            form_topic_general: "Question générale",
+            form_message_label: "Message",
+            
+            form_submit: "Envoyer la demande",
+            form_cancel: "Annuler",
+            form_success: "Merci — votre demande a été envoyée.",
+            form_error: "Échec de l’envoi. Veuillez réessayer.",
+            form_note: "Des champs comme la page et l’origine du bouton sont envoyés automatiquement afin que vous puissiez voir d’où vient la demande."
         },
         it: {
             nav_problem: "Home",
@@ -1168,6 +1243,31 @@
             contact_tag: "Contatto",
             contact_h2: "Pronti per il vostro<br><em>primo rapporto ESG?</em>",
             contact_sub: "Scriveteci e configureremo il vostro accesso. Nessun contratto, nessun rischio — vi accompagniamo fin dall'inizio.",
+            pkg_btn1: "Richiedi ora",
+            pkg_btn2: "Richiedi ora",
+            pkg_btn3: "Richiedi ora",
+            
+            modal_tag: "Richiesta",
+            modal_title: "Contattaci",
+            modal_text: "Inviaci la tua richiesta. Il messaggio sarà inviato direttamente a contact@readyforesg.com.",
+            
+            form_name_label: "Nome",
+            form_email_label: "E-mail",
+            form_company_label: "Azienda",
+            form_phone_label: "Telefono",
+            form_topic_label: "Argomento",
+            form_topic_placeholder: "Seleziona",
+            form_topic_ready: "ESG Ready",
+            form_topic_certified: "ESG Certified",
+            form_topic_partner: "ESG Partner",
+            form_topic_general: "Domanda generale",
+            form_message_label: "Messaggio",
+            
+            form_submit: "Invia richiesta",
+            form_cancel: "Annulla",
+            form_success: "Grazie — la tua richiesta è stata inviata.",
+            form_error: "Invio non riuscito. Riprova.",
+            form_note: "Campi come la pagina e l’origine del pulsante vengono inviati automaticamente così puoi vedere da dove proviene la richiesta."
         }
     };
 
