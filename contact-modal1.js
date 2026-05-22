@@ -18,17 +18,16 @@
     }
 
     function openModal(sourceLabel) {
-        const dialog = modal.querySelector(".contact-modal__dialog");
-    
         modal.classList.add("is-open");
         document.body.style.overflow = "hidden";
-    
         modal.scrollTop = 0;
+
+        const dialog = modal.querySelector(".contact-modal__dialog");
         if (dialog) dialog.scrollTop = 0;
-    
+
         if (sourceInput) sourceInput.value = sourceLabel || "Unknown trigger";
         if (pageInput) pageInput.value = window.location.pathname;
-    
+
         resetMessages();
     }
 
