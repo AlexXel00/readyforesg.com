@@ -1341,7 +1341,32 @@
         set('pillar3_h', t.pillar3_h); set('pillar3_p', t.pillar3_p);
         set('pillar4_h', t.pillar4_h); set('pillar4_p', t.pillar4_p);
         set('contact_tag', t.contact_tag); set('contact_h2', t.contact_h2); set('contact_sub', t.contact_sub);
-    }
+        set('modal_tag', t.modal_tag);
+        set('modal_title', t.modal_title);
+        set('modal_text', t.modal_text);
+        
+        set('form_name_label', t.form_name_label);
+        set('form_email_label', t.form_email_label);
+        set('form_company_label', t.form_company_label);
+        set('form_phone_label', t.form_phone_label);
+        set('form_topic_label', t.form_topic_label);
+        set('form_topic_placeholder', t.form_topic_placeholder);
+        set('form_topic_ready', t.form_topic_ready);
+        set('form_topic_certified', t.form_topic_certified);
+        set('form_topic_partner', t.form_topic_partner);
+        set('form_topic_general', t.form_topic_general);
+        set('form_message_label', t.form_message_label);
+        
+        set('form_submit', t.form_submit);
+        set('form_cancel', t.form_cancel);
+        set('form_success', t.form_success);
+        set('form_error', t.form_error);
+        set('form_note', t.form_note);
+        
+        set('nav_login', t.nav_login);
+        
+        document.querySelectorAll('.pkg_btn').forEach(el => el.innerHTML = t.pkg_btn1);
+        }
     document.addEventListener('DOMContentLoaded', () => {
     const savedLang = localStorage.getItem('siteLang');
     if (savedLang && translations[savedLang]) {
