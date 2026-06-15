@@ -3,31 +3,190 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Redirecting…</title>
-  <script>
-    window.onload = function () {
-      const params = new URLSearchParams(window.location.search);
+  <title>Reset password | Ready for ESG</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: Arial, sans-serif;
+      background: #f8f7f2;
+      color: #123f32;
+    }
 
-      const tokenHash = params.get("token_hash");
-      const type = params.get("type");
-      const email = params.get("email");
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      box-sizing: border-box;
+    }
 
-      if (type === "recovery" && tokenHash && email) {
-        const target =
-          "https://readyforesg.streamlit.app/?" +
-          "mode=reset" +
-          "&token_hash=" + encodeURIComponent(tokenHash) +
-          "&type=" + encodeURIComponent(type) +
-          "&email=" + encodeURIComponent(email);
+    main {
+      width: min(440px, 100%);
+      background: #fff;
+      border: 1px solid rgba(0, 61, 47, 0.18);
+      border-radius: 12px;
+      padding: 32px;
+      box-sizing: border-box;
+      box-shadow: 0 16px 48px rgba(0, 61, 47, 0.08);
+    }
 
-        window.location.replace(target);
-      } else {
-        document.body.innerHTML = "<p>Invalid or expired reset link.</p>";
-      }
-    };
-  </script>
+    h1 {
+      margin: 0 0 8px;
+      color: #003d2f;
+    }
+
+    p {
+      line-height: 1.5;
+    }
+
+    label {
+      display: block;
+      margin: 18px 0 6px;
+      font-weight: 600;
+    }
+
+    input, button {
+      width: 100%;
+      box-sizing: border-box;
+      border-radius: 6px;
+      font: inherit;
+    }
+
+    input {
+      padding: 12px;
+      border: 1px solid rgba(0, 61, 47, 0.3);
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px;
+      border: 0;
+      background: #003d2f;
+      color: #fff;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    button:disabled {
+      cursor: wait;
+      opacity: 0.65;
+    }
+
+    #message {
+      min-height: 24px;
+      margin-top: 16px;
+    }
+
+    .error {
+      color: #9b1c1c;
+    }
+
+    .success {
+      color: #087443;
+    }
+
+    a {
+      color: #003d2f;
+      font-weight: 600;
+    }
+  </style>
 </head>
 <body>
-  <p>Redirecting you to password reset…</p>
+  <main>
+    <h1>Ready for ESG</h1>
+    <p>Choose a new password for your account.</p>
+
+    <form id="reset-form" hidden>
+      <label for="password">New password</label>
+      <input id="password" type="password" minlength="8" autocomplete="new-password" required />
+
+      <label for="confirm-password">Confirm new password</label>
+      <input id="confirm-password" type="password" minlength="8" autocomplete="new-password" required />
+
+      <button id="submit-button" type="submit">Update password</button>
+    </form>
+
+    <p id="message" role="status">Checking your reset link...</p>
+  </main>
+
+  <script>
+    const SUPABASE_URL = "https://lbghwbkuvcirvuaiseqg.supabase.co";
+    const SUPABASE_KEY = "sb_publishable_1TvbHWqBdGvL2dMdiqUfUQ_1EQGxPfl";
+
+    const form = document.getElementById("reset-form");
+    const message = document.getElementById("message");
+    const submitButton = document.getElementById("submit-button");
+    const passwordInput = document.getElementById("password");
+    const confirmInput = document.getElementById("confirm-password");
+
+    const hashParams = new URLSearchParams(window.location.hash.slice(1));
+    const queryParams = new URLSearchParams(window.location.search);
+    const accessToken = hashParams.get("access_token");
+    const recoveryType = hashParams.get("type");
+    const authError = hashParams.get("error_description") || queryParams.get("error_description");
+
+    function showMessage(text, kind) {
+      message.textContent = text;
+      message.className = kind || "";
+    }
+
+    if (authError) {
+      showMessage(decodeURIComponent(authError.replace(/\+/g, " ")), "error");
+    } else if (!accessToken || recoveryType !== "recovery") {
+      showMessage("This reset link is invalid or expired. Request a new link in the app.", "error");
+    } else {
+      history.replaceState(null, "", window.location.pathname);
+      form.hidden = false;
+      showMessage("", "");
+    }
+
+    form.addEventListener("submit", async function (event) {
+      event.preventDefault();
+
+      const password = passwordInput.value;
+      if (password.length < 8) {
+        showMessage("The password must contain at least 8 characters.", "error");
+        return;
+      }
+
+      if (password !== confirmInput.value) {
+        showMessage("The passwords do not match.", "error");
+        return;
+      }
+
+      submitButton.disabled = true;
+      showMessage("Updating password...", "");
+
+      try {
+        const response = await fetch(SUPABASE_URL + "/auth/v1/user", {
+          method: "PUT",
+          headers: {
+            "apikey": SUPABASE_KEY,
+            "Authorization": "Bearer " + accessToken,
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ password: password })
+        });
+
+        if (!response.ok) {
+          const result = await response.json().catch(function () { return {}; });
+          throw new Error(result.msg || result.message || "The password could not be updated.");
+        }
+
+        form.hidden = true;
+        showMessage("Password updated successfully.", "success");
+
+        const loginLink = document.createElement("a");
+        loginLink.href = "https://readyforesg.streamlit.app/";
+        loginLink.textContent = "Continue to login";
+        message.appendChild(document.createElement("br"));
+        message.appendChild(loginLink);
+      } catch (error) {
+        showMessage(error.message || "The password could not be updated.", "error");
+        submitButton.disabled = false;
+      }
+    });
+  </script>
 </body>
 </html>
